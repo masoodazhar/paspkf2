@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Committee on Government Assurances </h1>
+        </div>
+    
+    </div>
+   
+    <div class="row">
+        <!-- <div class="col-12 px-1">
+            <div class="bg-white py-2">
+                <div class="bg-dark-green p-3">
+                    <h4 class="m-0 text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2 text-white"></span> Session</h4>
+                </div>
+            </div>
+            <div class="p-3 bg-light-beige notification-height">
+                <ul class="list-unstyled m-0">
+                    <li class="py-3">
+                        <a href="#" title=".." class="text-darker">
+                            <p class="m-0">August 3, 2019 | PAS/Legis-G-71/2018/3646</p>
+                            <p class="m-0">Numbered List of Resolutions and Motions.</p>
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="#" title=".." class="text-darker">
+                            <p class="m-0">August 3, 2019 | PAS/Legis-G-71/2018/3646</p>
+                            <p class="m-0">Numbered List of Resolutions and Motions.</p>
+                        </a>
+                    </li>
+                    <li class="py-3">
+                        <a href="#" title=".." class="text-darker">
+                            <p class="m-0">August 3, 2019 | PAS/Legis-G-71/2018/3646</p>
+                            <p class="m-0">Numbered List of Resolutions and Motions.</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="text-center"><a href="#" title="More" class="btn btn-green mt-3">Read More</a></div>
+            </div>
+        </div> -->
+        <div class="col-12">
+            <table class="table ">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th colspan="2"> About Committee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{"Assembly"|translate}}</td>
+                        <td><a [routerLink]="['/committeeongovernmentassurancedetail1/', allData.member.assemblyid]">{{allData.member.assemblyname}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>Committee Formation Date</td>
+                        <td>{{allData.member.committeformationdate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Committee Dissolution Date (if dissolved)</td>
+                        <td>{{allData.member.committeedissolutiondate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>{{allData.member.Purpose}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table ">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th colspan="2"> Contact Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Committee Email</td>
+                        <td>{{allData.member.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Postal Address</td>
+                        <td>{{allData.member.permanentaddress}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contacts</td>
+                        <td>{{allData.member.membercotact}}</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table ">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th colspan="2"> Committee Chairperson</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2"><a href="">{{allData.member.membername}}</a></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table ">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th colspan="2"> Committee Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let data of allData.othermeneres ">
+                        <td><a href="">{{data.name}}</a></td>
+                        <td> {{data.phonenumber}}</td>
+                    </tr>
+
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

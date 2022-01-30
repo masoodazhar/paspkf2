@@ -1,0 +1,47 @@
+<div class="container-flui">
+    <div class="row">
+        <div class="col-8">
+            <h1>{{'ContactList_'|translate}} </h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/powersfunctions/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/rules/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        
+        <div class="col-12" style="text-align:center;">
+            
+                <p><b>PROVINCIAL ASSEMBLY OF THE SINDH</b></p>
+
+                    <p> CONTACT LIST</p>
+                    
+                    <!-- <p> PABX: 042-99200335-346, Fax: 042-99200348</p> -->
+        
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead class="bg-success text-white">
+            <tr>
+                <th>{{"Serial number"|translate}} </th>
+                <th>{{"Designation"|translate}}</th>
+                <th>{{"Name"|translate}}</th>
+                <th>{{"Office"|translate}}</th>
+                <th>{{"Residence"|translate}}</th>
+                <th>{{"Address"|translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of allData; let indexOfelement=index  ">
+                <td>{{indexOfelement+1}}.</td>
+                <td>{{data.designation}}</td>
+                <td> {{data.name}} </td>
+                <td> {{data.office}} </td>
+                <td> {{data.residence}} </td>
+                <td> <div [innerHTML]="data.description"></div> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

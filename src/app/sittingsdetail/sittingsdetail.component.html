@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9">
+            <h2>{{singleData.sittingstype}}</h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <button type="button" class="btn btn-success notranslate" title="Back" (click)="back($event)">{{'Back'|translate}}</button>
+            <a href="" class="btn btn-success notranslate" title="Home Page">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+
+     <div class="col-12">
+           <br>
+           <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                   <tr>
+                       <th>Session</th>
+                       <th>Sitting No</th>
+                       <th>Sitting Date</th>
+                   </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td>{{singleData.fromdate}}-{{singleData.todate}}</td>
+                    <td>{{singleData.sittingsno}}</td>
+                    <td>{{singleData.sittingsdate}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div [innerHTML]="singleData.description"></div>
+                    </td>
+                </tr>
+               </tbody>
+           </table>
+           
+        </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="containet-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2><button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}</button> &nbsp;&nbsp;&nbsp; {{'OrganizationalChart_'|translate}} </h2>
+        </div>  
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/overview/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/directoryofofficers/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12" *ngIf="!isDetail">
+            <div *ngIf="allData.type == 'text'">
+                <div [innerHTML]="allData.image_pdf_link"></div>
+            </div>
+            <div *ngFor="let data of allData">
+                
+                <h2><span class="head-dot bg-success mr-3 mt-2"></span>
+                    <a style="position: absolute; margin-top: 6px;"*ngIf="data.type == 'text'" (click)="getDetails(data.id)">{{data.name}}</a>
+                    <a style="position: absolute; margin-top: 6px;"*ngIf="data.type != 'text'" href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank">{{data.name}}</a>
+                </h2>
+                
+            </div>
+
+        </div>
+        <div class="col-12" *ngIf="isDetail">
+            <hr>
+            <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link"></div>
+            <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+        </div>
+    </div>
+    
+</div>

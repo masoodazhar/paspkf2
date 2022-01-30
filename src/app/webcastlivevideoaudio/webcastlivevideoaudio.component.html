@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    
+    <div class="row">
+        <div class="col-8">
+            <h2> {{'WebcastLiveVideoAudio_'|translate}} </h2>
+        </div>  
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/faqs/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/videoarchive/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a routerLink="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>      
+    </div>
+    
+    <hr>
+
+    <div class="row">
+       <div class="col-4" *ngFor="let data of allData">
+          
+            <div class="video-holder small">
+                <iframe [src]="safeData(data.link)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen  style="height: 209px;"></iframe>
+            </div>
+       </div>
+        
+    </div>
+   
+    <div class="py-3"></div>
+</div>

@@ -1,0 +1,199 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <h2>
+                <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success">Back &nbsp;&nbsp;&nbsp; </button>  {{'Bills_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-inline">
+                <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                <select class="form-control"  (change)="onChange($event)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>            
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/stagesofbills/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/acts/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+        </div>
+    </div>
+  <hr>
+   
+    <div class="row">
+        <div class="col-12" *ngIf="!isDetail">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"> {{"Bills Introduced"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"> {{"Bills Referred to the Committee"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"> {{"Bills Passed"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"> {{"Bills not Passed"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"> {{"Bills Under Consideration"|translate}} </a>
+             </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade {{tab1}}" id="tabId1" role="tabpanel">
+                    <h4>{{"Bills Introduced"|translate}}</h4> 
+                   <br>
+                        <label for=""><b>{{"Bill Type"|translate}}: </b></label>
+                        <select name="" id=""class="form-control col-3" (change)="Search($event)" >
+                            <option value="0">All</option>
+                            <option value="Government">Government</option>
+                            <option value="Private Member">Private Member</option>
+                        </select>
+                    
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th width="95%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Bills Introduced'); let i = index">                      
+                                <td>
+                                    <p><a (click)="getDetail(data.id)">{{data.title}}</a></p>
+                                    <p>{{"Date"|translate}}: {{data.date}} | {{"Bill Type"|translate}}: {{data.bill_type}} | Assembly: {{data.assemblyname}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                  
+                </div>
+            
+                <div class="tab-pane fade {{tab2}}" id="tabId2" role="tabpanel">
+                    <h5>{{"Bills Referred to the Committee"|translate}} </h5>     
+                   <br>
+                        <label for=""><b>{{"Bill Type"|translate}}: </b></label>
+                        <select name="" id=""class="form-control col-3" (change)="Search($event)">
+                            <option value="">All</option>
+                            <option value="">Government</option>
+                            <option value="">Private Member</option>
+                        </select>
+                    
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th width="95%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Bills Referred to the Committee'); let i = index">
+                      
+                                <td>
+                                    <p><a (click)="getDetail(data.id)">{{data.title}}</a></p>
+                                    <p>{{"Date"|translate}}: {{data.date}} | {{"Bill Type"|translate}}: {{data.bill_type}} | Assembly: {{data.assemblyname}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                 
+                </div>
+            
+                <div class="tab-pane fade {{tab3}}" id="tabId3" role="tabpanel">
+                    <h5>{{"Bills Passed"|translate}} </h5>              
+                    <br>
+                        <label for=""><b>{{"Bill Type"|translate}}: </b></label>
+                        <select name="" id=""class="form-control col-3" (change)="Search($event)">
+                            <option value="">All</option>
+                            <option value="">Government</option>
+                            <option value="">Private Member</option>
+                        </select>
+                   
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th width="95%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Bills Passed'); let i = index">
+                      
+                                <td>
+                                    <p><a (click)="getDetail(data.id)">{{data.title}}</a></p>
+                                    <p>{{"Date"|translate}}: {{data.date}} | {{"Bill Type"|translate}}: {{data.bill_type}} | Assembly: {{data.assemblyname}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>        
+                </div>
+
+                <div class="tab-pane fade {{tab4}}" id="tabId4" role="tabpanel">
+                    <h5>{{"Bills not Passed"|translate}} </h5>             
+                    <br>
+                    <label for=""><b>{{"Bill Type"|translate}}: </b></label>
+                    <select name="" id=""class="form-control col-3" (change)="Search($event)">
+                        <option value="">All</option>
+                        <option value="">Government</option>
+                        <option value="">Private Member</option>
+                    </select>
+             
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th width="95%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Bills Not Passed'); let i = index">
+                      
+                                <td>
+                                    <p><a (click)="getDetail(data.id)">{{data.title}}</a></p>
+                                    <p>{{"Date"|translate}}: {{data.date}} | {{"Bill Type"|translate}}: {{data.bill_type}} | Assembly: {{data.assemblyname}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>         
+                </div>
+                
+                <div class="tab-pane fade {{tab5}}" id="tabId5" role="tabpanel">
+                    <h5>{{"Bills Under Consideration"|translate}} </h5>   
+                    <div class="form-group col-3 form-inline">
+                        <label for=""><b>{{"Bill Type"|translate}}: </b></label>
+                        <select name="" id=""class="form-control" (change)="Search($event)" (change)="Search($event)">
+                            <option value="">All</option>
+                            <option value="">Government</option>
+                            <option value="">Private Member</option>
+                        </select>
+                    </div> 
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th width="95%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Bills Under Consideration'); let i = index">
+                      
+                                <td>
+                                    <p>
+                                       
+                                        <a (click)="getDetail(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.title}}</a>
+                                        <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.title}} </a>
+                           
+                                    </p>
+                                    <p>{{"Date"|translate}}: {{data.date}} | {{"Bill Type"|translate}}: {{data.bill_type}} | Assembly: {{data.assemblyname}}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                   
+                </div>
+            </div>
+        </div>
+        <div class="col-12" *ngIf="isDetail">
+            <h3>{{"Mover"|translate}}</h3>
+            <span class="detail"> {{singleData.membername}} </span>
+
+            <h3>Bill Progress</h3>
+            <span class="detail">Passed in: {{singleData.date}} </span>
+            <span class="detail">Report Laid in: {{singleData.date}}</span>
+            <!-- <span class="detail">Bill Sent to committee in:</span> -->
+            <span class="detail">{{singleData.title}}</span>
+            <span class="detail" *ngIf="singleData.type == 'pdf'"> <a href="{{imageUrl}}{{singleData.image_pdf_link}}" target="_blank">(PDF) Detail</a> </span>
+            <span class="detail" *ngIf="singleData.type == 'jpg' || singleData.type == 'png' || singleData.type == 'text' "> <a [routerLink]="['/billsdetail/', singleData.id]">(html) Detail</a> </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,880 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h1> {{'MembersDirectory_'|translate}} </h1>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-inline">
+                <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                <select class="form-control"  (change)="getData($event, false)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/deputyspeaker/" class="btn btn-success" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/listofmembers/" class="btn btn-success" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success" title="About">{{'Home'|translate}}</a>
+            
+        </div>
+    </div>
+    <hr>
+   
+    <div class="row">
+        <div class="col-12">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId1" role="tab"> {{"By Name"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"> {{"By District"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"> {{"By Age"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"> {{"Reserved Seats"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"> {{"By Party"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId6" role="tab"> {{"By Elections"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId7" role="tab"> {{"Birthday"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId8" role="tab"> {{"Contact Details"|translate}}</a>
+                <!-- <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId9" role="tab"> Vacant Seats</a> -->
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId10" role="tab"> {{"Women Members"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId11" role="tab"> {{"Membership Statistics"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId12" role="tab"> {{"Advance Search"|translate}} </a>
+            </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade {{openTabMix}}"  role="tabpanel" id="print-section1">
+                    <h3> {{"Search"|translate}} by {{searchfrom}}  </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;" [useExistingCss]="true" printSectionId="print-section1" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <div class="row" *ngIf="searchfrom=='seattype'">
+                        <div class="col-6 my-2"  *ngFor="let data of filterSeatType(searchfrom)">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                    <p>{{data.seattype}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="searchfrom=='constituency'">
+                        <div class="col-6 my-2"  *ngFor="let data of filterConstituency(searchfrom)">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                    <p>{{data.constituency}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="searchfrom=='qualification'">
+                        <div class="col-6 my-2"  *ngFor="let data of filterQualification(searchfrom)">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.qualification}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {{openTabAssembly}}"  id="" role="tabpanel">
+                    <h3> {{"Search"|translate}} by Assemblies  &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClickedAssembly" class="btn btn-success">Back</button></h3>
+                    <div class="row" *ngIf="!isClickedAssembly">
+                        <div class="col-6 my-2"  *ngFor="let data of assembliesList; let num=index">
+                            <div class="row">                               
+                                <div class="col-12">
+                                    <a (click)="SearchByAssembly(data.name)"> {{num+1}}). {{data.name}} </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="isClickedAssembly">
+                         
+                        <div class="col-6 my-2"  *ngFor="let data of searchedByAssembly">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.assemblyname}}</p>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {{openTabName}}"  id="tabId1" role="tabpanel">
+                    <h3> {{"Search"|translate}} {{"By Name"|translate}} </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId1" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="alphaUl notranslate">
+                                <li>
+                                    <button class="btn btn-success" (click)="searchByAlpha('a')">A</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('b')">B</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('c')">C</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('d')">D</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('e')">E</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('f')">F</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('g')">G</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('h')">H</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('i')">I</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('j')">J</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('k')">K</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('l')">L</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('m')">M</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('n')">N</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('o')">O</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('p')">P</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('q')">Q</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('r')">R</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('s')">S</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('t')">T</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('u')">U</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('v')">V</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('w')">W</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('x')">X</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('y')">Y</button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success"  (click)="searchByAlpha('z')">Z</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of allData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="tab-pane fade {{openTabDistrict}}" id="tabId2" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"By District"|translate}} &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClicked" class="btn btn-success">Back</button> </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId2" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    
+                    <div class="row" *ngIf="!isClicked">
+                        <div class="col-6 my-2"  *ngFor="let data of byDestrict; let num=index">
+                            <div class="row">                               
+                                <div class="col-12">
+                                    <a (click)="SearchByDistrict(data.District)"> {{num+1}}). {{data.District}} </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="isClicked">
+                        
+                        <div class="col-6 my-2"  *ngFor="let data of searchedByDestrict">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                  
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId3" role="tabpanel">
+                    <h3> {{"Search"|translate}} {{"By Age"|translate}} </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId3" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of ageData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.age}} {{"Years"|translate}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId4" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"Reserved Seats"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId4" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of seatData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>Reserved Seat: {{data.seats}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade {{openTabParty}}" id="tabId5" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"By Party"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId5" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of byParty">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 >{{data.partyassociation}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 offset-3">
+                            <span *ngFor="let data of byParty">
+                                <p style="display: block;" style="margin-top: 20px; margin-bottom: 0px;">{{data.partyassociation}}, Members: {{data.count}}</p>
+                                <progress id="file" value="{{data.count}}" max="{{data.total}}" style="width:100%">  </progress>
+                                <!-- <div class="progress my-4"  style="margin-top: -0.5rem !important;">                                
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{width: data.count + '%', display: block}" aria-valuemin="0" >{{data.count}}</div>
+                                </div> -->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tabId6" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"By Elections"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId6" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="top-title"
+                        style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: justify;">
+                       
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="bg-success text-white">
+                                    <th rowspan="2" valign="top">
+                                        Constituency</th>
+                                    <th colspan="3" align="center" valign="top">
+                                        Last Member</th>
+                                    <th valign="top">
+                                        Reason for By-election</th>
+                                    <th colspan="2" align="center" valign="top">
+                                        Current Member</th>
+                                </tr>
+                                <tr class="bg-success text-white">
+                                    <th valign="top">
+                                        {{"Name"|translate}}</th>
+                                    <th valign="top">{{ "From"|translate}}</th>
+                                    <th valign="top">
+                                        {{ "To"|translate}}</th>
+                                    <th valign="top">
+                                        &nbsp;</th>
+                                    <th valign="top">
+                                        {{"Name"|translate}}</th>
+                                    <th valign="top">
+                                        Oath Taken on</th>
+                                </tr>
+                            </thead>
+                            <tbody>                                
+                                
+                                <tr *ngFor="let data of elections">
+                                    <td valign="top"> {{data.constituency}} </td>
+                                    <td valign="top">
+                                        <a [routerLink]="['/memberprofile/', data.memberid]" title="Imran Ismail"
+                                            style="color: rgb(0, 102, 204);">{{data.name}}</a></td>
+                                    <td valign="top">
+                                        {{data.elfromdate}}&nbsp;</td>
+                                    <td valign="top">
+                                        {{data.eltodate}}&nbsp;</td>
+                                    <td valign="top">
+                                        {{data.reasion}}&nbsp;</td>
+                                    <td valign="top">
+                                        <a [routerLink]="['/memberprofile/', data.currentmemberid]" title="Shahzad Qureshi"
+                                            style="color: rgb(0, 102, 204);">{{data.currentmembername}}</a>&nbsp;</td>
+                                    <td valign="top">
+                                        {{data.mian_aothdate}}&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tabId7" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"Birthday"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId7" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of birthData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.address}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.birthday}}</p>
+                                    <p *ngIf="data.age">{{data.age}} {{"Years"|translate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tabId8" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"By Contact"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId8" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of contactData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.phonenumber}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="tab-pane fade" id="tabId9" role="tabpanel">
+                    <h3>Searched by Vacant Seat</h3>
+                </div> -->
+                <div class="tab-pane fade" id="tabId10" role="tabpanel">
+                    <h3>{{"Search"|translate}} {{"Women Members"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId10" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row" >
+                        <div class="col-6 my-2"  *ngFor="let data of filterWoomen(1)">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.address}}</p>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tabId11" role="tabpanel">
+                    <h3>{{"Membership Statistics"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <div class="row">
+                        <div class="col-3">
+                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-Age" role="tab" aria-controls="v-pills-Age" aria-selected="true">{{"Age"|translate}}</a>
+                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-Education" role="tab" aria-controls="v-pills-Education" aria-selected="false">{{"Education"|translate}}</a>
+                            <!-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-Profession" role="tab" aria-controls="v-pills-Profession" aria-selected="false">Profession</a> -->
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Gender" role="tab" aria-controls="v-pills-Gender" aria-selected="false">{{"Gender"|translate}}</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Religion" role="tab" aria-controls="v-pills-Religion" aria-selected="false">{{"Religion"|translate}}</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Seats" role="tab" aria-controls="v-pills-Seats" aria-selected="false">{{"Seats"|translate}}</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Party" role="tab" aria-controls="v-pills-Party" aria-selected="false">{{"Party Affiliation"|translate}}</a>
+                          </div>
+                        </div>
+                        <div class="col-9">
+                          <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-Age" role="tabpanel" aria-labelledby="v-pills-Age-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>{{"AGE GROUP"|translate|uppercase}}</th>
+                                            <th>NO. OF MPAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> 25 - 30 {{"years"|translate}} </td>
+                                            <td> {{_25to30}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 31 - 40 {{"years"|translate}} </td>
+                                            <td> {{_31to40}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 41 - 50 {{"years"|translate}} </td>
+                                            <td> {{_41to50}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 51 - 60 {{"years"|translate}} </td>
+                                            <td> {{_51to60}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 61 - 70 {{"years"|translate}} </td>
+                                            <td> {{_61to70}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 71 - 80 {{"years"|translate}} </td>
+                                            <td> {{_71to80}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 81 - 90 {{"years"|translate}} </td>
+                                            <td> {{_81to90}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Age not available </td>
+                                            <td> {{noage}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Education" role="tabpanel" aria-labelledby="v-pills-Education-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>{{"EDUCATION LEVEL"|translate}}</th>
+                                            <th>NO. OF MPAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let subject of subjects">
+                                            <td> {{subject}} </td>
+                                            <td> <span [innerHTML]="getLength(FilterByQualification(subject))"></span> </td>
+                                        </tr>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- <div class="tab-pane fade" id="v-pills-Profession" role="tabpanel" aria-labelledby="v-pills-Profession-tab">
+                               
+                            </div> -->
+                            <div class="tab-pane fade" id="v-pills-Gender" role="tabpanel" aria-labelledby="v-pills-Gender-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>GENDER</th>
+                                            <th>NO. OF MPAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Male</td>
+                                            <td> <span [innerHTML]="getLength(FilterByGender(0))"></span> </td>
+                                            
+                                        </tr>   
+                                        <tr>
+                                            <td> Female</td>
+                                            <td> <span [innerHTML]="getLength(FilterByGender(1))"></span> </td>
+                                        </tr>                                     
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Religion" role="tabpanel" aria-labelledby="v-pills-Religion-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>{{"Religion"|translate}}</th>
+                                            <th>NO. OF MEMBERS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Islam</td>
+                                            <td> <span [innerHTML]="getLength(FilterByreligin('Islam'))"></span> </td>
+                                        </tr>   
+                                        <tr>
+                                            <td> Christianity</td>
+                                            <td> <span [innerHTML]="getLength(FilterByreligin('Christianity'))"></span> </td>
+                                        </tr> 
+                                        <tr>
+                                            <td> Sikhism</td>
+                                            <td> <span [innerHTML]="getLength(FilterByreligin('Sikhism'))"></span> </td>
+                                        </tr>                                     
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Seats" role="tabpanel" aria-labelledby="v-pills-Seats-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>{{"Seats"|translate|uppercase}}</th>
+                                            <th>NO. OF MEMBERS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>General Seat</td>
+                                            <td> <span [innerHTML]="getLength(FilterBySeats('General Seat'))"></span> </td>
+                                        </tr>   
+                                        <tr>
+                                            <td> {{"Reserved Seat"|translate}} - for Non Muslim</td>
+                                            <td> <span [innerHTML]="getLength(FilterBySeatsNoneMuslim('Reserved Seat', 'Islam'))"></span> </td>
+                                        </tr> 
+                                        <tr>
+                                            <td> {{"Reserved Seat"|translate}} - {{"Women Members"|translate}}</td>
+                                            <td> <span [innerHTML]="getLength(FilterBySeatsWoomen('Reserved Seat', 1))"></span> </td>
+                                        </tr>                                     
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Party" role="tabpanel" aria-labelledby="v-pills-Party-tab">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>{{"Party Affiliation"|translate|uppercase}}</th>
+                                            <th>NO. OF MPAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let party of parties">
+                                            <td> {{party.partyassociation}} </td>
+                                            <td> <span [innerHTML]="getLength(FilterByParty(party.partyassociation))"></span> </td>
+                                        </tr>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="tab-pane fade {{openTabAdvance}}" id="tabId12" role="tabpanel">
+                    <h3>{{"Advance Search"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="adavnceSearch" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+                    <form  [formGroup]="form" (ngSubmit)="submitForm()">
+                        <div class="row">
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Name"|translate}} </label>
+                                    <!-- <input type="text" [(value)]="currentTenureIds" name="currentTenureIds" formControlName="currentTenureIds" class="form-control" placeholder="Enter Name"> -->
+                                    <input type="text" name="name"  formControlName="name" class="form-control" placeholder='{{"Name"|translate}} '>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">{{"Qualification"|translate}} </label>
+                                    <select class="form-control" name="qualification" formControlName="qualification">
+                                        <option value="">{{"Select"|translate}} {{"Qualification"|translate}}</option>
+                                        <option *ngFor="let data of subjects" value="{{data}} " >{{data}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">{{"Age Range"|translate}}</label>
+                                    <select name="age" formControlName="age" class="form-control select2">
+                                        <option value="">{{"Select"|translate}} {{"Age Range"|translate}}</option>
+                                        <option value="25, 30">25 - 30 {{"years"|translate}}</option>
+                                        <option value="31, 40">31 - 40 {{"years"|translate}}</option>
+                                        <option value="41, 50">41 - 50 {{"years"|translate}}</option>
+                                        <option value="51, 60">51 - 60 {{"years"|translate}}</option>
+                                        <option value="61, 70">61 - 70 {{"years"|translate}}</option>
+                                        <option value="71, 80">71 - 80 {{"years"|translate}}</option>
+                                        <option value="81, 90">81 - 90 {{"years"|translate}}</option>
+                                        <option value="-">Age not available</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">{{"Religion"|translate}}</label>
+                                    <select name="religion" formControlName="religion" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <option value="">{{"Select"|translate}} {{"Religion"|translate}}</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Christianity">Christianity</option>
+                                        <option value="Hinduism">Hinduism</option>
+                                        <option value="Atheist">Atheist</option>
+                                        <option value="Zoroastrianism">Zoroastrianism</option>
+                                        <option value="Sikhism">Sikhism</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">{{"Previous official positions"|translate}}</label>
+                                    <select name="previouspositions" formControlName="previouspositions" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <option value="">{{"Select"|translate}} One..</option>
+                                        <option value="Baitul Maal Committee">Baitul Maal Committee</option>
+                                        <option value="Cattle Market Management Company">Cattle Market Management Company</option>
+                                        <option value="Chief Minister Complaint Cell">Chief Minister Complaint Cell</option>
+                                        <option value="Chief Minister, Punjab">Chief Minister, Punjab</option>
+                                        <option value="Corporation, Gujranwala">Corporation, Gujranwala</option>
+                                        <option value="Crime Control Committe">Crime Control Committe</option>
+                                        <option value="District Council">District Council</option>
+                                        <option value="District Education Advisory Committee">District Education Advisory Committee</option>
+                                        <option value="District Khidmat Committee">District Khidmat Committee</option>
+                                        <option value="District Nazim, Shakargarh">District Nazim, Shakargarh</option>
+                                        <option value="District Public Safety Police Complaint Commission">District Public Safety Police Complaint Commission</option>
+                                        <option value="Divisional Darbar">Divisional Darbar</option>
+                                        <option value="Education Department">Education Department</option>
+                                        <option value="Federal Government">Federal Government</option>
+                                        <option value="Governer of the Punjab">Governer of the Punjab</option>
+                                        <option value="Govt. of Sindh">Govt. of Sindh</option>
+                                        <option value="Govt. of the Punjab">Govt. of the Punjab</option>
+                                        <option value="Health Department">Health Department</option>
+                                        <option value="High Court">High Court</option>
+                                        <option value="Home Department">Home Department</option>
+                                        <option value="Law Department">Law Department</option>
+                                        <option value="Local Government">Local Government</option>
+                                        <option value="Majlis-e-Shoora">Majlis-e-Shoora</option>
+                                        <option value="Market Committee">Market Committee</option>
+                                        <option value="Markiz Council">Markiz Council</option>
+                                        <option value="Metropolitian Corporation, Lahore">Metropolitian Corporation, Lahore</option>
+                                        <option value="Multan Cess Committee">Multan Cess Committee</option>
+                                        <option value="Multan Development Authority">Multan Development Authority</option>
+                                        <option value="Multan Waste Management Company">Multan Waste Management Company</option>
+                                        <option value="Municipal Committee">Municipal Committee</option>
+                                        <option value="Municipal Corporation">Municipal Corporation</option>
+                                        <option value="National Assembly of Pakistan">National Assembly of Pakistan</option>
+                                        <option value="Pakistan Air Force">Pakistan Air Force</option>
+                                        <option value="Pakistan Army">Pakistan Army</option>
+                                        <option value="Pakistan Cricket Board">Pakistan Cricket Board</option>
+                                        <option value="Pakistan International Airline">Pakistan International Airline</option>
+                                        <option value="Police Department">Police Department</option>
+                                        <option value="Provincial Assembly of Sindh">Provincial Assembly of Sindh</option>
+                                        <option value="Provincial Assembly of the Punjab">Provincial Assembly of the Punjab</option>
+                                        <option value="Provincial Council of the Punjab">Provincial Council of the Punjab</option>
+                                        <option value="Punjab Heritage Fund">Punjab Heritage Fund </option>
+                                        <option value="Punjab Legislative Council">Punjab Legislative Council</option>
+                                        <option value="Punjab Norcotics Committee">Punjab Norcotics Committee</option>
+                                        <option value="Punjab Privatization Commission">Punjab Privatization Commission</option>
+                                        <option value="Punjab Procurement Regulatory Authority">Punjab Procurement Regulatory Authority</option>
+                                        <option value="Quaid-e-Azam Solar Park Company">Quaid-e-Azam Solar Park Company</option>
+                                        <option value="Senate of Pakistan">Senate of Pakistan</option>
+                                        <option value="Social Action Board">Social Action Board</option>
+                                        <option value="State Bank of Pakistan">State Bank of Pakistan</option>
+                                        <option value="Tehsil Council">Tehsil Council</option>
+                                        <option value="Tehsil Nazim, Shakargarh">Tehsil Nazim, Shakargarh</option>
+                                        <option value="Town Committee">Town Committee</option>
+                                        <option value="Water and Sanitation Agency">Water and Sanitation Agency</option>
+                                        <option value="West Pakistan Assembly">West Pakistan Assembly</option>
+                                        <option value="Women Crises Center, Vehari">Women Crises Center, Vehari</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="">{{"Seattype"|translate}}</label>
+                                    <select name="seattype" formControlName="seattype" class="form-control select2" tabindex="-1" aria-hidden="true">
+                                        <option value="">{{"Select"|translate}} {{"Seats"|translate}}</option>
+                                        <option value="General Seat">{{"General"|translate}} {{"Seats"|translate}}</option>
+                                        <option value="Reserved Seat">{{"Reserved Seats"|translate}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Marital Status"|translate}} </label>
+                                    <select name="maritalstatus" formControlName="maritalstatus" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <option value="">{{"Select"|translate}} Status</option>
+                                        <option value="Married">{{"Married"|translate}}</option>
+                                        <option value="Un-Married">{{"Un-Married"|translate}}</option>
+                                        <option value="Divorced">{{"Divorced"|translate}}</option>
+                                        <option value="Widow">{{"Widow"|translate}}</option>
+                                        <option value="Single">{{"Single"|translate}}</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Constituency"|translate}} </label>
+                                    <input type="text" name="Constituency" formControlName="Constituency" class="form-control" placeholder='{{"Constituency"|translate}} '>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Date of birth"|translate}} </label>
+                                    <input type="date" name="dateofbirth" formControlName="dateofbirth" class="form-control" placeholder='{{"Date of birth"|translate}}'> 
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Place of birth"|translate}} </label>
+                                    <input type="text" name="placeofbirth" formControlName="placeofbirth" class="form-control" placeholder='{{"Place of birth"|translate}}'>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"District"|translate}} </label>
+                                    <input type="text" name="district" formControlName="district" class="form-control" placeholder='{{"District"|translate}}'>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Party Association"|translate}} </label>
+                                    <input type="text" name="partyassociation" formControlName="partyassociation" class="form-control" placeholder='{{"Party Association"|translate}}'>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Phone Number"|translate}} </label>
+                                    <input type="text" name="phonenumber" formControlName="phonenumber" class="form-control" placeholder='{{"Phone Number"|translate}}'>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Email"|translate}} </label>
+                                    <input type="text" name="email" formControlName="email" class="form-control" placeholder='{{"Email"|translate}}'>
+                                </div>
+                            </div>
+                            <div class="col-md-3">                  
+                                <div class="form-group">
+                                    <label for="">{{"Address"|translate}} </label>
+                                    <input type="text" name="Address" formControlName="Address" class="form-control" placeholder='{{"Address"|translate}} '>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3" style="text-align: lef;">
+                                <input type="submit" name="submit" id="" value="Search" class="btn btn-success">
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <!-- HERE -->
+                    <div class="row" id="adavnceSearch">
+                        <div class="col-6 my-2"  *ngFor="let data of searchedData">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.age}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

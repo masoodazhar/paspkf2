@@ -1,0 +1,53 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+  
+    <div class="row" >
+        <div class="col-md-5">
+            <h2>
+                {{'OrderofthedayAgenda_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-inline">
+                <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                <select class="form-control"  (change)="onChange($event)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/sessions/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/summaryofproceedings/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+   <hr>
+
+   
+
+    <div class="row">
+        <div class="col-12">
+
+            <ul>
+                <li *ngFor="let data of allData"> 
+                    <h4 class="my-2 heading-lists">{{data.sessionname}} - {{data.parliname}}</h4>
+                    <ul>
+        
+                        <li *ngFor="let sessions of data.listofsessions" class="lists-style">
+                            <a href="{{imageUrl}}{{sessions.description}}" target="_blank" *ngIf="sessions.type=='pdf'">{{sessions.sittingsdate}}  </a>
+                            <a [routerLink]="['/sittingsdetail/', sessions.orderid]" *ngIf="sessions.type!='pdf'">{{sessions.sittingsdate}}  </a>
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        
+    </div>
+</div>

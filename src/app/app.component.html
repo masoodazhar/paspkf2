@@ -1,0 +1,344 @@
+<!--===============================
+    LOADER
+===================================-->
+<section class="pre-load">
+    <img src="./assets/images/logo.png" alt="Logo">
+</section>
+
+<!--===============================
+    HEADER
+===================================-->
+<section class="header py-5 position-relative">
+    <div class="container-fluid">
+        <div class="row text-center align-items-end px-3 px-md-4">
+            <div class="col-sm text-sm-left">
+                <a href="/" class="logo d-inline-block text-center header-h text-yellow pt-2 applyfont">
+                    <img src="./assets/images/logo.png" alt="Logo">
+                    <p class="mb-0 mt-2 font-weight-bold font-20 ">{{'logoname'|translate}}</p>
+                    <p class="font-20 m-0 pakistan" style="text-align:center !important">{{'pakistan'|translate}}</p>
+                </a>
+            </div>
+            <div class="col-sm text-sm-right">
+                <div class="dropdown d-inline-block switcher-right">
+                    <!-- <div id="google_translate_element"></div> -->
+                    <!-- <input type="text" value="{{translattion.currentLang}}" (click)="switchLang($event)" class="changeLanguage notranslate"> -->
+                 
+                  <!-- <button class="btn pr-0 pl-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="langText">{{translattion.currentLang}}</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="changeLang">
+                        <a class="dropdown-item {{activeLangEN}} font-myriad" data-lang="en"  (click)="switchLang('en')">English</a>
+                        <a class="dropdown-item {{activeLangUR}} font-urdu" data-lang="urd"  (click)="switchLang('ur')">اردو</a>
+                        <a class="dropdown-item {{activeLangSD}} font-sindhi" data-lang="sin" (click)="switchLang('sd')">سندي</a>
+                    </div>
+                     -->  
+                     
+                    <select class="form-control " #selectedLang (change)="switchLang(selectedLang.value)">
+                        <option *ngFor="let language of translattion.getLangs()" [value]="language" [selected]="language === currentLang">
+                            {{ language }}
+                        </option>
+                    </select>
+                </div>
+              
+                <div class="input-group mt-3 justify-content-center justify-content-sm-end">
+                    <input type="text" class="form-control form-max" list="search" (change)="searchdata($event)" (keyup)="searchBasic($event)" placeholder='{{"Search"|translate}} ...' aria-describedby="button-addon">
+                    <datalist id="search">
+                        <option *ngFor="let x of searchvalues"  value="{{x.value}}">
+                    </datalist>
+
+                    
+                    <div class="input-group-append">
+                        <button class="btn btn-bronze btn-sm"  type="button" id="button-addon"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="position: relative">
+    <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
+</div>
+
+<nav id="mainNavbar" class="navbar navbar-expand-md my-2 p-0 englishnavbar notranslate">
+    <div class="container-fluid p-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-justified align-items-stretch">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" title="{{'AboutAssembly_'|translate}}" style="font-size:1rm;">{{'AboutAssembly_'|translate}}</a>
+                    <div class="dropdown-menu">
+                        <a routerLink="about/" class="dropdown-item" title="{{'About_'|translate}}">{{'About_'|translate}}</a>
+                        <a routerLink="messages/" class="dropdown-item" title="{{'Messages_'|translate}}">{{'Messages_'|translate}}</a>
+                        <a routerLink="workingofassembly/" class="dropdown-item" title="{{'WorkingofAssembly_'|translate}}">{{'WorkingofAssembly_'|translate}}</a>
+                        <a routerLink="roleofassembly/" class="dropdown-item" title="{{'RoleofAssembly_'|translate}}">{{'RoleofAssembly_'|translate}}</a>
+                        <a routerLink="cabinetcomposition" class="dropdown-item" title="{{'CabinetComposition_'|translate}}">{{'CabinetComposition_'|translate}}</a>
+                        <a routerLink="leaderofthehouse/" class="dropdown-item" title="{{'LeaderoftheHouse_'|translate}}">{{'LeaderoftheHouse_'|translate}}</a>
+                        <a routerLink="leaderoftheopposition/" class="dropdown-item" title="{{'LeaderoftheOpposition_'|translate}}">{{'LeaderoftheOpposition_'|translate}}</a>
+                        <a routerLink="rulesofprocedures/" class="dropdown-item" title="{{'RulesofProcedures_'|translate}}">{{'RulesofProcedures_'|translate}}</a>
+                        <a routerLink="parliamentaryprivileges/" class="dropdown-item" title="{{'ParliamentaryPrivileges_'|translate}}">{{'ParliamentaryPrivileges_'|translate}}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'AboutSecretariat_'|translate}}" href="#">{{'AboutSecretariat_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                        <a routerLink="overview/" class="dropdown-item" title="{{'Overview_'|translate}}">{{'Overview_'|translate}}</a>
+                        <a routerLink="organizationalchart/" class="dropdown-item" title="{{'OrganizationalChart_'|translate}}">{{'OrganizationalChart_'|translate}}</a>
+                        <a routerLink="directoryofofficers/" class="dropdown-item" title="{{'DirectoryofOfficers_'|translate}}">{{'DirectoryofOfficers_'|translate}}</a>
+                        <a routerLink="powersfunctions/" class="dropdown-item" title="{{'PowersFunctions_'|translate}}">{{'PowersFunctions_'|translate}}</a>
+                        <a routerLink="contactlist/" class="dropdown-item" title="{{'ContactList_'|translate}}">{{'ContactList_'|translate}}</a>
+                        <a routerLink="rules/" class="dropdown-item" title="{{'Rules_'|translate}}">{{'Rules_'|translate}}</a>
+                        <a routerLink="thesindhtrans2016/" class="dropdown-item" title="{{'TheSindhTransparencyandRighttoInformationAct2016_'|translate}}"><p>{{'TheSindhTransparencyandRighttoInformationAct2016_'|translate}}</p></a>
+                        <a routerLink="assemblylibrary/" class="dropdown-item" title="{{'AssemblyLibrary_'|translate}}">{{'AssemblyLibrary_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'Members_'|translate}}" href="#">{{'Members_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                        <a routerLink="speakers/" class="dropdown-item" title="{{'Speaker_'|translate}}">{{'Speaker_'|translate}}</a>
+                        <a routerLink="deputyspeaker/" class="dropdown-item" title="{{'DeputySpeaker_'|translate}}">{{'DeputySpeaker_'|translate}}</a>
+                        <a routerLink="membersdirectory/" class="dropdown-item" title="{{'MembersDirectory_'|translate}}">{{'MembersDirectory_'|translate}}</a>
+                        <a routerLink="listofmembers/" class="dropdown-item" title="{{'ListofMembers_'|translate}}">{{'ListofMembers_'|translate}}</a>
+                        <a routerLink="membersdirectory/" class="dropdown-item" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a>
+                        <a routerLink="pastassemblymembers/" class="dropdown-item" title="{{'PastAssemblyMembers_'|translate}}">{{'PastAssemblyMembers_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'AssemblyBusiness_'|translate}}" href="#">{{'AssemblyBusiness_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                        <a routerLink="currentassemblysummary/" class="dropdown-item" title="{{'CurrentAssemblySummary_'|translate}}">{{'CurrentAssemblySummary_'|translate}}</a>
+                        <a routerLink="sessions/" class="dropdown-item" title="{{'Sessions_'|translate}}">{{'Sessions_'|translate}}</a>
+                        <a routerLink="orderofthedayagenda/" class="dropdown-item" title="{{'OrderofthedayAgenda_'|translate}}">{{'OrderofthedayAgenda_'|translate}}</a>
+                        <a routerLink="summaryofproceedings/" class="dropdown-item" title="{{'Summaryofproceedings_'|translate}}">{{'Summaryofproceedings_'|translate}}</a>
+                        <a routerLink="housedebates/" class="dropdown-item" title="{{'HouseDebates_'|translate}}">{{'HouseDebates_'|translate}}</a>
+                        <a routerLink="questions/" class="dropdown-item" title="{{'Questions_'|translate}}">{{'Questions_'|translate}}</a>
+                        <a routerLink="callattention/" class="dropdown-item" title="{{'CallAttention_'|translate}}">{{'CallAttention_'|translate}}</a>
+                        <a routerLink="resolutionspassed/" class="dropdown-item" title="{{'ResolutionsPassed_'|translate}}">{{'ResolutionsPassed_'|translate}}</a>
+                        <a routerLink="stagesofbills/" class="dropdown-item" title="{{'StagesofBills_'|translate}}">{{'StagesofBills_'|translate}}</a>
+                        <a routerLink="bills/" class="dropdown-item" title="{{'Bills_'|translate}}">{{'Bills_'|translate}}</a>
+                        <a routerLink="acts/" class="dropdown-item" title="{{'Acts_'|translate}}">{{'Acts_'|translate}}</a>
+                        <a routerLink="motions/" class="dropdown-item" title="{{'Motions_'|translate}}">{{'Motions_'|translate}}</a>
+                        <a routerLink="performanceofassembly/" class="dropdown-item" title="{{'PerformanceofAssembly_'|translate}}">{{'PerformanceofAssembly_'|translate}}</a>
+                        <a routerLink="parliamentarycalendar/" class="dropdown-item" title="{{'ParliamentaryCalendar_'|translate}}">{{'ParliamentaryCalendar_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'Committees_'|translate}}" href="#">{{'Committees_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                            <a routerLink="committeesystem/" class="dropdown-item" title="{{'CommitteeSystem_'|translate}}">{{'CommitteeSystem_'|translate}}</a>
+                            <a routerLink="committeerules/" class="dropdown-item" title="{{'Committeerules_'|translate}}">{{'Committeerules_'|translate}}</a>
+                            <a routerLink="publicaccountscommittee/" class="dropdown-item" title="{{'PublicAccountsCommittee_'|translate}}">{{'PublicAccountsCommittee_'|translate}}</a>
+                            <a routerLink="standingcommittees/" class="dropdown-item" title="{{'StandingCommittees_'|translate}}">{{'StandingCommittees_'|translate}}</a>
+                            <a routerLink="committeesonrulesofprocedureprivileges/" class="dropdown-item" title="{{'CommitteesonRulesofProcedurePrivileges_'|translate}}">{{'CommitteesonRulesofProcedurePrivileges_'|translate}}</a>
+                            <a routerLink="financecommittee/" class="dropdown-item" title="{{'FinanceCommittee_'|translate}}">{{'FinanceCommittee_'|translate}}</a>
+                            <a routerLink="selectcommitteeonbills/" class="dropdown-item" title="{{'Selectcommitteeonbills_'|translate}}">{{'Selectcommitteeonbills_'|translate}}</a>
+                            <a routerLink="committeeongovernmentassurance/" class="dropdown-item" title="{{'CommitteeonGovernmentAssurance_'|translate}}">{{'CommitteeonGovernmentAssurance_'|translate}}</a>
+                            <a routerLink="librarycommittee/" class="dropdown-item" title="{{'Librarycommittee_'|translate}}">{{'Librarycommittee_'|translate}}</a>
+                            <a routerLink="businessadvisorycommittee/" class="dropdown-item" title="{{'BusinessAdvisorycommittee_'|translate}}">{{'BusinessAdvisorycommittee_'|translate}}</a>
+                            <a routerLink="specialcommittee/" class="dropdown-item" title="{{'SpecialCommittee_'|translate}}">{{'SpecialCommittee_'|translate}}</a>
+                            <a routerLink="reportslaid/" class="dropdown-item" title="{{'ReportsLaid_'|translate}}">{{'ReportsLaid_'|translate}}</a>
+                            <a routerLink="housecommittee/" class="dropdown-item" title="{{'HouseCommittee_'|translate}}">{{'HouseCommittee_'|translate}}</a>
+                            <a routerLink="constructioncommittee/" class="dropdown-item" title="{{'ConstructionCommittee_'|translate}}">{{'ConstructionCommittee_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'MediaCenter_'|translate}}" href="#">{{'MediaCenter_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                        <!-- <li class="nav-item mydropdown">
+                            <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Contact Us" href="#">Contact Us</a>
+                            <ul class="dropdown-menu">
+                               <a class="dropdown-item" routerLink="contactus/" title="Contact Us">Contact Us</a>
+                            </ul>
+                        </li> -->
+                        <a class="dropdown-item" routerLink="notifications/" title="{{'Notifications_'|translate}}">{{'Notifications_'|translate}}</a>
+                        <a class="dropdown-item" routerLink="notifyessions/" title="{{'NotificationsSessions_'|translate}}">{{'NotificationsSessions_'|translate}}</a>
+                        <a class="dropdown-item" routerLink="notifymembers/" title="{{'NotificationsMembers_'|translate}}">{{'NotificationsMembers_'|translate}}</a>
+                        <a class="dropdown-item" routerLink="notifycommittees/" title="{{'NotificationsCommittees_'|translate}}">{{'NotificationsCommittees_'|translate}}</a>
+                        <a class="dropdown-item" routerLink="notifygeneral/" title="{{'NotificationsGeneral_'|translate}}">{{'NotificationsGeneral_'|translate}}</a>
+                
+                        <a routerLink="pressreleases/" class="dropdown-item" title="{{'PressReleases_'|translate}}">{{'PressReleases_'|translate}}</a>
+                        <a routerLink="newsandactivities/" class="dropdown-item" title="{{'Newsandactivities_'|translate}}">{{'Newsandactivities_'|translate}}</a>
+                        <a routerLink="picturegallery/" class="dropdown-item" title="{{'PictureGallery_'|translate}}">{{'PictureGallery_'|translate}}</a>
+                        <a routerLink="tenders/" class="dropdown-item" title="{{'Tenders_'|translate}}">{{'Tenders_'|translate}}</a>
+                        <a routerLink="jobs/" class="dropdown-item" title="{{'Jobs_'|translate}}">{{'Jobs_'|translate}}</a>
+                        <a routerLink="glossary/" class="dropdown-item" title="{{'Glossary_'|translate}}">{{'Glossary_'|translate}}</a>
+                        <a routerLink="usefullinks/" class="dropdown-item" title="{{'UsefulLinks_'|translate}}">{{'UsefulLinks_'|translate}}</a>
+                        <a routerLink="faqs/" class="dropdown-item" title="{{'FAQs_'|translate}}">{{'FAQs_'|translate}}</a>
+                        <a routerLink="webcastlivevideoaudio/" class="dropdown-item" title="{{'WebcastLiveVideoAudio_'|translate}}">{{'WebcastLiveVideoAudio_'|translate}}</a>
+                        <a routerLink="videoarchive/" class="dropdown-item" title="{{'VideoArchive_'|translate}}">{{'VideoArchive_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'Publications_'|translate}}" href="#">{{'Publications_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                        <a routerLink="publications/" class="dropdown-item" title="{{'Publications_'|translate}}">{{'Publications_'|translate}}</a>
+                        <a routerLink="reports/" class="dropdown-item" title="{{'Reports_'|translate}}">{{'Reports_'|translate}}</a>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-btn main-dropdown dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{'ContactUs_'|translate}}" href="#">{{'ContactUs_'|translate}}</a>
+                    <ul class="dropdown-menu">
+                       <a class="dropdown-item" routerLink="contactus/" title="{{'ContactUs_'|translate}}">{{'ContactUs_'|translate}}</a>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mirror"></div>
+
+    </div>
+</nav>
+
+
+<!-- Main Page go here -->
+
+<router-outlet></router-outlet>
+
+
+<footer>
+    <div class="mt-2 py-3 bg-light-olive text-center">
+        <ul class="list-unstyled list-inline mb-0 social-links">
+            <li class="list-inline-item py-2"><a href="{{sociallinks.facebook}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item py-2"><a href="{{sociallinks.youtube}}"  target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+            <li class="list-inline-item py-2"><a href="{{sociallinks.twitter}}"  target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item py-2"><a href="{{sociallinks.linkedin}}"  target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+            <li class="list-inline-item py-2"><a href="{{sociallinks.google}}"  target="_blank" title="Google+"><i class="fab fa-google-plus-g"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="mt-2 py-3 bg-dark-olive text-center">
+        <ul class="list-unstyled list-inline mb-0 align-items-stretch">
+            <li class="list-inline-item px-4 py-2"><a routerLink="usefullinks/" class="text-white" title="{{'UsefulLinks_'|translate}}">{{'UsefulLinks_'|translate}}</a></li>
+            <li class="list-inline-item px-4 py-2"><a routerLink="faqs/" class="text-white" title="{{'FAQs_'|translate}}">{{'FAQs_'|translate}}</a></li>
+            <li class="list-inline-item px-4 py-2"><a routerLink="glossary/" class="text-white" title="{{'Glossary_'|translate}}">{{'Glossary_'|translate}}</a></li>
+            <li class="list-inline-item px-4 py-2"><a href="#" class="text-white" title="{{'VirtualTour'|translate}}">{{'VirtualTour'|translate}}</a></li>
+        </ul>
+    </div>
+
+    <div class="mt-2 py-4 bg-darker">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'AboutAssembly_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="about/" class="text-white" title="{{'About_'|translate}}">{{'About_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="messages/" class="text-white" title="{{'Messages_'|translate}}">{{'Messages_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="workingofassembly/" class="text-white" title="{{'WorkingofAssembly_'|translate}}">{{'WorkingofAssembly_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="roleofassembly/" class="text-white" title="{{'RoleofAssembly_'|translate}}">{{'RoleofAssembly_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="cabinetcomposition/" class="text-white" title="{{'CabinetComposition_'|translate}}">{{'CabinetComposition_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="leaderofthehouse/" class="text-white" title="{{'LeaderoftheHouse_'|translate}}">{{'LeaderoftheHouse_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="leaderoftheopposition/" class="text-white" title="{{'LeaderoftheOpposition_'|translate}}">{{'LeaderoftheOpposition_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="rulesofprocedures/" class="text-white" title="{{'RulesofProcedures_'|translate}}">{{'RulesofProcedures_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="parliamentaryprivileges/" class="text-white" title="{{'ParliamentaryPrivileges_'|translate}}">{{'ParliamentaryPrivileges_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'AboutSecretariat_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="overview/" class="text-white" title="{{'Overview_'|translate}}">{{'Overview_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="organizationalchart/" class="text-white" title="{{'OrganizationalChart_'|translate}}">{{'OrganizationalChart_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="directoryofofficers/"  class="text-white" title="{{'DirectoryofOfficers_'|translate}}">{{'DirectoryofOfficers_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="powersfunctions/" class="text-white" title="{{'PowersFunctions_'|translate}}">{{'PowersFunctions_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="contactlist/" class="text-white" title="{{'ContactList_'|translate}}">{{'ContactList_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="rules/" class="text-white" title="{{'Rules_'|translate}}">{{'Rules_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="thesindhtrans2016/" class="text-white" title="{{'TheSindhTransparencyandRighttoInformationAct2016_'|translate}}">{{'TheSindhTransparencyandRighttoInformationAct2016_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="assemblylibrary/" class="text-white" title="{{'AssemblyLibrary_'|translate}}">{{'AssemblyLibrary_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'Members_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="speakers/" class="text-white" title="{{'Speaker_'|translate}}">{{'Speaker_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="deputyspeaker/" class="text-white" title="{{'DeputySpeaker_'|translate}}">{{'DeputySpeaker_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="membersdirectory/" class="text-white" title="{{'MembersDirectory_'|translate}}">{{'MembersDirectory_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="listofmembers/" class="text-white" title="{{'ListofMembers_'|translate}}">{{'ListofMembers_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="membersdirectory/" class="text-white" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="pastassemblymembers/" class="text-white" title="{{'PastAssemblyMembers_'|translate}}">{{'PastAssemblyMembers_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'AssemblyBusiness_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="currentassemblysummary/" class="text-white" title="{{'CurrentAssemblySummary_'|translate}}">{{'CurrentAssemblySummary_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="sessions/" class="text-white" title="{{'Sessions_'|translate}}">{{'Sessions_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="orderofthedayagenda/" class="text-white" title="{{'OrderofthedayAgenda_'|translate}}">{{'OrderofthedayAgenda_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="summaryofproceedings/" class="text-white" title="{{'Summaryofproceedings_'|translate}}">{{'Summaryofproceedings_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="housedebates/" class="text-white" title="{{'HouseDebates_'|translate}}">{{'HouseDebates_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="questions/" class="text-white" title="{{'Questions_'|translate}}">{{'Questions_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="callattention/" class="text-white" title="{{'CallAttention_'|translate}}">{{'CallAttention_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="resolutionspassed/" class="text-white" title="{{'ResolutionsPassed_'|translate}}">{{'ResolutionsPassed_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="stagesofbills/" class="text-white" title="{{'StagesofBills_'|translate}}">{{'StagesofBills_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="bills/" class="text-white" title="{{'Bills_'|translate}}">{{'Bills_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="acts/" class="text-white" title="{{'Acts_'|translate}}">{{'Acts_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="motions/" class="text-white" title="{{'Motions_'|translate}}">{{'Motions_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="performanceofassembly/" class="text-white" title="{{'PerformanceofAssembly_'|translate}}">{{'PerformanceofAssembly_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="parliamentarycalendar/" class="text-white" title="{{'ParliamentaryCalendar_'|translate}}">{{'ParliamentaryCalendar_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'Committees_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="committeesystem/" class="text-white" title="{{'CommitteeSystem_'|translate}}">{{'CommitteeSystem_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="committeerules/" class="text-white" title="{{'Committeerules_'|translate}}">{{'Committeerules_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="publicaccountscommittee/" class="text-white" title="{{'PublicAccountsCommittee_'|translate}}">{{'PublicAccountsCommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="standingcommittees/" class="text-white" title="{{'StandingCommittees_'|translate}}">{{'StandingCommittees_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="committeesonrulesofprocedureprivileges/" class="text-white" title="{{'CommitteesonRulesofProcedurePrivileges_'|translate}}">{{'CommitteesonRulesofProcedurePrivileges_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="financecommittee/" class="text-white" title="{{'FinanceCommittee_'|translate}}">{{'FinanceCommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="selectcommitteeonbills/" class="text-white" title="{{'Selectcommitteeonbills_'|translate}}">{{'Selectcommitteeonbills_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="committeeongovernmentassurance/" class="text-white" title="{{'CommitteeonGovernmentAssurance_'|translate}}">{{'CommitteeonGovernmentAssurance_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="librarycommittee/" class="text-white" title="{{'Librarycommittee_'|translate}}">{{'Librarycommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="businessadvisorycommittee/" class="text-white" title="{{'BusinessAdvisorycommittee_'|translate}}">{{'BusinessAdvisorycommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="specialcommittee/" class="text-white" title="{{'SpecialCommittee_'|translate}}">{{'SpecialCommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="reportslaid/" class="text-white" title="{{'ReportsLaid_'|translate}}">{{'ReportsLaid_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="housecommittee/" class="text-white" title="{{'HouseCommittee_'|translate}}">{{'HouseCommittee_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="constructioncommittee/" class="text-white" title="{{'ConstructionCommittee_'|translate}}">{{'ConstructionCommittee_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'MediaCenter_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="notifications/" class="text-white" title="{{'Notifications_'|translate}}">{{'Notifications_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="pressreleases/" class="text-white" title="{{'PressReleases_'|translate}}">{{'PressReleases_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="newsandactivities/" class="text-white" title="{{'Newsandactivities_'|translate}}">News and {{'Newsandactivities_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="picturegallery/" class="text-white" title="{{'PictureGallery_'|translate}}">{{'PictureGallery_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="tenders/" class="text-white" title="{{'Tenders_'|translate}}">{{'Tenders_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="jobs/" class="text-white" title="{{'Jobs_'|translate}}">{{'Jobs_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="glossary/" class="text-white" title="{{'Glossary_'|translate}}">{{'Glossary_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="usefullinks/" class="text-white" title="{{'UsefulLinks_'|translate}}">{{'UsefulLinks_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="faqs/" class="text-white" title="{{'FAQs_'|translate}}">{{'FAQs_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="webcastlivevideoaudio/" class="text-white" title="{{'WebcastLiveVideoAudio_'|translate}}">{{'WebcastLiveVideoAudio_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="videoarchive/" class="text-white" title="{{'VideoArchive_'|translate}}">{{'VideoArchive_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'Publications_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="publications/" class="text-white" title="{{'Publications_'|translate}}">{{'Publications_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="reports/" class="text-white" title="{{'Reports_'|translate}}">{{'Reports_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg">
+                    <h6 class="mt-0 mb-3 text-yellow" style="font-size: 0.9rem;">{{'ContactUs_'|translate}}</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a routerLink="contactus/" class="text-white" title="{{'ContactUs_'|translate}}">{{'ContactUs_'|translate}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-2 py-3 bg-light-olive text-center" >
+        <p class="m-0 footercopytext" style="color: white;">{{'Copyright'|translate}}</p>
+    </div>
+</footer>  

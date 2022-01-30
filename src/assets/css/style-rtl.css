@@ -1,0 +1,104 @@
+.switcher-right{
+    float: left !important;
+    padding-bottom: 10px;
+}
+.pageSwitchButtons{
+    text-align: left !important;
+}
+/* MY CHANGES */
+
+
+body {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.mr-3 {
+    margin-right: 0!important;
+    margin-left: 1rem!important;
+}
+
+.float-right, .btn-dropdown.dropdown-toggle::after {
+    float: left !important;
+}
+
+.header:before, .bg-members:before, .bg-performance:before, .bg-bills:before, .bg-account:before,
+.service-img img {
+    transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.bg-committees {
+    background-position: 10% center;
+}
+
+.dropdown-toggle::after {
+    margin-right: 10px;
+}
+
+.navbar .nav-link {
+    text-align: right;
+}
+
+.fa-chevron-right:before {
+    content: "\f053";
+}
+
+.dropdown-menu {
+    text-align: right;
+}
+
+.dropdown-menu-right {
+    right: auto !important;
+    left: 0 !important;
+    transform: none !important;
+    top: 100% !important;
+}
+
+.social-links a {
+    box-shadow: -5px 5px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+@media (min-width: 576px) {
+    .text-sm-right {
+        text-align: left!important;
+    }
+
+    .text-sm-left {
+        text-align: right!important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+        right: 0;
+        transform: translateX(270px);
+        -o-transform: translateX(270px);
+        -ms-transform: translateX(270px);
+        -moz-transform: translateX(270px);
+        -webkit-transform: translateX(270px);
+        box-shadow: -2px 0 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .mirror {
+        left: 0;
+        transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .sub-dropdown ~ .dropdown-content {
+        right: 100%;
+    }
+}

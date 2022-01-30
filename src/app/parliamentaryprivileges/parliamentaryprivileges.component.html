@@ -1,0 +1,31 @@
+<div class="container-fluid">
+      
+    <div class="row">
+        <div class="col-8">
+            <h1>{{'ParliamentaryPrivileges_'|translate}}</h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/rulesofprocedures/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/overview/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+      
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+               <tbody>
+                <tr *ngFor="let data of allData">
+                    <td>
+                        <a [routerLink]="['/parliamentaryprivilegesdetails/',data.id]">{{data.name}}</a>
+                        <p> {{"Act No"|translate}}: {{data.actno}} | Date of Passing: {{data.dateofpassing}} | Date of Governers' Assent: {{data.dateofgovernersassent}} </p>
+                    </td>
+                    
+                </tr>
+                
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>

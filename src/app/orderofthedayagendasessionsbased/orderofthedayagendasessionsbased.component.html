@@ -1,0 +1,164 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <h2>
+                    Settings
+                </h2>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group form-inline">
+                    <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                    <select class="form-control"  (change)="onChange($event)">
+                        <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                    </select>
+                </div>                
+            </div>
+            <div class="col-md-4 pageSwitchButtons">
+                <a routerLink="/sessions/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+   
+
+    <div class="row">
+        <div class="col-12">
+
+            <section class="mt-2">
+                <div class="row m-0">
+                   
+                    <div class="col-6 col-md-12 px-1">
+                        <div class="bg-light-olive p-3 font-18"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Sittings</div>
+                        <div class="list-group list-group-horizontal-md text-center tabs-holder" id="myList" role="tablist">
+                            <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#agenda" role="tab">Order of the day (Agenda)</a>
+                            <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#proceedings" role="tab">Summary of proceedings</a>
+                            <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#debates" role="tab">House debates</a>
+                            <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#resolutions" role="tab">Resolutions passed</a>
+                            <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#questions" role="tab">Questions</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="tab-content px-1">
+                    <div class="tab-pane fade show active" id="agenda" role="tabpanel">
+                          <h3>Order of the day (Agenda)</h3>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-2 px-1 mt-2" *ngFor="let data of filterItemsOfOrder('Order of the Day')">
+                                        <div class="bg-light-beige text-darker full-height p-3">
+                                            <p class="m-0 myanchor">
+                                                <a href="{{imageUrl}}{{data.description}}" target="_blank" *ngIf="data.type=='pdf' || data.type=='jpg' || data.type=='png'">{{data.sittingsdate}}  </a>
+                                                <a [routerLink]="['/sittingsdetail/', data.orderid]" *ngIf="data.type!='pdf'">{{data.sittingsdate}}  </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                              
+                    </div>
+            
+                    <div class="tab-pane fade" id="proceedings" role="tabpanel">
+                            <h3>Summary of proceedings</h3>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-2 px-1 mt-2" *ngFor="let data of filterItemsOfOrder('Summary of Proceedings')">
+                                        <div class="bg-light-beige text-darker full-height p-3">
+                                            <p class="m-0 myanchor">
+                                                <a href="{{imageUrl}}{{data.description}}" target="_blank" *ngIf="data.type=='pdf' || data.type=='jpg' || data.type=='png'">{{data.sittingsdate}}  </a>
+                                                <a [routerLink]="['/sittingsdetail/', data.orderid]" *ngIf="data.type!='pdf'">{{data.sittingsdate}}  </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            
+                    <div class="tab-pane fade" id="debates" role="tabpanel">
+                        <h3>House debates</h3>
+                         <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-2 px-1 mt-2" *ngFor="let data of filterItemsOfOrder('House Debates')">
+                                        <div class="bg-light-beige text-darker full-height p-3">
+                                            <p class="m-0 myanchor">
+                                                <a href="{{imageUrl}}{{data.description}}" target="_blank" *ngIf="data.type=='pdf' || data.type=='jpg' || data.type=='png'">{{data.sittingsdate}}  </a>
+                                                <a [routerLink]="['/sittingsdetail/', data.orderid]" *ngIf="data.type!='pdf'">{{data.sittingsdate}}  </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            
+                    <div class="tab-pane fade" id="resolutions" role="tabpanel">
+                           <h3>Resolutions passed</h3>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-2 px-1 mt-2" *ngFor="let data of resolutionPassedData">
+                                        <div class="bg-light-beige text-darker full-height p-3">
+                                            <p class="m-0 myanchor"> 
+                                                <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf' || data.type=='jpg' || data.type=='png'">{{data.resolutiondate}}  </a>
+                                                <a [routerLink]="['/resolutionspasseddetail/', data.resolutionid]" *ngIf="data.type!='pdf'">{{data.resolutiondate}}  </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                    </div>
+            
+                    <div class="tab-pane fade" id="questions" role="tabpanel">
+                           <h3>Questions</h3>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-2 px-1 mt-2" *ngFor="let data of questionData">
+                                        <div class="bg-light-beige text-darker full-height p-3">
+                                            <p class="m-0 myanchor"> 
+                                                <a href="{{imageUrl}}{{data.description}}" target="_blank" *ngIf="data.type=='pdf' || data.type=='jpg' || data.type=='png'">{{data.questiondate}}  </a>
+                                                <a [routerLink]="['/questiondetail/', data.questionid]" *ngIf="data.type!='pdf'">{{data.questiondate}}  </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                   
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- <div class="col-12"  *ngIf="isDetail">
+           <br>
+           <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                   <tr>
+                       <th>Session</th>
+                       <th>Sitting No</th>
+                       <th>Sitting Date</th>
+                   </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td>{{singleData.fromdate}}-{{singleData.todate}}</td>
+                    <td>{{singleData.sittingsno}}</td>
+                    <td>{{singleData.sittingsdate}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div [innerHTML]="singleData.description"></div>
+                    </td>
+                </tr>
+               </tbody>
+           </table>
+           
+        </div> -->
+    </div>

@@ -1,0 +1,133 @@
+// Content - Collapsible Block
+$tabs-height: 70px;
+$tabs-horizontal-width: null !default;
+$tabs-vertical-width: 20%;
+$base-border: 1px solid #dce0e5;
+$action-color: #115701;
+$color-light-gray: #f5f6f7;
+
+// Remove this when implemented.
+body {
+  max-width: 1300px;
+  margin: 20px auto;
+}
+
+[class*="collapsible"] {
+  box-sizing: border-box;
+  margin: 0 0 50px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+.collapsible-title {
+  border-bottom: $base-border;
+  cursor: pointer;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  
+  &.is-active,
+  &:hover {
+    background-color: $action-color;
+    color: white;
+  }
+  
+  &.is-active + .collapsible-content {
+    display: block;
+  }
+  
+  @media screen and (min-width: 960px) {
+    
+    // TABS HORIZONTAL/VERTICAL
+    .collapsible-tabs-horizontal &,
+    .collapsible-tabs-vertical & {
+      height: $tabs-height;
+      line-height: $tabs-height;
+      padding: 0;
+      text-align: center;
+    }
+    
+    // TABS HORIZONTAL
+    .collapsible-tabs-horizontal & {
+      float: left;
+      
+      @if $tabs-horizontal-width !=null {
+        width: $tabs-horizontal-width;
+      } @else {
+        @for $i from 1 through 10 {
+          &:first-child:nth-last-child(#{$i}),
+          &:first-child:nth-last-child(#{$i}) ~ .collapsible-title {
+            width: 100% / ( $i / 2);
+          }
+        }
+      }
+    }
+    
+    // TABS VERTICAL
+    .collapsible-tabs-vertical & {
+      border: 0;
+      border-right: $base-border;
+      width: $tabs-vertical-width;
+    }
+    
+    // NO-JS
+    .no-js & {
+      cursor: auto;
+      height: auto;
+      line-height: 1.5em;
+      padding: 0;
+      text-align: left;
+      width: 100% !important; // Needed
+      
+      &.is-active,
+      &:hover {
+        background: initial;
+      }
+    }
+  }
+}
+
+.collapsible-content {
+  background: $color-light-gray;
+  display: none;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  
+  @media screen and (min-width: 960px) {
+    
+    // TABS HORIZONTAL
+    .collapsible-tabs-horizontal & {
+      float: right;
+      margin: $tabs-height 0 0 -100%;
+    }
+    
+    // TABS VERTICAL
+    .collapsible-tabs-vertical & {
+      position: absolute;
+      top: 0;
+      left: $tabs-vertical-width;
+      width: calc(100% - #{$tabs-vertical-width});
+    }
+    
+    // NO-JS
+    .no-js & {
+      background: initial;
+      display: block;
+      float: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+    }
+  }
+}

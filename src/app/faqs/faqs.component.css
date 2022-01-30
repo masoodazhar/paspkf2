@@ -1,0 +1,59 @@
+body {
+    background-color: #eef;
+}
+#tabs-left {
+    position: relative;
+    padding-left: 0.5em;
+}
+#tabs-only {
+    float: left;
+    width: 100%;
+    height: 150px;
+}
+#tabs-left .ui-tabs-nav {
+    background: transparent;
+    position: absolute;
+    left: 0.25em;
+    top: 0.25em;
+    bottom: 0.25em;
+    width: 6em;
+    padding: 0.2em 0 0.2em 0.2em;
+}
+#tabs-left .ui-tabs-nav li {
+    right: 1px;
+    width: 100%;
+    border-right: none;
+    border-bottom-width: 1px !important;
+    -moz-border-radius: 4px 0px 0px 4px;
+    -webkit-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+    overflow: hidden;
+}
+#tabs-left .ui-tabs-nav li.ui-tabs-selected, #tabs-left .ui-tabs-nav li.ui-state-active {
+    border-right: 1px solid transparent;
+}
+#tabs-left .ui-tabs-nav li a {
+    float: right;
+    width: 100%;
+    text-align: right;
+}
+#tabs-nobg {
+    padding: 0px;
+}
+#tabs-nobg .ui-tabs-nav {
+    background: transparent;
+    border-width: 0px 0px 1px 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+#tabs-nobg .ui-tabs-panel {
+    margin: 0em 0.2em 0.2em 0.2em;
+}
+#tabsx {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+/* Note that jQuery UI CSS is loaded from Google's CDN in the "Add Resources" pane to the left.  Normally this would be done in your <head> */

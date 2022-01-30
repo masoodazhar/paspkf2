@@ -1,0 +1,36 @@
+<div class="container-flui">
+    
+        <div class="row">
+            <div class="col-8">
+                <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success">Back  &nbsp;&nbsp;&nbsp;  </button><h2>{{'CommitteeSystem_'|translate}}</h2>
+            </div>
+            <div class="col-md-4 pageSwitchButtons">
+                <a routerLink="/parliamentarycalendar/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a routerLink="/committeerules/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+                <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            </div> 
+            
+            <!-- <div class="col-12" style="text-align:center;">
+                
+                    <p><b>PROVINCIAL ASSEMBLY OF THE PUNJAB</b></p>
+    
+                        <p> CONTACT LIST</p>
+                       
+                       <p> PABX: 042-99200335-346, Fax: 042-99200348</p>
+            
+            </div> -->
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12" *ngIf="!isDetail">
+                <ul>
+                    <li *ngFor="let data of allData" class="detailist"><a (click)="getDetial(data.id)">{{data.heading}}</a></li>
+                </ul>
+            </div>
+            <div class="col-12" *ngIf="isDetail">
+                <div [innerHTML]="singleData.description"></div>
+            </div>
+      
+        </div>
+    
+</div>

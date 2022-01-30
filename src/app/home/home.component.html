@@ -1,0 +1,798 @@
+
+<!--===============================
+    SLIDER
+===================================-->
+
+<section class="main-slider">
+    <div class="owl-carousel owl-theme">
+        <div class="item"><img src="./assets/images/slide1.jpg" alt="slide 1"></div>
+        <div class="item"><img src="./assets/images/slide2.jpg" alt="slide 2"></div>
+    </div>
+</section>
+
+<!--===============================
+    MESSAGE
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span>  {{'SpeakersMessage' | translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-4 bg-dark-olive mt-2 news-slider">
+        <div class="container-fluid">
+            <div class="owl-carousel owl-theme">
+
+                <div class="item" *ngFor="let item of speaker">
+                    <div class="row m-0">
+                        <div class="col-md-4 col-lg-3 col-xl-2 text-center">
+                            <div class="img-border"><img src="{{imageUrl}}{{item.image}}" alt="{{item.name}}"></div>
+                            <a [routerLink]="['/memberprofile/', item.id]" class="btn btn-block btn-yellow my-2 py-2 font-18">{{item.name}}</a>
+                            <p class="mb-4 mb-md-0">{{item.designation}}</p>
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-xl-10" [innerHTML]="item.speakermessage">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--===============================
+    SERVICES
+===================================-->
+
+<section class="mt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 bg-yellow">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-1.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/about/" class="btn btn-block btn-black notranslate" title="{{'AboutAssembly' | translate}}">{{'AboutAssembly' | translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-light-olive">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-2.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/overview/" class="btn btn-block btn-black notranslate" title="{{'AboutSecretariat'|translate}}">{{'AboutSecretariat'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-bronze">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-3.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/membersdirectory/" class="btn btn-block btn-black notranslate" title="{{'Members'|translate}}">{{'Members'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-dark-olive">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-4.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/orderofthedayagenda/" class="btn btn-block btn-black notranslate" title="{{'AssemblyBusiness'|translate}}">{{'AssemblyBusiness'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-dark-olive">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-5.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/notifications/" class="btn btn-block btn-black notranslate" title="{{'Notifications'|translate}}">{{'Notifications'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-bronze">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-6.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/committeesystem/" class="btn btn-block btn-black notranslate" title="{{'Committees'|translate}}">{{'Committees'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-light-olive">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-7.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/newsandactivities/" class="btn btn-block btn-black notranslate" title="{{'MediaCenter'|translate}}">{{'MediaCenter'|translate}}</a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 bg-yellow">
+                <div class="p-4 text-center">
+                    <div class="service-img"><img src="./assets/images/service-8.png" alt="services image" class="mb-3"></div>
+                    <a routerLink="/publications/" class="btn btn-block btn-black notranslate" title="{{'Publications'|translate}}">{{'Publications'|translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    MEMBERS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'MembersList'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-5 bg-members mt-2">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-lg">
+                    <h2 class="mt-0 mb-4 notranslate" ><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'SearchMembersby'|translate}}</h2>
+                    <div class="row">
+                        <div class="col">
+                            <a [routerLink]="['/membersdirectory/', 'name']" class="btn btn-bronze btn-block my-5 notranslate" title="{{'Name'|translate}}">{{'Name'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'assembly']" class="btn btn-yellow btn-block my-5 notranslate" title="{{'Assembly'|translate}}">{{'Assembly'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'seattype']" class="btn btn-bronze btn-block my-5 notranslate" title="{{'Seattype'|translate}}">{{'Seattype'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'qualification']" class="btn btn-yellow btn-block my-5 notranslate" title="{{'Education'|translate}}">{{'Education'|translate}}</a>
+                        </div>
+                        <div class="col">
+                            <a [routerLink]="['/membersdirectory/', 'district']" class="btn btn-black btn-block my-5 notranslate" title="{{'Distric'|translate}}">{{'Distric'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'party']" class="btn btn-green btn-block my-5 notranslate" title="{{'PoliticalParty'|translate}}">{{'PoliticalParty'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'constituency']" class="btn btn-black btn-block my-5 notranslate" title="{{'Constituency'|translate}}">{{'Constituency'|translate}}</a>
+                            <a [routerLink]="['/membersdirectory/', 'advanceSearch']" class="btn btn-green btn-block my-5" title="{{'Advance'|translate}}">{{'Advance'|translate}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7 col-lg">
+                    <div class="row flex-row-reverse align-items-end">
+                        <div class="col-sm">
+                            <div class="py-2"><div class="picture-frame full-height big"><img src="./assets/images/members-pictures/sir.jpg" alt="Member Name" class="full-height"></div></div>
+
+                            <div class="row">
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/ahmedrazashah.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/anthorny.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/azra.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/bijrani.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/farhat.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/ghani.jpg" alt="Member Name" class="full-height"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="row justify-content-center justify-content-sm-end">
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/ghanwerali.jpg" alt="Member Name" class="full-height"></div></div>
+                            </div>
+
+                            <div class="py-2"><div class="picture-frame full-height big"><img src="./assets/images/members-pictures/SyedQaimAliShah.jpg" alt="Member Name" class="full-height"></div></div>
+
+                            <div class="row">
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/shela.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/rauf.jpg" alt="Member Name" class="full-height"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="row justify-content-center justify-content-sm-end">
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/sadia.jpg" alt="Member Name" class="full-height"></div></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/shazia.jpg" alt="Member Name" class="full-height"></div></div>
+                                <div class="col-6 py-2"><div class="picture-frame full-height"><img src="./assets/images/members-pictures/sohai.jpg" alt="Member Name" class="full-height"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    BUSINESS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate" ><span class="head-dot bg-light-beige mr-3 mt-2 "></span> {{'AssemblyBusiness'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-4 bg-dark-olive mt-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+                    <h2 class="my-3"><a routerLink="/currentassemblysummary/" title="..." class="text-white notranslate"><span class="small-head-dot bg-yellow mr-3 mt-2"></span> {{'CurrentAssemblySummary'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/sessions/" title="..." class="text-white notranslate"><span class="small-head-dot bg-light-olive mr-3 mt-2"></span> {{'Sessions'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/resolutionspassed/" title="..." class="text-white notranslate"><span class="small-head-dot bg-bronze mr-3 mt-2"></span> {{'ResolutionsPassed'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/callattention/" title="..." class="text-white notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'CallAttention'|translate}}</a></h2>
+                </div>
+                <div class="col-md">
+                    <h2 class="my-3"><a routerLink="/questions/" title="..." class="text-white notranslate"><span class="small-head-dot bg-yellow mr-3 mt-2"></span> {{'Questions'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/bills/" title="..." class="text-white notranslate"><span class="small-head-dot bg-light-olive mr-3 mt-2"></span> {{'Bills'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/motions/" title="..." class="text-white notranslate"><span class="small-head-dot bg-bronze mr-3 mt-2"></span> {{'Motions'|translate}}</a></h2>
+                    <h2 class="my-3"><a routerLink="/acts/" title="..." class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Acts_'|translate}}</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    TABLE
+===================================-->
+
+<section class="mt-2">
+    <div class="row m-0">
+        <div class="col-6 col-md-2 px-1">
+            <div class="bg-dark-green full-height p-3 font-18"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'SessionNo'|translate}}</div>
+        </div>
+        <div class="col-6 col-md-10 px-1">
+            <div class="bg-light-olive p-3 font-18 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Sittings'|translate}}</div>
+            <div class="list-group list-group-horizontal-md text-center tabs-holder" id="myList" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active notranslate" data-toggle="list" href="#agenda" role="tab">{{'OrderofthedayAgenda'|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 notranslate" data-toggle="list" href="#proceedings" role="tab">{{'Summaryofproceedings'|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 notranslate" data-toggle="list" href="#debates" role="tab">{{'Housedebates'|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 notranslate" data-toggle="list" href="#resolutions" role="tab">{{'ResolutionsPassed'|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 notranslate" data-toggle="list" href="#questions" role="tab">{{'Questions'|translate}}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content px-1" style="height: 255px; overflow-y: scroll; overflow-x: hidden;">
+        <div class="tab-pane fade show active" id="agenda" role="tabpanel">
+            <div class="row m-0 tabs-holder align-content-stretch" *ngFor="let data of getSessionsOrder">
+                <div class="col-md-2 px-1 mt-2">
+                    <div class="bg-light-beige text-darker full-height p-2"><a style="background: none; color: black !important;" [routerLink]="['/sittings/', data.sessionid]">{{data.sessionname}} <br> {{data.assemblyname}}</a></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-2 px-1 mt-2" *ngFor="let list of data.listofsessions">
+                            <div class="bg-light-beige text-darker full-height p-3">
+                                <p class="m-0 myanchor">
+                                    <a href="{{imageUrl}}{{list.description}}" target="_blank" *ngIf="list.type=='pdf' || list.type=='jpg' || list.type=='png'">{{list.sittingsdate}}  </a>
+                                    <a [routerLink]="['/sittingsdetail/', list.orderid]" *ngIf="list.type!='pdf'">{{list.sittingsdate}}  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <div class="tab-pane fade" id="proceedings" role="tabpanel">
+            <div class="row m-0 tabs-holder align-content-stretch" *ngFor="let data of getSessionsSummery">
+                <div class="col-md-2 px-1 mt-2">
+                    <div class="bg-light-beige text-darker full-height p-3"><a style="background: none; color: black !important;" [routerLink]="['/sittings/', data.sessionid]">{{data.sessionname}} <br> {{data.assemblyname}}</a></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-2 px-1 mt-2" *ngFor="let list of data.listofsessions">
+                            <div class="bg-light-beige text-darker full-height p-3">
+                                <p class="m-0 myanchor">
+                                    <a href="{{imageUrl}}{{list.description}}" target="_blank" *ngIf="list.type=='pdf' || list.type=='jpg' || list.type=='png'">{{list.sittingsdate}}  </a>
+                                    <a [routerLink]="['/sittingsdetail/', list.orderid]" *ngIf="list.type!='pdf'">{{list.sittingsdate}}  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="tab-pane fade" id="debates" role="tabpanel">
+            <div class="row m-0 tabs-holder align-content-stretch" *ngFor="let data of getSessionsHouse">
+                <div class="col-md-2 px-1 mt-2">
+                    <div class="bg-light-beige text-darker full-height p-3"><a style="background: none; color: black !important;" [routerLink]="['/sittings/', data.sessionid]">{{data.sessionname}} <br> {{data.assemblyname}}</a></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-2 px-1 mt-2" *ngFor="let list of data.listofsessions">
+                            <div class="bg-light-beige text-darker full-height p-3">
+                                <p class="m-0 myanchor">
+                                    <a href="{{imageUrl}}{{list.description}}" target="_blank" *ngIf="list.type=='pdf' || list.type=='jpg' || list.type=='png'">{{list.sittingsdate}}  </a>
+                                    <a [routerLink]="['/sittingsdetail/', list.orderid]" *ngIf="list.type!='pdf'">{{list.sittingsdate}}  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="tab-pane fade" id="resolutions" role="tabpanel">
+            <div class="row m-0 tabs-holder align-content-stretch" *ngFor="let data of getSessionsResolution">
+                <div class="col-md-2 px-1 mt-2">
+                    <div class="bg-light-beige text-darker full-height p-3"><a style="background: none; color: black !important;" [routerLink]="['/sittings/', data.sessionid]">{{data.sessionname}} <br> {{data.assemblyname}}</a></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-2 px-1 mt-2" *ngFor="let list of data.listofsessions">
+                            <div class="bg-light-beige text-darker full-height p-3">
+                                <p class="m-0 myanchor"> 
+                                    <a href="{{imageUrl}}{{list.image_pdf_link}}" target="_blank" *ngIf="list.type=='pdf' || list.type=='jpg' || list.type=='png'">{{list.resolutiondate}}  </a>
+                                    <a [routerLink]="['/resolutionspasseddetail/', list.resolutionid]" *ngIf="list.type!='pdf'">{{list.resolutiondate}}  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="tab-pane fade" id="questions" role="tabpanel">
+            <div class="row m-0 tabs-holder align-content-stretch" *ngFor="let data of getSessionsQuestion">
+                <div class="col-md-2 px-1 mt-2">
+                    <div class="bg-light-beige text-darker full-height p-3"><a style="background: none; color: black !important;" [routerLink]="['/sittings/', data.sessionid]">{{data.sessionname}} <br> {{data.assemblyname}}</a></div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-2 px-1 mt-2" *ngFor="let list of data.listofsessions">
+                            <div class="bg-light-beige text-darker full-height p-3">
+                                <p class="m-0 myanchor"> 
+                                    <a href="{{imageUrl}}{{list.description}}" target="_blank" *ngIf="list.type=='pdf' || list.type=='jpg' || list.type=='png'">{{list.questiondate}}  </a>
+                                    <a [routerLink]="['/questiondetail/', list.questionid]" *ngIf="list.type!='pdf'">{{list.questiondate}}  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    PERFORMANCE
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'AssemblyPerformance'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-5 px-md-5 bg-performance mt-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 my-3">
+                    <div class="bg-opacity-bronze py-5 px-2 px-md-5 full-height">
+                        <h3 class="my-4"><a routerLink="/sessions/" class="text-white notranslate" title=".."><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Sessions'|translate}}</a></h3>
+                    </div>
+                </div>
+                <div class="col-sm-6 my-3">
+                    <div class="bg-opacity-yellow py-5 px-2 px-md-5 full-height">
+                        <h3 class="my-4"><a routerLink="/housedebates/" class="text-white notranslate" title=".."><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Housedebates'|translate}}</a></h3>
+                    </div>
+                </div>
+                <div class="col-sm-6 my-3">
+                    <div class="bg-opacity-yellow py-5 px-2 px-md-5 full-height">
+                        <h3 class="my-4"><a routerLink="/questions/" class="text-white notranslate" title=".."><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Questions'|translate}}</a></h3>
+                    </div>
+                </div>
+                <div class="col-sm-6 my-3">
+                    <div class="bg-opacity-bronze py-5 px-2 px-md-5 full-height">
+                        <h3 class="my-4"><a routerLink="/resolutionspassed/" class="text-white notranslate" title=".."><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Resolutions'|translate}}</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    NOTIFICATIONS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Notificationsby'|translate}}</h1>
+        </div>
+    </div>
+
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 px-1">
+                    <div class="bg-white py-2">
+                        <div class="bg-dark-green p-3">
+                            <h4 class="m-0 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Sessions'|translate}}</h4>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-light-beige notification-height">
+                        <ul class="list-unstyled m-0">
+                            <li class="py-3" *ngFor="let data of getPressReleasesSession">
+                                <a routerLink="/notifyessions/" title=".." class="text-darker">
+                                    <p class="m-0">{{data.date}} | {{data.letterno}}</p>
+                                    <p class="m-0">{{data.subject}}</p>
+                                </a>
+                            </li>
+                            
+                        </ul>
+
+                        <div class="text-center"><a routerLink="/notifyessions/" title="More" class="btn btn-green mt-3 notranslate">Read More</a></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 px-1">
+                    <div class="bg-white py-2">
+                        <div class="bg-light-green p-3">
+                            <h4 class="m-0 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Members'|translate}}</h4>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-light-beige notification-height">
+                        <ul class="list-unstyled m-0">
+                            <li class="py-3" *ngFor="let data of getPressReleasesMember">
+                                <a routerLink="/notifymembers/" title=".." class="text-darker">
+                                    <p class="m-0">{{data.date}} | {{data.letterno}}</p>
+                                    <p class="m-0">{{data.subject}}</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="text-center"><a routerLink="/notifymembers/" title="More" class="btn btn-green mt-3 notranslate">Read More</a></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 px-1">
+                    <div class="bg-white py-2">
+                        <div class="bg-dark-olive p-3">
+                            <h4 class="m-0 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Committees'|translate}}</h4>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-light-beige notification-height">
+                        <ul class="list-unstyled m-0">
+                            <li class="py-3" *ngFor="let data of getPressReleasesCommittee">
+                                <a routerLink="/notifycommittees/" title=".." class="text-darker">
+                                    <p class="m-0">{{data.date}} | {{data.letterno}}</p>
+                                    <p class="m-0">{{data.subject}}</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="text-center"><a routerLink="/notifycommittees/" title="More" class="btn btn-green mt-3 notranslate">Read More</a></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 px-1">
+                    <div class="bg-white py-2">
+                        <div class="bg-light-olive p-3">
+                            <h4 class="m-0 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'General'|translate}}</h4>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-light-beige notification-height">
+                        <ul class="list-unstyled m-0">
+                            <li class="py-3" *ngFor="let data of getPressReleasesGeneral">
+                                <a routerLink="/notifygeneral/" title=".." class="text-darker">
+                                    <p class="m-0">{{data.date}} | {{data.letterno}}</p>
+                                    <p class="m-0">{{data.subject}}</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="text-center"><a routerLink="/notifygeneral/" title="More" class="btn btn-green mt-3 notranslate">Read More</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    BILLS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Bills'|translate}} </h1>
+        </div>
+    </div>
+
+    <div class="py-5 bg-bills mt-2">
+        <div class="container-fluid bills-a">
+            <div class="row text-center justify-content-center font-weight-bold">
+                <div class="col-sm-6 col-md-4 col-xl my-3">
+                    <a [routerLink]="['bills']" [queryParams]="{ page: 1 }" title="{{'Introduced'|translate}}" class="d-block px-3 py-4 full-height text-white bg-yellow"><h3 class="m-0 pt-sm-3 notranslate">{{'Introduced'|translate}}</h3></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl my-3">
+                    <a [routerLink]="['bills']" [queryParams]="{ page: 2 }" title="{{'ReferredtotheCommittees'|translate}}" class="d-block px-3 py-4 full-height text-white bg-bronze notranslate"><h3 class="m-0 notranslate">{{'ReferredtotheCommittees'|translate}}</h3></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl my-3">
+                    <a [routerLink]="['bills']" [queryParams]="{ page: 3 }" title="{{'Passed'|translate}}" class="d-block px-3 py-4 full-height text-white bg-dark-olive notranslate"><h3 class="m-0 pt-md-3 notranslate">{{'Passed'|translate}}</h3></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl my-3">
+                    <a [routerLink]="['bills']" [queryParams]="{ page: 4 }" title="{{'NotPassed'|translate}}" class="d-block px-3 py-4 full-height text-white bg-light-olive notranslate"><h3 class="m-0 pt-md-3 notranslate">{{'NotPassed'|translate}}</h3></a>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl my-3">
+                    <a [routerLink]="['bills']" [queryParams]="{ page: 5 }" title="{{'UnderConsideration'|translate}}" class="d-block px-3 py-4 full-height text-white bg-light-green notranslate"><h3 class="m-0 notranslate">{{'UnderConsideration'|translate}}</h3></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    Committees
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0"><span class="head-dot bg-light-beige mr-3 mt-2 notranslate"></span> {{'Committees'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-4 bg-bronze bg-committees mt-2">
+        <div class="container-fluid">
+            <div class="px-md-4">
+                <h3 class="my-3 notranslate"><a routerLink="/committeesystem/" title="System'|translate}}" class="text-white "><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'CommitteeSystem'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/committeerules/" title="{{'CommitteeRules'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'CommitteeRules'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/standingcommittees/" title="{{'StandingCommittees'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'StandingCommittees'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/committeesonrulesofprocedureprivileges/" title="{{'CommitteeonRulesofProcedurePrivileges'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'CommitteeonRulesofProcedurePrivileges'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/financecommittee/" title="{{'FinanceCommittee'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'FinanceCommittee'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/selectcommitteeonbills/" title="{{'SelectCommitteeonBills'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'SelectCommitteeonBills'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/committeeongovernmentassurance/" title=" {{'CommitteeonGovernmentAssurance'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'CommitteeonGovernmentAssurance'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/librarycommittee/" title="{{'Librarycommittee'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Librarycommittee'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/businessadvisorycommittee/" title="{{'BusinessAdvisoryCommittee'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'BusinessAdvisoryCommittee'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/specialcommittee/" title="{{'SpecialCommittee'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'SpecialCommittee'|translate}}</a></h3>
+                <h3 class="my-3 notranslate"><a routerLink="/reportslaid/" title="{{'ReportsLaid'|translate}}" class="text-white"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'ReportsLaid'|translate}}</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    PUBLIC ACCOUNTS
+===================================-->
+
+<section class="py-5 text-center bg-account mt-2">
+    <div class="container-fluid py-5">
+        <h1 class="mt-0 mb-4 font-weight-bold notranslate text-center-important">{{'PublicAccountsCommittee'|translate}}</h1>
+        <a routerLink="/publicaccountscommittee/" class="btn btn-yellow notranslate" title="More">More</a>
+    </div>
+</section>
+
+
+
+<!--===============================
+    VIDEOS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'WebcastandVideos'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="mt-2">
+        <div class="container-fluid">
+            <div class="row align-content-stretch">
+                <div class="col-md-7 col-lg-8 bg-yellow">
+                    <div class="py-4">
+                        <h2 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'Webcast'|translate}}</h2>
+
+                        <div class="video-holder mt-3">
+                            <iframe [src]="safeData(videoaudioLast.link)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 class="mt-3">{{videoaudioLast.name}}</h3>
+                                <p class="m-0">{{videoaudioLast.date}}</p>
+                            </div>
+                            <div class="col-sm-6 text-sm-right">
+                                <a routerLink="/webcastlivevideoaudio/" class="btn btn-green mt-4 notranslate" title="More">More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-lg-4 bg-dark-olive" style="height: 610px;
+                overflow-y: scroll;
+                overflow-x: hidden;">
+                    <div class="py-4">
+                        <h3 class="m-0 notranslate"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'VideoArchives'|translate}}</h3>
+
+                        <div class="mt-3" *ngFor="let data of videoaudioAll">
+                            <div class="video-holder small">
+                                <video src="{{imageUrl}}{{data.file}}" controls width="100%"></video>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h5 class="mt-3">{{data.name}}</h5>
+                                    <p class="small m-0">{{data.created_at}}</p>
+                                </div>
+                                <div class="col-sm flex-grow-0 text-sm-right">
+                                    <a routerLink="/videoarchive/" class="btn btn-yellow mt-4 notranslate" title="More">More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="mt-3">
+                            <div class="video-holder small">
+                                <iframe src="https://www.youtube.com/embed/rJE0b_rTz9g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h5 class="mt-3">Sindh Assembly Session Live</h5>
+                                    <p class="small m-0">25 December 2020</p>
+                                </div>
+                                <div class="col-sm flex-grow-0 text-sm-right">
+                                    <a href="#" class="btn btn-yellow mt-4" title="More">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="video-holder small">
+                                <iframe src="https://www.youtube.com/embed/rJE0b_rTz9g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h5 class="mt-3">Sindh Assembly Session Live</h5>
+                                    <p class="small m-0">25 December 2020</p>
+                                </div>
+                                <div class="col-sm flex-grow-0 text-sm-right">
+                                    <a href="#" class="btn btn-yellow mt-4" title="More">More</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    LATEST NEWS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'LatestinAssembly'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="py-4 bg-dark-olive mt-2">
+        <div class="container-fluid news-slider">
+            <div class="owl-carousel owl-theme">
+                
+                <div class="item" *ngFor="let item of newsandactivities">
+                    <div class="row m-0">
+                        <div class="col-md"><img src="{{imageUrl}}{{item.image}}" alt="Image"></div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column justify-content-between full-height">
+                                <div>
+                                    <h2 class="font-36 mt-4 mt-md-0">{{item.name}}</h2>
+                                    <p [innerHTML]="item.image_pdf_link"></p>
+                                </div>
+                                <div><a routerLink="/newsandactivities/" class="btn btn-yellow bottom notranslate" title="More">More</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="py-4 bg-yellow mt-2">
+        <div class="container-fluid images-slider image-overlay">
+            <div class="owl-carousel owl-theme">
+
+                <div class="item" *ngFor="let data of gallery">
+                    <div class="news-holder position-relative">
+                        <img src="{{imageUrl}}{{data.image}}" alt="Image" style="height: 150px;">
+                        <div class="news-content">
+                            <div class="row m-0 align-items-end">
+                                <div class="col-sm p-0">
+                                    <h4 class="mt-0 mb-2">{{data.date}}</h4>
+                                    <!-- <p class="m-0 text-gray">The USA deligation visit to Sindh Assembly and meeting with the honorable speaker Mr. Siraj Khan Durrani.</p> -->
+                                </div>
+                                <div class="col-sm p-0 flex-grow-0">
+                                    <a routerLink="/picturegallery/" title="News Title" class="btn btn-sm mt-2 mt-sm-0 btn-green notranslate">More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    PRESS
+===================================-->
+
+<section>
+    <div class="main-header py-3 bg-light-olive mt-2">
+        <div class="container-fluid">
+            <h1 class="m-0 notranslate"><span class="head-dot bg-light-beige mr-3 mt-2"></span> {{'PressReleases'|translate}}</h1>
+        </div>
+    </div>
+
+    <div class="pt-4 pb-3 bg-light-beige mt-2">
+        <div class="container-fluid text-darker images-slider">
+            <div class="owl-carousel owl-theme">
+                <div class="item" *ngFor="let data of getPressReleases" style="width:405px !important;">
+                    <h4 class="font-weight-bold">{{data.date}} | PAS/Press-{{data.id}}</h4>
+                    <p>{{data.name}}.</p>
+                    <div class="text-center"><a routerLink="/pressreleases/" class="btn btn-green notranslate" title="More">More</a></div>
+                </div>
+                <!-- <div class="item">
+                    <h4 class="font-weight-bold">August 3, 2019 | PAS/Press-0112</h4>
+                    <p>Sindh Assembly press release on the day of Justice and peace. The day was celebrated in Sindh Assembly.</p>
+                    <div class="text-center"><a href="#" class="btn btn-green" title="Button Text">Button Text</a></div>
+                </div>
+                <div class="item">
+                    <h4 class="font-weight-bold">August 3, 2019 | PAS/Press-0112</h4>
+                    <p>Sindh Assembly press release on the day of Justice and peace. The day was celebrated in Sindh Assembly.</p>
+                    <div class="text-center"><a href="#" class="btn btn-green" title="Button Text">Button Text</a></div>
+                </div>
+                <div class="item">
+                    <h4 class="font-weight-bold">August 3, 2019 | PAS/Press-0112</h4>
+                    <p>Sindh Assembly press release on the day of Justice and peace. The day was celebrated in Sindh Assembly.</p>
+                    <div class="text-center"><a href="#" class="btn btn-green" title="Button Text">Button Text</a></div>
+                </div>
+                <div class="item">
+                    <h4 class="font-weight-bold">August 3, 2019 | PAS/Press-0112</h4>
+                    <p>Sindh Assembly press release on the day of Justice and peace. The day was celebrated in Sindh Assembly.</p>
+                    <div class="text-center"><a href="#" class="btn btn-green" title="Button Text">Button Text</a></div>
+                </div>
+                <div class="item">
+                    <h4 class="font-weight-bold">August 3, 2019 | PAS/Press-0112</h4>
+                    <p>Sindh Assembly press release on the day of Justice and peace. The day was celebrated in Sindh Assembly.</p>
+                    <div class="text-center"><a href="#" class="btn btn-green" title="Button Text">Button Text</a></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--===============================
+    FOOTER
+===================================-->
+
+<div class="text-center mt-2 footer-logos py-3">
+    <div class="container-fluid">
+        <ul class="list-unstyled list-inline m-0">
+            <li class="list-inline-item p-3"><a href="#" title="..."><img src="./assets/images/WPC1-241x300.png" alt=".."></a></li>
+            <li class="list-inline-item p-3"><a href="#" title="..."><img src="./assets/images/PIPS%20logo.gif" alt=".."></a></li>
+            <li class="list-inline-item p-3"><a href="#" title="..."><img src="./assets/images/YPFLogo.jpg" alt=".."></a></li>
+        </ul>
+    </div>
+</div>

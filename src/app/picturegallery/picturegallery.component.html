@@ -1,0 +1,39 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2>
+                {{'PictureGallery_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/newsandactivities/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/tenders/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div> 
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-3 my-2" *ngFor="let data of allData">
+            <div class="card">
+                
+                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" style="width: 100%; height: 200px;" class="">
+              <br>
+                    <p style="padding: 5px;"><a href="{{imageUrl}}{{data.image}}" target="_blank">{{data.title}}</a></p>
+                                     
+                
+                <div class="card-footer">
+                    <p>{{data.date}}</p>   
+                    <p [innerHTML]="data.description"></p>
+                </div>
+            </div>
+      </div>
+            
+              
+    </div>
+</div>

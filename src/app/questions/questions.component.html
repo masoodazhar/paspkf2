@@ -1,0 +1,58 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>
+                &nbsp;&nbsp;  {{'Questions_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/housedebates/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/callattention/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"Number"|translate}}.</th>
+                        <th>{{"Sittings"|translate}}</th>
+                        <th>{{"Members_"|translate}}</th>
+                        <th>{{"Subject"|translate}}</th>
+                        <th>{{"Department"|translate}}</th>
+                        <th>{{"Status"|translate}}</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of allData">
+                        <td> 
+                            <a *ngIf="data.type =='text' || data.type =='jpg' || data.type =='png'" [routerLink]="['/questiondetail/', data.id]">{{data.number}}</a> 
+                            <a *ngIf="data.type =='pdf'" href="{{imageUrl}}{{data.image_pdf_link}}">{{data.number}}</a> 
+                            
+                        </td>
+                        <td> {{data.date}} </td>
+                        
+                        <td><a [routerLink]="['/memberprofile/', data.members_directories_id]" > {{data.membername}} </a></td>
+                        <td> <a *ngIf="data.type =='text' || data.type =='jpg' || data.type =='png'" [routerLink]="['/questiondetail/', data.id]">{{data.subject}}</a> 
+                            <a *ngIf="data.type =='pdf'" href="{{imageUrl}}{{data.image_pdf_link}}">{{data.subject}}</a>  </td>
+                        <td> {{data.department}} </td>
+                        <td> {{data.status}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+            
+        
+    </div>   
+    
+</div>

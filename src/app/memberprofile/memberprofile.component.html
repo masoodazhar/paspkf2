@@ -1,0 +1,311 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h1 style="text-align:center;">Members Profile</h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <button type="button" class="btn btn-success notranslate" title="Back" (click)="backPage($event)">{{'Back'|translate}}</button>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            <button class="btn btn-success" [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                   
+        </div>
+    </div>
+    <hr>
+</div>
+<div class="content profile" >
+    <div class="row profile-wrapper" id="tabId11">
+        <div class="col-md-4 basic_info_panel">
+            <div class="profile-left-heading">
+                <a href="" class="profile-photo"><img class="img-circle img-responsive"
+                        src="{{imageUrl}}{{allData.image}}" alt=""></a>
+                <!-- End of dsp_full_profile if -->
+                <!-- End of MPA Profile Pic -->
+
+                <!-- Start of MPA Title -->
+                <h2 class="profile-name">{{allData.name}}</h2>
+                <!-- End of MPA Title -->
+
+                <!-- Start of MPA Const -->
+                <h4 class="profile-designation">{{allData.presentaddress}} </h4>
+
+                <h4 class="profile-designation" style="font-size: 16px; color:white;">{{ "Assembly Tenure"|translate}}: {{allData.fromdate}}-{{allData.todate}} date ({{allData.assemblyname}})
+                </h4>
+                <!-- End of MPA Const -->
+
+                <!-- Start of ul -->
+                <ul class="list-group" style="color:white;">
+                    <!-- Start of MPA Posts -->
+                   
+                    <!-- End of MPA Posts -->
+                    <!-- Start of Party Afiliations -->
+                    
+                    <li class="list-group-item">Father's/Husband's Name</li>
+                    <div class="posts_text">
+                        {{allData.fatherhusbandname}}
+                    </div>
+                    <li class="list-group-item">{{"Party Association"|translate}}</li>
+                    <div class="posts_text">
+                        {{allData.partyassociation}} <br>
+                    </div>
+                    <li class="list-group-item">{{"Seattype"|translate}} / {{"Seats"|translate}}</li>
+                    <div class="posts_text">
+                        {{allData.seattype}} / {{allData.seats}} <br>
+                    </div>
+                    <li class="list-group-item">{{"Constituency"|translate}}</li>
+                    <div class="posts_text">
+                        {{allData.constituency}} <br>
+                    </div>
+                    <!-- End of Party Afiliations -->
+                    <li class="list-group-item">{{"District"|translate}}</li>
+                    <div class="posts_text">
+                        {{allData.District}}
+                    <br>
+                    </div>
+                    <!-- Start of MPA Father/Husband -->
+
+                    <!-- Start of MPA Childrens -->
+                    <li class="list-group-item">{{"Religion"|translate}}</li>
+                    <div class="posts_text">
+                        {{allData.religion}} <br>
+                    </div>
+                    <li class="list-group-item">Contact</li>
+                    <div class="posts_text">
+                        {{allData.phonenumber}} <br>
+                    </div>
+                    <!-- Start of MPA Email -->
+                    <li class="list-group-item">Email</li>
+                    <div class="posts_text">
+                        {{allData.email}} <br>
+                    </div>
+                    <!-- End of MPA Email -->
+                    <li class="list-group-item">Web Address</li>
+                    <div class="posts_text">
+                        {{allData.webaddress}} <br>
+                    </div>
+                    <li class="list-group-item">Present Address</li>
+                    <div class="posts_text">
+                        {{allData.presentaddress}} <br>
+                    </div>
+                    <li class="list-group-item">Permanent Address</li>
+                    <div class="posts_text">
+                        {{allData.permanentaddress}} <br>
+                    </div>
+                    <li class="list-group-item">Oath Taken on</li>
+                    <div class="posts_text">
+                        {{allData.mian_aothdate}} <br>
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 profile-right-body detail_panel_wrapper">
+            <!-- End If  -->
+
+            <div class="panel">
+                <!-- <div class="panel-heading">
+                    <h4 class="panel-title">Permanent&nbsp;Contact</h3>
+                </div> -->
+                <div class="panel-body">
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Position</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        <th>Ministry</th>
+                                        <th>From date</th>
+                                        <th>To Date &nbsp; </th>
+                                        <th> &nbsp; Committee</th>
+                                        <th>From date</th>
+                                        <th>To Date</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let moc_position of  convertData(allData.moc_position); let indexes=index  ">
+                                        <td>{{moc_position}}</td>
+                                        <td>{{convertData(allData.moc_fromdate)[indexes]}}</td>
+                                        <td>{{convertData(allData.moc_todate)[indexes]}}</td>
+                                        
+                                        <td>{{convertData(allData.moc_committee)[indexes]}}</td>
+                                        <td>{{convertData(allData.moc_fromdate1)[indexes]}}</td>
+                                        <td>{{convertData(allData.moc_todate1)[indexes]}}</td>
+        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Education Info</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        <th>{{"Qualification"|translate}}</th>
+                                        <th>Year of Passing</th>
+                                        <th>Institute/University</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let yearofpassing of  convertData(allData.yearofpassing); let indexes=index  ">
+                                 
+                                        <td>{{convertData(allData.qualification)[indexes]}}</td>
+                                        <td>{{yearofpassing}}</td>
+                                        <td>{{convertData(allData.iu)[indexes]}}</td>
+                                        <td>{{convertData(allData.edudetails)[indexes]}}</td>
+        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">{{"Previous official positions"|translate}}</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        <th>{{"Previous official positions"|translate}}</th>
+                                        <th>Govt. Body</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let previousposition of  convertData(allData.previousposition); let indexes=index  ">
+                                        
+                                        <td> {{convertData(allData.govtbody)[indexes]}} </td>
+                                        <td> {{previousposition}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Political Career </h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        <th>Party</th>
+                                        <th>Detail</th>
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let party of convertData(allData.party); let indexes=index">
+                                        <td>{{party}}.</td>
+                                        <td> {{convertData(allData.pc_detail)[indexes]}} </td>
+                                        <td> {{convertData(allData.pc_fromdate)[indexes]}} </td>
+                                        <td> {{convertData(allData.pc_todate)[indexes]}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Visits to Countries </h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        
+                                        <th>Country</th>
+                                        <th>Purpose</th>
+                                        <th>Duration</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let vtc_counttry of convertData(allData.vtc_counttry); let indexes=index">
+                                      
+                                        <td>{{vtc_counttry}}</td>
+                                        <td> {{convertData(allData.vtc_purpose)[indexes]}} </td>
+                                        <td> {{convertData(allData.vtc_duration)[indexes]}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Participation in Events  </h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        
+                                        <th>Event type</th>
+                                        <th>Country</th>
+                                        <th>Participated As</th>
+                                        <th>Event Date</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let pie_type of convertData(allData.pie_type); let indexes=index">
+                              
+                                        <td> {{pie_type}}</td>
+                                        <td> {{convertData(allData.vtc_country)[indexes]}} </td>
+                                        <td> {{convertData(allData.vtc_participatedas)[indexes]}} </td>
+                                        <td> {{convertData(allData.vtc_eventdate)[indexes]}} </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card my-2">
+                        <div class="card-header bg-success ">
+                            <h3 class="text-white" style="padding:0px; margin:0px;">Relatives in Assemblies</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        
+                                        <th>Name</th>
+                                        <th>Parliamentary Body</th>
+                                        <th>Family Rrelation</th>
+                                        <th>Duration</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ria_name of convertData(allData.ria_name); let indexes=index">
+                                        <td>{{ria_name}}</td>
+                                        <td> {{convertData(allData.ria_parliamentarybody)[indexes]}} </td>
+                                        <td> {{convertData(allData.ria_familyrelation)[indexes]}} </td>
+                                        <td> {{convertData(allData.ria_duration)[indexes]}} </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <address class="address">
+                        <ol type="a">
+                            <li>{{allData.permanentaddress}} </li>
+                        </ol>
+                        <p style="margin-left:22px;">
+                            <a href="tel:{{allData.phonenumber}}">{{allData.phonenumber}}</a>
+                        </p>
+                    </address> -->
+                </div>
+            </div><!-- End of Panel -->
+        </div><!-- End of detail_panel_wrapper -->
+    </div><!-- End of profile-wrapper -->
+</div>

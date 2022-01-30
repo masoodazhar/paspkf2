@@ -1,0 +1,183 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2>
+                {{'ResolutionsPassed_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/callattention/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/stagesofbills/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <form action="form-inline">
+                <div class="row my-4">
+                
+                    <div class="col-3">
+                        <div class="form-group form-inline">
+                            <!-- <label for=""><b>{{ "Assembly Tenure"|translate}}: &nbsp;&nbsp;</b></label> -->
+                            <select class="form-control"  (change)="onChange($event)">
+                                <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">                        
+                            <select class="form-control" (change)="filterOfType($event)">
+                                <option value="0">Resolution Type</option>
+                                <option value="Federal">Federal</option>
+                                <option value="Provincial">Provincial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">                        
+                            <select class="form-control" (change)="filterOfStatus($event)">
+                                <option value="Resolution Statuses">Resolution Status</option>
+                                <option value="Lapsed">Lapsed</option>
+                                <option value="Passed Unanimously">Passed Unanimously</option>
+                                <option value="Passed with Majority">Passed with Majority</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="col-3">
+                        <div class="form-group">                       
+                            <select name="tx-govt-department[]" (change)="filterOfDepartment($event)" class="form-control">
+                            
+                                    <option value="-">-</option>
+                                    <option value="Agriculture">Agriculture</option>
+                                    <option value="AGRICULTURE, SUPPLY PRICES">AGRICULTURE, SUPPLY PRICES</option>
+                                    <option value="Antiquities">Antiquities</option>
+                                    <option value="Auqaf">Auqaf</option>
+                                    <option value="Auqaf-zakat ushr">AUQAF, ZAKAT USHR</option>
+                                    <option value="Coastal development authority">Coastal Development Authority</option>
+                                    <option value="Cooperation">Cooperation</option>
+                                    <option value="Cooperative">Cooperative</option>
+                                    <option value="Criminal portfolio">Criminal Portfolio</option>
+                                    <option value="Culture">Culture</option>
+                                    <option value="Culture tourism antiquities">CULTURE, TOURISM ANTIQUITIES</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Education and literacy">Education and Literacy</option><option value="energy">Energy</option>
+                                    <option value="Environment climate change">Environment Climate Change</option>
+                                    <option value="Environment climate change costal development">ENVIRONMENT, CLIMATE CHANGE COSTAL DEVELOPMENT</option>
+                                    <option value="Environmental protection">Environmental Protection</option>
+                                    <option value="Excise taxation">Excise Taxation</option>
+                                    <option value="Excise taxation law">EXCISE, TAXATION LAW</option>
+                                    <option value="Excise taxation narcotics">EXCISE, TAXATION NARCOTICS</option>
+                                    <option value="Excise taxation narcotics control">EXCISE, TAXATION NARCOTICS CONTROL</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Finance human rights">FINANCE HUMAN RIGHTS</option>
+                                    <option value="Fisheries">Fisheries</option><option value="food">Food</option>
+                                    <option value="Forest">Forest</option>
+                                    <option value="Forest wildlife">FOREST WILDLIFE</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Health population welfare">HEALTH POPULATION WELFARE</option>
+                                    <option value="Home">Home</option><option value="housing">Housing</option>
+                                    <option value="Housing town planning">Housing Town Planning</option>
+                                    <option value="Human resources">Human Resources</option>
+                                    <option value="Human rights">Human Rights</option>
+                                    <option value="Human settlement">HUMAN SETTLEMENT</option>
+                                    <option value="Industries commerce">Industries Commerce</option>
+                                    <option value="Information">Information</option>
+                                    <option value="Information archives">Information Archives</option>
+                                    <option value="Information technology">Information Science Technology</option>
+                                    <option value="Inter provincial coordination">Inter Provincial Coordination</option>
+                                    <option value="Irrigation">Irrigation</option>
+                                    <option value="Katchi abadies">Katchi Abadies</option>
+                                    <option value="Labour">Labour</option>
+                                    <option value="Labour and human resources">LABOUR AND HUMAN RESOURCES</option>
+                                    <option value="Land utilization">Land Utilization</option>
+                                    <option value="Law">Law</option>
+                                    <option value="Law and parliamentary affairs">LAW AND PARLIAMENTARY AFFAIRS</option>
+                                    <option value="Live stock">Live Stock</option>
+                                    <option value="Livestock fisheries">LIVESTOCK FISHERIES</option>
+                                    <option value="Local government">Local Government</option>
+                                    <option value="Management professional development">Management Professional Development</option>
+                                    <option value="Mines mineral development">Mines Mineral Development</option>
+                                    <option value="Minorities affairs">Minorities Affairs</option>
+                                    <option value="Narcotics">Narcotics</option>
+                                    <option value="Other">other</option>
+                                    <option value="Parliamentary affairs">Parliamentary Affairs</option>
+                                    <option value="Planning development">Planning Development</option>
+                                    <option value="Population welfare">Population Welfare</option>
+                                    <option value="Population welfare and health">POPULATION WELFARE AND HEALTH</option>
+                                    <option value="Prisons">Prisons</option>
+                                    <option value="Public health engineering">PUBLIC HEALTH ENGINEERING</option>
+                                    <option value="Public health engineering and rural development">Public Health Engineering and Rural Development</option>
+                                    <option value="Peligious affairs">Religious Affairs</option>
+                                    <option value="Revenue">REVENUE</option>
+                                    <option value="Revenue relief">Revenue Relief</option>
+                                    <option value="Sindh technical education vocational training authority">Sindh Technical Education Vocational Training Authority</option>
+                                    <option value="Social welfare">Social Welfare</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Supply prices">Supply Prices</option>
+                                    <option value="Tourism">Tourism</option>
+                                    <option value="Transport mass transit">Transport Mass Transit</option>
+                                    <option value="Women development">Women Development</option>
+                                    <option value="Works services">Works Services</option>
+                                    <option value="Youth affairs">Youth Affairs</option>
+                                    <option value="Zakat ushr">Zakat Ushr</option>
+                            </select>
+                        </div>
+                    </div> -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-12" *ngIf="!isDetail">
+
+            <ul>
+                <li *ngFor="let data of allData" > 
+                    <h4 class="my-2 heading-lists" >{{ "Session No"|translate}}: {{data.sessionname}}</h4>
+                    <ul>
+                        <li *ngFor="let sessions of data.listofsessions" class="lists-style">
+                            <a href="{{imageUrl}}{{sessions.image_pdf_link}}" target="_blank" *ngIf="sessions.type=='pdf'">{{sessions.rsdate}}  </a>
+                            <a [routerLink]="['/resolutionspasseddetail/', sessions.rsid]" *ngIf="sessions.type!='pdf'">{{sessions.rsdate}}  </a>
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-12"  *ngIf="isDetail">
+           <br>
+           <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                   <tr>
+                       <th>Session</th>
+                       <th>Sitting No</th>
+                       <th>Sitting Date</th>
+                   </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td>{{singleData.fromdate}}-{{singleData.todate}}</td>
+                    <td>{{singleData.sittingsno}}</td>
+                    <td>{{singleData.sittingsdate}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div [innerHTML]="singleData.description"></div>
+                    </td>
+                </tr>
+               </tbody>
+           </table>
+           
+        </div>
+    </div>
+</div>

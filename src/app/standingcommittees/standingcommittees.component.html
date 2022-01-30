@@ -1,0 +1,29 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">            
+            <h1>{{'StandingCommittees_'|translate}}</h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/publicaccountscommittee/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/committeesonrulesofprocedureprivileges/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div> 
+    </div>
+    <hr>
+    
+    <div class="row">
+        <div class="col-12">
+            <ul>
+                <li *ngFor="let data of allData"><a [routerLink]="['/standingcommitteestabs/', data.id]">{{data.category}}</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+</div>

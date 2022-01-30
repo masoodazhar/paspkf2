@@ -1,0 +1,14 @@
+.paralink{
+    background-color: green;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+}
+ul li{
+    list-style: none;
+}
+.main-link ul{
+    margin-left: 30px;
+}

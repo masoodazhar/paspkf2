@@ -1,0 +1,42 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row" style="">
+        <div class="col-md-5">
+            <h2>
+                {{'LeaderoftheHouse_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" (change)="onChange($event, false)">
+                <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+            </select>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/cabinetcomposition/" class="btn btn-success notranslate" title="Back">{{'Back'|translate}}</a>
+            <a routerLink="/leaderoftheopposition/" class="btn btn-success notranslate" title="Next">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="Home">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row" *ngFor="let data of filterItemsOfType('1','Leader of House')">      
+        <div class="col-2 py-2">
+            <div class="picture-frame full-height">
+                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+            </div>
+        </div>
+        <div class="col-8">
+            <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+            <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+            <p style="line-height: 0.3;">{{data.presentaddress}}</p>
+            <p style="line-height: 0.3;">{{data.tabs}}</p>
+            <p style="line-height: 0.3;">{{data.fromdate}} to {{data.todate}}</p>
+        </div>       
+    </div>
+    
+</div>

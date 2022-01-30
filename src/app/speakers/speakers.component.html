@@ -1,0 +1,120 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h1> {{'Speaker_'|translate}} </h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/assemblylibrary/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/deputyspeaker/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>{{"Speaker_"|translate}}</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"SpeakersMessage"|translate}}</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Newsandactivities_"|translate}}</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> ROLE OF SPEAKER</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> FORMER SPEAKERS</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId6" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Gallery"|translate}}</a>
+       
+    </div>
+    
+    <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+        <div class="tab-pane fade show active" id="tabId1" role="tabpanel">
+            <div class="row">
+                <div class="col-2 py-2">
+                    <div class="picture-frame">
+                        <img src="{{imageUrl}}{{singleData.image}}" alt="Member Name" class="full-height">
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    
+                    
+                    
+                    
+                    <a [routerLink]="['/membersperformancereport/', singleData.id]"><p>View Performance Report</p></a>
+                    <a [routerLink]="['/memberprofile/', singleData.id]" ><h5 >{{singleData.name}}|{{singleData.email}}</h5></a>                         
+                    <p style="line-height: 0;">{{singleData.presentaddress}}</p>
+                    <p style="line-height: 0;">{{singleData.partyassociation}}</p>
+                    <p style="line-height: 0;">{{singleData.phonenumber}}</p>
+                    <p style="line-height: 0;">{{singleData.permanentaddress}}</p>
+                    <p style="line-height: 0;">Tenure: {{singleData.fromdate}} to {{singleData.todate}}</p>
+                </div>
+            </div>      
+        </div>
+    
+        <div class="tab-pane fade" id="tabId2" role="tabpanel">
+            <h2>Message from Speaker</h2>
+
+            <div [innerHTML]="singleData.speakermessage"></div>
+        </div>
+    
+        <div class="tab-pane fade" id="tabId3" role="tabpanel">
+            <p><b>News & Activities</b></p>
+            <p>Follow the headline links below to read details from the Media Centre section.</p>
+            <ol>
+                    <li *ngFor="let data of allData" > <span class="small-head-dot bg-light-olive mr-3 mt-2"></span> 
+                        <a [routerLink]="['/speakersdetail/', data.id]" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.name}} </a>
+                        <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.name}} </a>
+                        <p>{{"Date"|translate}}: {{data.date}}</p>
+                    </li>
+            </ol>
+        </div>
+    
+        <div class="tab-pane fade" id="tabId4" role="tabpanel">
+            <p><b>Speaker's Role in the Assembly</b></p>
+            <div [innerHTML]="singleData.speakersrole"></div>
+        </div>
+        <div class="tab-pane fade" id="tabId5" role="tabpanel">
+            <div class="row">
+                <div class="col-6 my-2"  *ngFor="let data of allMembers">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                            <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}|{{data.email}}</h5></a>                         
+                            <p style="line-height: 0;">{{data.presentaddress}}</p>
+                            <p style="line-height: 0;">{{data.partyassociation}}</p>
+                            <p style="line-height: 0;">Tenure: {{data.fromdate}} to {{data.todate}}</p>
+                            <p style="line-height: 0;">From {{data.memberfromdate}} to {{data.membertodate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="tab-pane fade" id="tabId6" role="tabpanel">
+            <p><b>Gallery</b></p>
+            <div class="row">
+                <div class="col-3 my-2" *ngFor="let data of picturegalleryspeaker">
+                      <div class="card">
+                          
+                          <img src="{{imageUrl}}{{data.image}}" alt="Member Name" style="width: 100%; height: 200px;" class="">
+                        <br>
+                              <p style="padding: 5px;"><a href="{{imageUrl}}{{data.image}}" target="_blank">{{data.title}}</a></p>
+                                               
+                          
+                          <div class="card-footer">
+                              <p>{{data.date}}</p>   
+                              <p [innerHTML]="data.description"></p>
+                          </div>
+                      </div>
+                </div>
+                      
+                        
+              </div>
+        </div>
+    </div>
+
+</div>

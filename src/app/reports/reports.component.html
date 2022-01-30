@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2> <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}</button> &nbsp;&nbsp;&nbsp; {{'Reports_'|translate}} </h2>
+        </div>  
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/publications/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/contactus/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>      
+    </div>    
+    <hr>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <label for=""><b>{{ "Assembly Tenure"|translate}} &nbsp;&nbsp;</b></label>
+                <select class="form-control"  (change)="onChange($event)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                    
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label for="">  {{"Department"|translate}} / {{"Committees"|translate}} </label>
+                <select name="" id="" class="form-control" (change)="filterOfType($event)" style="border: 1px solid">
+                    <option value=".">All</option>
+                    <option value="Law">Law</option>
+                    <option value="Special Committee No.1">Special Committee No.1</option>
+                    <option value="Special Committee No.2">Special Committee No.2</option>
+                    <option value="Special Committee No.3">Special Committee No.3</option>
+                    <option value="Special Committee No. 10"> Special Committee No. 10</option>
+                    <option value="Special Committee No.11"> Special Committee No.11 </option>
+                    <option value="Special Committee No.13">Special Committee No.13</option>
+                    <option value="Special Committee No.12">Special Committee No.12</option>
+                    <option value="Finance Committee of the Assembly">Finance Committee of the Assembly </option>
+                    <option value="Industries, Commerce and Investment">Industries, Commerce and Investment</option>
+                    <option value="Specialized Healthcare and Medical Education">Specialized Healthcare and Medical Education</option>
+                    <option value="Higher Education">Higher Education</option>
+                    <option value="Housing, Urban Development and Public Health Engineering">  Housing, Urban Development and Public Health Engineering </option>
+                    <option value="Human Rights and Minorities Affairs">Human Rights and Minorities Affairs</option>
+                    <option value="Labour and Human Resource">Labour and Human Resource</option>
+                    <option value="Primary and Secondary Healthcare">Primary and Secondary Healthcare</option>
+                    <option value="Committee on Privileges">Committee on Privileges</option>
+                    <option value="School Education">School Education</option>
+                    <option value="Chief Ministers’ Inspection Team">Chief Ministers’ Inspection Team</option>
+                    <option value="Special Committee No. 4">Special Committee No. 4</option>
+                    <option value="Special Committee No. 5">Special Committee No. 5</option>
+                    <option value="Gender Mainstreaming (Women Development)">Gender Mainstreaming (Women Development)</option>
+                    <option value="Excise & Taxation">Excise & Taxation</option>
+                    <option value="Population Welfare">Population Welfare </option>
+                    <option value="Planning & Development">Planning & Development</option>
+                    <option value="Mines and Minerals">Mines and Minerals</option>
+                    <option value="Public Accounts Committee-II">Public Accounts Committee-II</option>
+                    <option value="Environment Protection">Environment Protection</option>
+                    <option value="Local Government and Community Development">Local Government and Community Development</option>
+                    <option value="Zakat & Ushr">Zakat & Ushr</option>
+                    <option value="Special Committee No. 6"> Special Committee No. 6</option>
+                    <option value="Home">Home</option>
+                    <option value="Public Prosecution">Public Prosecution</option>
+                    <option value="Revenue, Relief and Consolidation">Revenue, Relief and Consolidation</option>
+                    <option value="Special Committee No. 7">Special Committee No. 7</option>
+                    <option value="Special Committee No. 8">Special Committee No.8</option>
+                    <option value="Special Committee No. 9">Special Committee No. 9</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label for=""> {{"Report Title"|translate}}</label>
+                <input type="text" (keyup)="keySearch($event)" class="form-control" style="border: 1px solid">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"  *ngIf="!isDetail">
+            <table class="table table-striped">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"Title"|translate}} </th>
+                        <!-- <th>Department Type </th> -->
+                        <th>{{"Date"|translate}} </th>
+                        <th>{{"typedepartment"|translate}} </th>
+                        <th> {{"Committees"|translate}} </th>
+                    </tr>
+                </thead>
+                <tbody>
+		
+                    <tr *ngFor="let data of allData">
+                        <td>                             
+                            <a  (click)="getSingleData(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.title}}</a>
+                            <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.title}} </a>
+                        </td>
+                        <!-- <td> {{data.department_type}} </td> -->
+                        <td> {{data.date}} </td>
+                        <td> {{data.department_type}} </td>
+                        <td> {{data.department_committee}} </td>
+                    </tr>                    
+                
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12" *ngIf="isDetail">
+            <hr>
+            <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link">
+                
+            </div>
+            <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+        </div>
+    </div>    
+</div>

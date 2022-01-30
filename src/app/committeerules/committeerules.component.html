@@ -1,0 +1,26 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-8" >
+            <h2>{{'Committeerules_'|translate}}</h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/committeesystem/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/publicaccountscommittee/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a routerLink="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div> 
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <h3> {{singleData.heading}} </h3>
+            <br>
+            <div [innerHTML]="singleData.description"></div>
+        </div>
+    </div>
+</div>

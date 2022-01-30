@@ -1,0 +1,52 @@
+<div class="containet-fluid">
+ 
+    <div class="row">
+        <div class="col-8">
+            <h1>{{'DirectoryofOfficers_'|translate}} </h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/organizationalchart/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/powersfunctions/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center;">
+            <h5><b>GOVERNMENT OF SINDH & OTHERS</b></h5>
+           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th> {{"Serial number"|translate}} </th>
+                        <th> {{"Name"|translate}} </th>
+                        <th> {{"Designation"|translate}} </th>
+                        <th> BPS </th>
+                        <th> {{"Phone Number"|translate}} </th>
+                        <th> {{"FAX"|translate|uppercase}} </th>
+                        <th> {{"Email"|translate|uppercase}} </th>
+                        <th> {{"Remarks"|translate}} </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of allData;let indexOfelement=index">
+                        <td> {{indexOfelement+1}} </td>
+                        <td> {{data.name}} </td>
+                        <td> {{data.designation}} </td>
+                        <td> {{data.bps}} </td>
+                        <td> {{data.phone}}  </td>
+                        <td> {{data.fax}}  </td>
+                        <td> {{data.email}}  </td>
+                        <td> {{data.remarks}}  </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>

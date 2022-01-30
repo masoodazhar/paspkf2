@@ -1,0 +1,47 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <h2><button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}</button> &nbsp;&nbsp;&nbsp; {{"NotificationsCommittees_"|translate}} </h2>
+            </div>   
+            <div class="col-md-4 pageSwitchButtons">
+                <a routerLink="/notifymembers/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a routerLink="/notifygeneral/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+                <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            </div>      
+        </div>
+    <hr>
+    <div class="row">
+        <div class="col-12" *ngIf="!isDetail">
+            <table class="table table-striped">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"Subject"|translate}} </th>
+                        <th>{{"Letter No"|translate}} </th>
+                        <th>{{"Date"|translate}} </th>
+                        <th>{{"Type"|translate}} </th>
+                    </tr>
+                </thead>
+                <tbody>
+		
+                    <tr *ngFor="let data of allData">
+                        <td>
+                            
+                            <a (click)="getDataMemeber(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.subject}}</a>
+                            <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.subject}} </a>
+                           
+                        </td>
+                        <td>{{data.letterno}}</td>
+                        <td>{{data.date}}</td>
+                        <td>{{data.page}}</td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12" *ngIf="isDetail">
+            <hr>
+            <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link"></div>
+            <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+        </div>
+    </div>    
+</div>

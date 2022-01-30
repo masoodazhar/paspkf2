@@ -1,0 +1,45 @@
+<div class="container-flui">
+        <div class="row">
+            <div class="col-12">
+              <h1><b>Bills</b></h1>
+            </div>
+          </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead class="bg-success text-white">
+                        <tr>
+                            <th>{{"Bill Type"|translate}}</th>
+                            <th>{{"Mover"|translate}}</th>
+                            <th>{{"Status"|translate}}</th>
+                            <th>{{"Assembly"|translate}} </th>
+                            <th>{{"Date"|translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> {{allData.bill_type}} </td>
+                            <td> {{allData.membername}} </td>
+                            <td> {{allData.status}} </td>
+                            <td> {{allData.assemblyname}} </td>
+                            <td> {{allData.date}} </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div class="col-12" *ngIf="allData.type=='text'; else elseBlock">
+                                    <div [innerHTML]="allData.image_pdf_link"></div>
+                                </div>
+                                <ng-template #elseBlock> 
+                                    <img src="{{imageUrl}}{{allData.image_pdf_link}}" width="100%" alt="">
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+
+</div>

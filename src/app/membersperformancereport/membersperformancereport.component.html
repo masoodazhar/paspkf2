@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h1 style="text-align:left;">{{'Membersperformancereport_'|translate}}</h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/membersdirectory/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+
+
+ 
+   <div class="row">
+        <div class="col-2 offset-5">
+            <img src="{{imageUrl}}{{memberSingleData.image}}" alt="" style="width:200px; height:220px;">
+            
+        </div>        
+   </div>
+   <div class="row">
+       <div class="col-6 offset-3" style="text-align: center;">
+            <div style="text-align: center;"> <h3 style="text-align: center;"> {{memberSingleData.name}} </h3></div>
+        
+       </div>
+   </div>
+    <div class="row">
+        
+        <div class="col-12">
+            <table class="table ">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th> Assembly Questions</th>
+                        <th></th>
+                        <th> Privilege Motions</th>
+                        <th></th>
+                        <th> Adjournment Motion</th>
+                        <th></th>
+                        <th> Private Bills</th>
+                        <th></th>
+                        <th> Resolutions</th>
+                        <th></th>
+                        <th> Motions</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of allData">
+                        <td> {{ data.assemblyquestiontext }} </td>
+                        <td> {{ data.assemblyquestionvalue }} </td>
+
+                        <td> {{ data.privilegemotionstext }} </td>
+                        <td> {{ data.privilegemotionsvalue }} </td>
+
+                        <td> {{ data.adjournmentmotiontext }} </td>
+                        <td> {{ data.adjournmentmotionvalue }} </td>
+
+                        <td> {{ data.privatebillstext }} </td>
+                        <td> {{ data.privatebillsvalue }} </td>
+
+                        <td> {{ data.Resolutionstext }} </td>
+                        <td> {{ data.Resolutionsvalue }} </td>
+
+                        <td> {{ data.motionstext }} </td>
+                        <td> {{ data.motionsvalue }} </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

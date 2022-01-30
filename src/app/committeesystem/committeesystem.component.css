@@ -1,0 +1,14 @@
+ul li{
+    list-style: none;
+}
+
+.detailist:nth-of-type(odd) {
+    padding: 5px;
+    background: #e1e1e1;
+}
+        
+.detailist:nth-of-type(even) {
+    padding: 5px;
+    background: #fcfcfc;
+}
+    

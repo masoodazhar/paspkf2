@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h2>{{'LegislativeProcedure'|translate}}</h2>
+                <h5><b>{{'Legislation'|translate}}</b></h5>
+                <p><b>{{'Bills_'|translate}}</b></p>
+            </div>
+            <div class="col-md-4 pageSwitchButtons">
+                <a routerLink="/resolutionspassed/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a routerLink="/bills/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+                <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12" [innerHTML]="singleData.description">
+               
+            </div>
+        </div>
+    </div>
+    
+</div>

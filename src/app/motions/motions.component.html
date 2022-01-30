@@ -1,0 +1,151 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>
+                <button (click)="back()" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}} &nbsp;&nbsp;   </button> {{'Motions_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/acts/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/performanceofassembly/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>            
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for=""><b>{{"Parliamentary Years"|translate}}: </b></label>
+                <select class="form-control"  (change)="filterParYear($event)">
+                    <option *ngFor="let data of allParliamentaryYears" value="{{data.name}}">{{data.name}}</option>
+                </select>
+            </div>                
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                <select class="form-control"  (change)="onChange($event)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for=""><b>{{"Sessions"|translate}}: </b></label>
+                <select class="form-control"  (change)="filterSession($event)">
+                    <option *ngFor="let data of allSessions" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for=""><b>{{"Sittings"|translate}}: </b></label>
+                <select class="form-control"  (change)="filterSittings($event)">
+                    <option *ngFor="let data of allTheDaySummaryOfProceedings" value="{{data.sittingsno}}" >{{data.sittingsno}}</option>
+                </select>
+            </div>                
+        </div>
+    </div>
+ 
+   <hr>
+    <div class="row">
+        <div class="col-12" *ngIf="!isDetail">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"> {{"Privilege Motion"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"> {{"Adjournment Motion"|translate}}</a>
+            </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade show active" id="tabId1" role="tabpanel">
+                    <h4>{{"Privilege Motion"|translate}}</h4>
+                    <table class="table table-bordered">
+                        <thead class="bg-success text-white">
+                            
+                            <tr>
+                                <th>{{"Motion Number"|translate}}.</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{"Title"|translate}}</th>
+                                <th>{{"Mover"|translate}}</th>
+                                <th>{{"Status"|translate}}</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of filterItemsOfType('Privilege Motion')">
+                                <td> 
+                                    <a  (click)="getDetail(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.motionno}}</a>
+                                    <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank"  *ngIf="data.type == 'pdf'">{{data.motionno}}</a> 
+                                </td>
+                                <td> {{data.sittingsno}} </td>
+                                <td> {{data.title}} </td>
+                                <td> {{data.membername}} </td>
+                                <td> {{data.status}} </td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId2" role="tabpanel">
+                    <h4>{{"Adjournment Motion"|translate}}</h4>      
+                    <table class="table table-bordered">
+                        <thead class="bg-success text-white">
+                            
+                            <tr>
+                                <th>{{"Motion Number"|translate}}.</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{"Title"|translate}}</th>
+                                <th>{{"Mover"|translate}}</th>
+                                <th>{{"Status"|translate}}</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let data of filterItemsOfType('Adjournment Motion')">
+                                <td> 
+                                    <a  (click)="getDetail(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.motionno}}</a>
+                                    <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank"  *ngIf="data.type == 'pdf'">{{data.motionno}}</a> 
+                                </td>
+                                <td> {{data.sittingsno}} </td>
+                                <td> {{data.title}} </td>
+                                <td> {{data.membername}} </td>
+                                <td> {{data.status}} </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>         
+                </div>
+            </div>
+        </div>
+        <div class="col-12"  *ngIf="isDetail">
+            <br>
+            <table class="table table-bordered">
+                 <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"SessionNo"|translate}}</th>
+                        <th>{{"SittingsNo"|translate}}</th>
+                        <th>{{"SittingsDate"|translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                     <td>{{singleData.fromdate}}-{{singleData.todate}}</td>
+                     <td>{{singleData.sittingsno}}</td>
+                     <td>{{singleData.sittingsdate}}</td>
+                 </tr>
+                 <tr>
+                     <td colspan="3">
+                         <div [innerHTML]="singleData.image_pdf_link"></div>
+                     </td>
+                 </tr>
+                </tbody>
+            </table>
+            
+         </div>
+    </div>
+</div>

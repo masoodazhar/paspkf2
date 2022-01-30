@@ -1,0 +1,149 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row" style="border-bottom: solid 1px;">
+            <div class="col-md-4">
+                <h2>
+                    {{assemblyName}}
+                </h2>
+            </div>
+            <!-- <div class="col-md-3 offset-3">
+                <div class="form-group form-inline">
+                    <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                    <select class="form-control"  (change)="onChange($event)">
+                        <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                    </select>
+                </div>
+                
+            </div> -->
+        </div>
+        <div class="row my-4">       
+            <div class="col-md-3 offset-3">
+                <img src="{{imageUrl}}{{singleSpeaker.image}}" class="img-responsive" style="width:255px;  height:250px;   margin-bottom: 10px;" alt="">
+              
+                <div class="bg-light-green" style="color: white;     text-align: center;"> <h3>{{singleSpeaker.name}} </h3></div>
+                <p class="mt-2">{{"Speaker_"|translate}}</p>
+              
+            </div>
+            <div class="col-md-3">
+                <img src="{{imageUrl}}{{singleDeputySpeaker.image}}" class="img-responsive" style="width:255px;  height:250px;   margin-bottom: 10px;" alt="">
+              
+                <div class="bg-light-green" style="color: white;     text-align: center;"> <h3>{{singleDeputySpeaker.name}} </h3></div>
+                <p class="mt-2">{{"DeputySpeaker_"|translate}}</p>
+              
+            </div>
+        </div>
+    </div>
+   
+    <div class="row">
+        <div class="col-12">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId3" role="tab">{{ "First Parliamentary Year"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab">{{ "Second Parliamentary Year"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 " data-toggle="list" href="#tabId1" role="tab">{{ "Third Parliamentary Year"|translate}}</a>
+             </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade " id="tabId1" role="tabpanel">
+                    <h4>{{ "Third Parliamentary Year"|translate}}</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{ "Summoned By"|translate}}</th>
+                                <th colspan="2">{{ "Period"|translate}}</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{ "Session Days"|translate}} </th>
+                            </tr>
+                            <tr>                                
+                                <th colspan="2"></th>
+                                <th>{{"From"|translate}}</th>
+                                <th>{{"To"|translate}}</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('Third Parliamentary Year')">
+                                <td><a [routerLink]="['/sittings/',data.mainsessionid]">{{data.sessionname}}</a></td>
+                                <td>{{data.summonedby}}</td>
+                                <td>{{data.fromdate}}</td>
+                                <td>{{data.todate}}</td>
+                                <td>{{data.actualsittings}}</td>
+                                <td>{{data.sessiondays}}</td>
+                            </tr>                           
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId2" role="tabpanel">
+                    <h5>{{ "Second Parliamentary Year"|translate}}</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{ "Summoned By"|translate}}</th>
+                                <th colspan="2">{{ "Period"|translate}}</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{ "Session Days"|translate}} </th>
+                            </tr>
+                            <tr>                                
+                                <th colspan="2"></th>
+                                <th>{{"From"|translate}}</th>
+                                <th>{{"To"|translate}}</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('Second Parliamentary Year')">
+                                <td><a [routerLink]="['/sittings/',data.mainsessionid]">{{data.sessionname}}</a></td>
+                                <td>{{data.summonedby}}</td>
+                                <td>{{data.fromdate}}</td>
+                                <td>{{data.todate}}</td>
+                                <td>{{data.actualsittings}}</td>
+                                <td>{{data.sessiondays}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane fade show active" id="tabId3" role="tabpanel">
+                    <h5>{{ "First Parliamentary Year"|translate}}</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{ "Summoned By"|translate}}</th>
+                                <th colspan="2">{{ "Period"|translate}}</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{ "Session Days"|translate}} </th>
+                            </tr>
+                            <tr>
+                                
+                                <th colspan="2"></th>
+                                <th>{{"From"|translate}}</th>
+                                <th>{{"To"|translate}}</th>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('First Parliamentary Year')">
+                                <td><a [routerLink]="['/sittings/',data.mainsessionid]">{{data.sessionname}}</a></td>
+                                <td>{{data.summonedby}}</td>
+                                <td>{{data.fromdate}}</td>
+                                <td>{{data.todate}}</td>
+                                <td>{{data.actualsittings}}</td>
+                                <td>{{data.sessiondays}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

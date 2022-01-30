@@ -1,0 +1,140 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8" style="text-align: center">
+            <h2> <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}</button> &nbsp;&nbsp;&nbsp; {{'PublicAccountsCommittee_'|translate}}</h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/committeerules/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/standingcommittees/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+        </div> 
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12" *ngIf="!isDetail">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>Members</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Business Referred</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>  Reports </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>  Subcommittees  </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>   Notifications  </a>    
+            </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade show active" id="tabId1" role="tabpanel">
+                    <h1>Chairman</h1>
+                    <div class="row" *ngIf="allChairman">
+                        <div class="col-6 my-2">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{allChairman.image}}" alt="Member Name" class="full-height">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <a [routerLink]="['/membersperformancereport/', allChairman.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', allChairman.id]" ><h5 >{{allChairman.name}}</h5></a>
+                                    <p>{{allChairman.presentaddress}}</p>
+                                    <p>{{allChairman.partyassociation}}</p>
+                                    <p>{{allChairman.permanentaddress}}</p>
+                                    <p>{{allChairman.seattype}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Members</h1>
+                    <div class="row">
+                        <div class="col-6 my-2"  *ngFor="let data of allMembers">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="picture-frame full-height">
+                                        <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    <p>{{data.permanentaddress}}</p>
+                                    <p>{{data.seattype}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>       
+                </div>
+            
+                <div class="tab-pane fade" id="tabId2" role="tabpanel">
+
+                    <ul>
+                        <li *ngFor="let data of filterItemsOfType('Business Referred')"> 
+                            <p class="my-2"><span _ngcontent-vfq-c44="" class="small-head-dot bg-light-olive mr-3 mt-2"></span> 
+                                 <a href="{{imageUrl}}{{data.image_pdf_link}}" *ngIf="data.type == 'pdf'" target="_blank">{{data.heading}}</a>
+                            <a (click)="getDataMemeber(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.heading}}</a>
+
+                             </p>                    
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId3" role="tabpanel">
+                    
+                    <ul>
+                        <li *ngFor="let data of filterItemsOfType('Reports')"> 
+                            <p class="my-2"><span _ngcontent-vfq-c44="" class="small-head-dot bg-light-olive mr-3 mt-2"></span> 
+                                
+                            <a href="{{imageUrl}}{{data.image_pdf_link}}" *ngIf="data.type == 'pdf'" target="_blank">{{data.heading}}</a>
+                            <a (click)="getDataMemeber(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.heading}}</a>
+
+                            </p>                    
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId4" role="tabpanel">
+                    
+                    <ul>
+                        <li *ngFor="let data of filterItemsOfType('Subcommittees')"> 
+                            <p class="my-2"><span _ngcontent-vfq-c44="" class="small-head-dot bg-light-olive mr-3 mt-2"></span>
+                                 
+                                 <a href="{{imageUrl}}{{data.image_pdf_link}}" *ngIf="data.type == 'pdf'" target="_blank">{{data.heading}}</a>
+                            <a (click)="getDataMemeber(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.heading}}</a>
+
+
+                            
+                            </p>                    
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="tabId5" role="tabpanel">
+                    
+                    <ul>
+                        <li *ngFor="let data of filterItemsOfType('Notifications')"> 
+                            <p class="my-2"><span _ngcontent-vfq-c44="" class="small-head-dot bg-light-olive mr-3 mt-2"></span> 
+                                 <a href="{{imageUrl}}{{data.image_pdf_link}}" *ngIf="data.type == 'pdf'" target="_blank">{{data.heading}}</a>
+                                 <a (click)="getDataMemeber(data.id)" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' ">{{data.heading}}</a>
+
+                             </p>                    
+                        </li>
+                    </ul>   
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-12" *ngIf="isDetail">
+            <hr>
+
+            <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link">
+                
+            </div>
+            <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+        
+        </div>
+    </div>
+</div>

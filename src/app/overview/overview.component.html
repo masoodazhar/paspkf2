@@ -1,0 +1,19 @@
+<div class="containet-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h1>{{'Overview_'|translate}}</h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/parliamentaryprivileges/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/organizationalchart/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+         
+        <p [innerHTML]="allData.description"></p>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,450 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2>Parliamentary Calendar of the 17th Assembly</h2>
+            <p>{{ "Third Parliamentary Year"|translate}}</p>
+            <p><b>(From 2020-08-15 to TillDate)</b></p>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/performanceofassembly/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/committeesystem/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div> 
+    </div>
+    <hr>
+    <div class="container">
+    <div class="row my-2">
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    AUGUST 2020
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2020','08',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2020','08',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    SEPTEMBER 2020
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2020','09',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2020','09',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    OCTOBER 2020
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2020','10',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2020','10',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    NOVEMBER 2020
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2020','11',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2020','11',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>    
+            </ul>
+        </div>        
+    </div>
+    <div class="row my-2">
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    DECEMBER 2020
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2020','12',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2020','12',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    JANUARY 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','01',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','01',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    FEBRUARY 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','01',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','02',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    MARCH 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','03',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','03',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>        
+    </div>
+    <div class="row my-2">
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    APRIL 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">                 
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','04',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','04',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>                
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    MAY 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','05',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','05',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    JUNE 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','06',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','06',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    JULY 2021
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','07',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','07',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>        
+    </div>
+    <div class="row my-2">
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    AUGUST 2021
+
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','08',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','08',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    SEPTEMBER 2021
+
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','09',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','09',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    OCTOBER 2021
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','10',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','10',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    NOVEMBER 2021
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays('2021','11',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','11',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-2 offset-3">           
+            <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#c02828"></span>  <b>Reject >{{ "Session Days"|translate}}</b></p>       
+        </div>
+        <div class="col-3">           
+            <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#328a1d"></span> <b>Proposed >{{ "Session Days"|translate}}</b></p>        
+        </div>
+        <div class="col-3">           
+            <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#0c5b9b"></span>  <b>Upcomming >{{ "Session Days"|translate}}</b></p>           
+        </div>
+    </div>
+</div>
+</div>

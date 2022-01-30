@@ -1,0 +1,19 @@
+<div class="container-flui">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <h1><b>News & Activities</b></h1>
+            </div>
+          </div>
+    
+        <div class="row">
+            
+            <div class="col-12" *ngIf="allData.type=='text'; else elseBlock">
+                <div [innerHTML]="allData.image_pdf_link"></div>
+            </div>
+            <ng-template #elseBlock> 
+                <img src="{{imageUrl}}{{allData.image_pdf_link}}" width="100%" alt="">
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2>Acts List</h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/acts/" class="btn btn-success notranslate" title="Back Page">{{'Back'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="Home Page">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"Act No"|translate}}.</th>
+                        <th>{{"Title"|translate}}</th>
+                        <th>{{"Date"|translate}} of Passing</th>
+                        <th>{{"Date"|translate}} of Governers' Assent</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of allData">
+                        <td> {{data.actno}} </td>
+                        <td> 
+                            <span class="detail" *ngIf="data.type == 'jpg' || data.type == 'png' || data.type == 'text' "><a [routerLink]="['/actslistsdetails/', data.id]">{{data.title}}</a></span>
+                            <span class="detail" *ngIf="data.type == 'pdf'"> <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank">{{data.title}}</a> </span>
+                         </td>
+                        <td>{{data.dateofpassing}}	</td>
+                        <td>{{data.dateofgov}} </td>
+                    </tr>
+                 
+                </tbody>
+            </table>
+        </div>
+    </div>   
+    
+</div>

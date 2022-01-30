@@ -1,0 +1,30 @@
+<style>
+    .parent_p p{
+        color:black;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h2>{{'SpeakersMessage'|translate}}</h2>
+        </div>
+        <div class="col-4 pageSwitchButtons">
+            <a routerLink="/about/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/workingofassembly/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a routerLink="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row"  *ngFor="let data of allData">
+        <div class="col-md-3">
+            <img src="{{imageUrl}}{{data.image}}" class="img-responsive" style="width:100%;     margin-bottom: 10px;" alt="">
+          
+            <div class="bg-light-green" style="color: white;     text-align: center;"> <h3>{{data.membername}} </h3></div>
+            <p class="mt-2 message-d" style="text-align: left !important;">{{data.designation}}</p>
+          
+        </div>
+        <div class="col-md-9 parent_p message-d">
+            <div class="message-d" [innerHTML]="data.description"></div>
+        </div>
+    </div>
+</div>

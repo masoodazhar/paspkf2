@@ -1,0 +1,23 @@
+<div class="container-fluid">
+
+     
+        <div class="row">
+            <div class="col-8">
+                <h1><b> Parliamentary Privileges </b></h1>
+            </div>
+            <div class="col-4" class="pageSwitchButtons">
+
+                <a *ngIf="allData.status == 'notification'" routerLink="/notifications/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a *ngIf="allData.status != 'notification'" routerLink="/parliamentaryprivileges/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+              
+            </div>
+        </div>   
+        <hr> 
+        <div class="row">
+            <div class="col-12">
+                <p  [innerHTML]="allData.description"></p>      
+            </div>
+            
+        </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="container-flui"> 
+    <div class="row">
+        <div class="col-5">
+            <h3> <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success">Back</button> &nbsp;&nbsp;&nbsp; {{'PastAssemblyMembers_'|translate}}</h3>
+        </div>
+        <div class="col-3">
+            <select class="form-control"  (change)="onChange($event)">
+                <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+            </select>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/listofmembers/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/currentassemblysummary/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12"  *ngIf="!isDetail">
+            <ul class="past-assembly-ul">
+                <li *ngFor="let data of allData">
+                    <span class="small-head-dot bg-light-olive mr-3 mt-2"></span>
+                    <a (click)="listofmembersdetail(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.name}} ({{data.fromdate}} - {{data.todate}}) </a>
+                    <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.name}} </a>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="col-12"  *ngIf="isDetail">
+            
+            <hr>
+
+            <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link">
+                
+            </div>
+            <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+        </div>
+    </div>    
+</div>

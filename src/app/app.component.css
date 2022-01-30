@@ -1,0 +1,121 @@
+/* .dropdown-content[_ngcontent-noi-c133] {
+    display: none;
+} */
+
+/* .dropdown-holder:hover .dropdown-holder>ul{
+    display: inline;
+} */
+.goog-te-banner-frame {
+    display: none !important;
+    } 
+body {
+    top: 0px !important; 
+    }
+
+.nav-link {
+    text-align: center;
+}
+
+/* .en * .dropdown-menu a{
+    color: white;
+    background-color: #115701 !important;
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    font-weight: normal;
+    padding: 10px 10px 10px 10px !important;
+    border-bottom: solid 1px;
+}
+
+.en * .dropdown-menu a:hover{
+    color: white;
+    background-color: #328020 !important;
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    font-weight: normal;
+} */
+.dropdown-item {
+    display: block;
+    width: 100%;
+    /* padding: .25rem 1.5rem; */
+    clear: both;
+    font-weight: 400;
+    color: white;
+    text-align: inherit;
+    white-space: unset !important;
+    background-color: transparent;
+    border: 0;
+    background-color:#115701;
+    font-size:14px;
+    padding: 10px 10px 10px 10px !important;
+    border-bottom: solid 1px;
+}
+
+.dropdown-item:hover {
+    background-color:#328020;
+}
+.dropdown-menu-urdu a{
+    font-size: 20px !important;
+}
+.dropdown-menu-sindhi a{
+    font-size: 16px !important;
+}
+
+/* .en > * .dropdown-menu a{
+    color: white;
+    background-color: #115701 !important;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 10px 10px 10px !important;
+    border-bottom: solid 1px;
+}
+
+.en > * .dropdown-menu a:hover{
+    color: white;
+    background-color: #328020 !important;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.urdu > *.dropdown-menu a{
+    color: white;
+    background-color: #115701 !important;
+    width: 100% !important;
+    font-size: 20px !important;
+    font-weight: normal;
+    padding: 10px 10px 10px 10px !important;
+    border-bottom: solid 1px;
+}
+
+.urdu > *.dropdown-menu a:hover{
+    color: white;
+    background-color: #328020 !important;
+    width: 100% !important;
+    font-size: 20px !important;
+    font-weight: normal;
+} */
+
+.bgColor{
+    background-color: #115701 !important;
+}
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 1px !important;
+}
+.goog-te-gadget-simple {
+    background-color: #11570100 !important;
+    border-left: 0px solid #d5d5d5 !important;
+    border-top: 0px solid #9b9b9b !important;
+    border-bottom: 0px solid #e8e8e8 !important;
+    border-right: 0px solid #d5d5d5 !important;
+    font-size: 14pt;
+    display: inline-block;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    zoom: 1;
+    display: inline;
+    color: white;
+}

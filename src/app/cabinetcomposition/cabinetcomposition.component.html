@@ -1,0 +1,164 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>
+                {{'CabinetComposition_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control"  (change)="onChange($event, true)">
+                <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <a routerLink="/roleofassembly/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/leaderofthehouse/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row" *ngFor="let data of filterItemsOfType('1','Leader of House')">      
+        <div class="col-2 py-2">
+            <div class="picture-frame">
+                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+            </div>
+        </div>
+        <div class="col-3">
+            <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+            <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
+            <p style="line-height: 0.7;">{{ "From"|translate}}: {{data.cfromdate}}, >{{ "To"|translate}} {{data.ctodate}}</p>
+            <p style="line-height: 0.7;">{{data.address}}</p>
+            <p style="line-height: 0.7;">{{'Tenure'|translate}}: {{data.fromdate}} >{{ "To"|translate}} {{data.todate}}</p>
+        </div>       
+    </div>
+    
+    <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'Minister'|translate}} </a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'SeniorMinister'|translate}} </a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'AdvisortoCM'|translate}} </a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'SpecialAssistanttoCM'|translate}} </a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{'ParliamentarySecretary'|translate}} </a>
+    </div>
+    
+    <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+        <div class="tab-pane fade show active" id="tabId1" role="tabpanel">
+            <div class="row">       
+
+                <div class="col-6 my-2"  *ngFor="let data of filterItemsOfType('0','Minister')">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                        
+                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
+                                    <p>{{data.presentaddress}}</p>
+                                    <p>{{data.phonenumber}}</p>
+                                    <p>{{data.partyassociation}}</p>
+                                    
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="tab-pane fade" id="tabId2" role="tabpanel">
+            <div class="row">        
+                <div class="col-6 my-2"  *ngFor="let data of filterItemsOfType('0','Senior Minister')">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
+                                <p>{{data.presentaddress}}</p>
+                                <p>{{data.phonenumber}}</p>
+                                <p>{{data.partyassociation}}</p>
+                                    
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tab-pane fade" id="tabId3" role="tabpanel">
+            <div class="row">        
+                <div class="col-6 my-2"  *ngFor="let data of Advisor">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <p>{{'Name'|translate}}|{{'Email'|translate}}: {{data.name}}|{{data.email}}</p>
+                            <p>{{data.fatherhusbandname}}</p>
+                            <p>{{data.presentaddress}}</p>
+                            <p>{{data.phonenumber}}</p>
+                            <p>{{data.partyassociation}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tab-pane fade" id="tabId4" role="tabpanel">
+            <div class="row">        
+                <div class="col-6 my-2"  *ngFor="let data of SpacialAdvisor">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <p>{{'Name'|translate}}|{{'Email'|translate}}: {{data.name}}|{{data.email}}</p>
+                            <p>{{data.fatherhusbandname}}</p>
+                            <p>{{data.presentaddress}}</p>
+                            <p>{{data.phonenumber}}</p>
+                            <p>{{data.partyassociation}}</p>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="tabId5" role="tabpanel">
+            <div class="row">        
+                <div class="col-6 my-2"  *ngFor="let data of filterItemsOfType('0','Parliamentary Secretary')">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="picture-frame">
+                                <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
+                                <p>{{data.presentaddress}}</p>
+                                <p>{{data.phonenumber}}</p>
+                                <p>{{data.partyassociation}}</p>
+                                
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

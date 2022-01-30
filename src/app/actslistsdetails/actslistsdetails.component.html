@@ -1,0 +1,45 @@
+<div class="container-flui">
+    <div class="row">
+        <div class="col-12">
+          <h1><b>Acts</b></h1>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{"Act No"|translate}}</th>
+                        <th>{{"Title"|translate}}</th>
+                        <th>{{"Date"|translate}} of Passing</th>
+                        <th> Date of Governers' Assent </th>
+                        <th>{{"Sittings"|translate}} No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{allData.actno}} </td>
+                        <td> {{allData.title}} </td>
+                        <td> {{allData.dateofpassing}} </td>
+                        <td> {{allData.dateofgov}} </td>
+                        <td> {{allData.sittingsno}} </td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <div class="col-12" *ngIf="allData.type=='text'; else elseBlock">
+                                <div [innerHTML]="allData.image_pdf_link"></div>
+                            </div>
+                            <ng-template #elseBlock> 
+                                <img src="{{imageUrl}}{{allData.image_pdf_link}}" width="100%" alt="">
+                            </ng-template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+</div>

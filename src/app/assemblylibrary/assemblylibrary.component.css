@@ -1,0 +1,21 @@
+.full-card {
+    background-color: #dddfdc;
+    border-bottom: solid 5px #328a1d;
+}
+
+.full-card-img{
+
+}
+.full-card-img img{
+    width: 100%;
+    padding: 0 !important;
+    margin: 0px;
+}
+.full-card-text{
+    /* background-color: red; */
+    vertical-align: bottom;
+    margin-top: 25px;
+}
+.full-card-text h5{
+
+}

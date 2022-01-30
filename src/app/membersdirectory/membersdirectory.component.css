@@ -1,0 +1,16 @@
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #328a1d  !important;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 5px !important;
+}
+.alphaUl li {
+    float: left;
+    list-style: none;
+}
+.alphaUl li button {
+    padding: 5px 15px 5px 15px !important;
+    border-left: solid 1px;
+}

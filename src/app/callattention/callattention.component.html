@@ -1,0 +1,145 @@
+<style>
+    /* .picture-frame img {
+width: 100% !important;
+    border: 9px solid #328a1d;
+} */
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>
+                <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success">Back</button> &nbsp;&nbsp;&nbsp;  {{'CallAttention_'|translate}}
+            </h2>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/questions/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/resolutionspassed/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+<hr>
+   
+    <div class="row">
+        <div class="col-12"  *ngIf="!isDetail">            
+            <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId3" role="tab">{{ "First Parliamentary Year"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab">{{ "Second Parliamentary Year"|translate}}</a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 " data-toggle="list" href="#tabId1" role="tab">{{ "Third Parliamentary Year"|translate}}</a>
+             </div>
+            
+            <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
+                <div class="tab-pane fade " id="tabId1" role="tabpanel">
+                    <h4>{{ "Third Parliamentary Year"|translate}}</h4>
+                    <table class="table table-bordered">
+                        <thead class="bg-success text-white">
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{"Members"|translate}}</th>
+                                <th>{{"Subject"|translate}}</th>
+                                <th>{{"Department"|translate}}</th>
+                                <th>{{"Status"|translate}}</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('Third Parliamentary Year')">
+                                <td> <a (click)="onChange2(data.id)">{{data.fromdate}} to {{data.todate}}</a> </td>
+                                <td> {{data.date}} </td>
+                                <td> {{data.membername}} </td>
+                                <td> {{data.subject}} </td>
+                                <td> {{data.department}} </td>
+                                <td> {{data.status}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane fade" id="tabId2" role="tabpanel">
+                    <h5>{{ "Second Parliamentary Year"|translate}}</h5>
+                    <table class="table table-bordered">
+                        <thead class="bg-success text-white">
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{"Members"|translate}}</th>
+                                <th>{{"Subject"|translate}}</th>
+                                <th>{{"Department"|translate}}</th>
+                                <th>{{"Status"|translate}}</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('Second Parliamentary Year')">
+                                <td> <a (click)="onChange2(data.id)">{{data.fromdate}} to {{data.todate}}</a> </td>
+                                <td> {{data.date}} </td>
+                                <td> {{data.membername}} </td>
+                                <td> {{data.subject}} </td>
+                                <td> {{data.department}} </td>
+                                <td> {{data.status}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane fade show active" id="tabId3" role="tabpanel">
+                    <h5>{{ "First Parliamentary Year"|translate}}</h5>
+                    <table class="table table-bordered">
+                        <thead class="bg-success text-white">
+                            <tr>
+                                <th>{{ "Session No"|translate}}.</th>
+                                <th>{{"Sittings"|translate}}</th>
+                                <th>{{"Members"|translate}}</th>
+                                <th>{{"Subject"|translate}}</th>
+                                <th>{{"Department"|translate}}</th>
+                                <th>{{"Status"|translate}}</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of filterItemsOfType('First Parliamentary Year')">
+                                <td> <a (click)="onChange2(data.id)" >{{data.fromdate}} to {{data.todate}}</a> </td>
+                                <td> {{data.date}} </td>
+                                <td> {{data.membername}} </td>
+                                <td> {{data.subject}} </td>
+                                <td> {{data.department}} </td>
+                                <td> {{data.status}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-12"  *ngIf="isDetail">
+            <table class="table table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th>{{ "Session No"|translate}}.</th>
+                        <th>{{"Sittings"|translate}}</th>
+                        <th>{{"Members"|translate}}</th>
+                        <th>{{"Subject"|translate}}</th>
+                        <th>{{"Department"|translate}}</th>
+                        <th>{{"Status"|translate}}</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{singleData.fromdate}} to {{singleData.todate}}</td>
+                        <td> {{singleData.date}} </td>
+                        <td> {{singleData.membername}} </td>
+                        <td> {{singleData.subject}} </td>
+                        <td> {{singleData.department}} </td>
+                        <td> {{singleData.status}} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div [innerHTML]="singleData.description"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

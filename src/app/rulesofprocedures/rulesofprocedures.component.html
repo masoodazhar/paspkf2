@@ -1,0 +1,22 @@
+<div class="container-flui">
+   
+<div class="row">
+    <div class="col-8">
+        <h1><b> {{'RulesofProcedures_'|translate}} </b></h1>
+    </div>
+    <div class="col-md-4 pageSwitchButtons">
+        <a routerLink="/leaderoftheopposition/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+        <a routerLink="/parliamentaryprivileges/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+        <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <p *ngFor="let data of allData">
+            <a [routerLink]="['/rulesofproceduresdetail/',data.id]">{{data.name}}</a>
+        </p>
+    </div>
+</div>
+
+</div>

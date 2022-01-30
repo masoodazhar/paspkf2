@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <h1> {{'AssemblyLibrary_'|translate}} </h1>
+        </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a routerLink="/thesindhtrans2016/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            <a routerLink="/speakers/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-5 mx-2" *ngFor="let data of allData">
+            <div class="row main-header p-3 bg-default mt-2 full-card">
+                <div class="col-2 full-card-img">
+                    <img src="{{imageUrl}}{{data.logo}}" class="img-thumbnail" alt="" >
+                </div>
+                <div class="col-10 full-card-text">
+                    <h5 class="m-0"><a href="{{data.link}}" target="_blank">{{data.name}}</a></h5>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
