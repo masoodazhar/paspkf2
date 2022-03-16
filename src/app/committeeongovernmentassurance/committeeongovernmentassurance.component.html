@@ -5,9 +5,9 @@
             <h1>{{'CommitteeonGovernmentAssurance_'|translate}} </h1>
         </div>
         <div class="col-md-4 pageSwitchButtons">
-            <a routerLink="/selectcommitteeonbills/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
             <a routerLink="/librarycommittee/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            <a routerLink="/selectcommitteeonbills/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
         </div> 
     </div>
     <hr>
@@ -16,13 +16,13 @@
             <tr>
                 <th>{{"Assembly"|translate}}</th>
                 <th>{{"Name"|translate}}</th>
-                <th>Chairperson</th>
+                <th>{{"Chairperson"|translate}}</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of allData">
-                <td><a [routerLink]="['/committeeongovernmentassurancedetail1/', data.assemblyid]">{{data.assemblyname}}</a></td>
-                <td><a [routerLink]="['/committeeongovernmentassurancedetail2/',1]">{{data.name}}</a></td>
+                <td><a [routerLink]="['/committeeongovernmentassurancedetail1/', data.assemblyid]">{{data.assemblyname}} - dddd</a></td>
+                <td><a [routerLink]="['/committeeongovernmentassurancedetail2/', data.assemblyid]">{{data.name}}</a></td>
                 <td>{{data.name}}</td>
             </tr>
         </tbody>

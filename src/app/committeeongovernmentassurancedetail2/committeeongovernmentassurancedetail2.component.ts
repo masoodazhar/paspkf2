@@ -10,10 +10,10 @@ import { GetdataService } from '../getdata.service';
 export class Committeeongovernmentassurancedetail2Component implements OnInit {
 
 
-  public allData:any=[];
+  public allData:any=false;
   public allAssemblyTenure:any=[];
   public imageUrl = '';
-  public assemblyId:any;
+  public assemblyId:any='0';
 
   constructor(private getdataService:GetdataService, private _Activatedroute:ActivatedRoute) {  }
 
@@ -36,7 +36,7 @@ export class Committeeongovernmentassurancedetail2Component implements OnInit {
     this.getdataService.getById('committeeongovernmentassurancemembers',tenureid)
     .subscribe((data:any)=>{
       this.allData = data[0];
-      // //console.log(this.allData)
+      // console.log(this.allData)
     });
   }
 

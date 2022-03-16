@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 // ====LOCAL=====
-// const baseUrl = 'http://localhost:81/backend/api';
-// const imageUrl = 'http://localhost:81/backend/uploads/';
+const baseUrl = 'http://localhost/paspk/public/api';
+const imageUrl = 'http://localhost/paspk/public/uploads/';
  
 
 // ==============ONLINE=========
-const baseUrl = 'https://tadmin.paspk.xyz/api';
-const imageUrl = 'https://tadmin.paspk.xyz/public/uploads/';
+// const baseUrl = 'https://tadmin.paspk.xyz/api';
+// const imageUrl = 'https://tadmin.paspk.xyz/public/uploads/';
 // const httpHandlers = new HttpHeaders({'Content-Type': 'application/json','Authorization': 'Token 96914cd04d52e943e369cc83a961194ed33768aa'})
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';

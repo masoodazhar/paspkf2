@@ -20,7 +20,10 @@
   padding: 0px !important;
  }
  .posts_text{
-     color: rgb(214, 207, 207) !important;
+  color: #d6cfcf!important;
+  font-size: 11px;
+  text-transform: initial;
+  margin-top: 5px;
  }
  html {
    font-family: sans-serif;

@@ -5,13 +5,17 @@ width: 100% !important;
 } */
 </style>
 <div class="container-fluid">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row" style="border-bottom: solid 1px;">
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <h2>
-                    {{assemblyName}}
+                    {{assemblyName}} Assembly Name
                 </h2>
             </div>
+            <div class="col-md-4 pageSwitchButtons">
+                <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+                <a routerLink="/committeeongovernmentassurance/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+            </div> 
             <!-- <div class="col-md-3 offset-3">
                 <div class="form-group form-inline">
                     <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>

@@ -1,8 +1,12 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-8">
             <h1>Committee on Government Assurances </h1>
         </div>
+        <div class="col-md-4 pageSwitchButtons">
+            <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            <a routerLink="/committeeongovernmentassurance/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+        </div> 
     
     </div>
    
@@ -45,7 +49,7 @@
                         <th colspan="2"> About Committee</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="allData else noDataFound">
                     <tr>
                         <td>{{"Assembly"|translate}}</td>
                         <td><a [routerLink]="['/committeeongovernmentassurancedetail1/', allData.member.assemblyid]">{{allData.member.assemblyname}}</a></td>
@@ -63,6 +67,14 @@
                         <td>{{allData.member.Purpose}}</td>
                     </tr>
                 </tbody>
+                <ng-template #noDataFound>
+                    <tBody>
+                        <tr>
+                            <td colspan="2"> No Data Found </td>
+                        </tr>
+                    </tBody>
+                </ng-template>
+                
             </table>
         </div>
     </div>
@@ -74,7 +86,7 @@
                         <th colspan="2"> Contact Information</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="allData else noDataFound">
                     <tr>
                         <td>Committee Email</td>
                         <td>{{allData.member.email}}</td>
@@ -89,6 +101,13 @@
                     </tr>
                    
                 </tbody>
+                <ng-template #noDataFound>
+                    <tBody>
+                        <tr>
+                            <td colspan="2"> No Data Found </td>
+                        </tr>
+                    </tBody>
+                </ng-template>
             </table>
         </div>
     </div>
@@ -97,15 +116,22 @@
             <table class="table ">
                 <thead class="bg-success text-white">
                     <tr>
-                        <th colspan="2"> Committee Chairperson</th>
+                        <th colspan="2"> {{"Chairperson"|translate}}</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="allData else noDataFound">
                     <tr>
                         <td colspan="2"><a href="">{{allData.member.membername}}</a></td>
                     </tr>
                     
                 </tbody>
+                <ng-template #noDataFound>
+                    <tBody>
+                        <tr>
+                            <td colspan="2"> No Data Found </td>
+                        </tr>
+                    </tBody>
+                </ng-template>
             </table>
         </div>
     </div>
@@ -117,7 +143,7 @@
                         <th colspan="2"> Committee Members</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="allData else noDataFound">
 
                     <tr *ngFor="let data of allData.othermeneres ">
                         <td><a href="">{{data.name}}</a></td>
@@ -126,6 +152,13 @@
 
                     
                 </tbody>
+                <ng-template #noDataFound>
+                    <tBody>
+                        <tr>
+                            <td colspan="2"> No Data Found </td>
+                        </tr>
+                    </tBody>
+                </ng-template>
             </table>
         </div>
     </div>

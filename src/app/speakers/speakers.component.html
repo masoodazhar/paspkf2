@@ -10,9 +10,9 @@ width: 100% !important;
             <h1> {{'Speaker_'|translate}} </h1>
         </div>
         <div class="col-md-4 pageSwitchButtons">
-            <a routerLink="/assemblylibrary/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
             <a routerLink="/deputyspeaker/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            <a routerLink="/assemblylibrary/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
         </div>
     </div>
     <hr>
@@ -20,8 +20,8 @@ width: 100% !important;
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>{{"Speaker_"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"SpeakersMessage"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Newsandactivities_"|translate}}</a>
-        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> ROLE OF SPEAKER</a>
-        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> FORMER SPEAKERS</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"ROLEOFSPEAKER"|translate}}</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"FORMERSPEAKERS"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId6" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Gallery"|translate}}</a>
        
     </div>
@@ -40,7 +40,7 @@ width: 100% !important;
                     
                     
                     
-                    <a [routerLink]="['/membersperformancereport/', singleData.id]"><p>View Performance Report</p></a>
+                    <a [routerLink]="['/membersperformancereport/', singleData.id]"><p>{{"ViewPerformanceReport"|translate}}</p></a>
                     <a [routerLink]="['/memberprofile/', singleData.id]" ><h5 >{{singleData.name}}|{{singleData.email}}</h5></a>                         
                     <p style="line-height: 0;">{{singleData.presentaddress}}</p>
                     <p style="line-height: 0;">{{singleData.partyassociation}}</p>
@@ -52,13 +52,13 @@ width: 100% !important;
         </div>
     
         <div class="tab-pane fade" id="tabId2" role="tabpanel">
-            <h2>Message from Speaker</h2>
+            <h2>{{"MessagefromSpeaker"|translate}}</h2>
 
             <div [innerHTML]="singleData.speakermessage"></div>
         </div>
     
         <div class="tab-pane fade" id="tabId3" role="tabpanel">
-            <p><b>News & Activities</b></p>
+            <p><b>{{"Newsandactivities_"|translate}}</b></p>
             <p>Follow the headline links below to read details from the Media Centre section.</p>
             <ol>
                     <li *ngFor="let data of allData" > <span class="small-head-dot bg-light-olive mr-3 mt-2"></span> 
@@ -70,7 +70,7 @@ width: 100% !important;
         </div>
     
         <div class="tab-pane fade" id="tabId4" role="tabpanel">
-            <p><b>Speaker's Role in the Assembly</b></p>
+            <p><b>{{"SpeakerRoleintheAssembly"|translate}}</b></p>
             <div [innerHTML]="singleData.speakersrole"></div>
         </div>
         <div class="tab-pane fade" id="tabId5" role="tabpanel">
@@ -83,7 +83,7 @@ width: 100% !important;
                             </div>
                         </div>
                         <div class="col-7">
-                            <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                            <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{"ViewPerformanceReport"|translate}}</p></a>
                             <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}|{{data.email}}</h5></a>                         
                             <p style="line-height: 0;">{{data.presentaddress}}</p>
                             <p style="line-height: 0;">{{data.partyassociation}}</p>
@@ -95,7 +95,7 @@ width: 100% !important;
             </div>    
         </div>
         <div class="tab-pane fade" id="tabId6" role="tabpanel">
-            <p><b>Gallery</b></p>
+            <p><b>{{"Gallery"|translate}}</b></p>
             <div class="row">
                 <div class="col-3 my-2" *ngFor="let data of picturegalleryspeaker">
                       <div class="card">

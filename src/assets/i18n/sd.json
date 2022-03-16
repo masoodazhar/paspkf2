@@ -69,7 +69,7 @@
     "Messages_": "پيغام",
     "WorkingofAssembly_": "اسيمبلي جو ڪم",
     "RoleofAssembly_": "اسيمبليءَ جو ڪردار",
-    "CabinetComposition_": "ڪيبينيٽ ترتيب",
+    "CabinetComposition_": "ڪابينا ۽ ڪارڪردگي",
     "LeaderoftheHouse_": "ايوان جو اڳواڻ",
     "LeaderoftheOpposition_": "مخالف ڌر جو اڳواڻ",
     "RulesofProcedures_": "طريقيڪار جو قاعدو",
@@ -281,5 +281,13 @@
     "Letter No": "خط نمبر",
     "Type": "قسم",
     "Bill Type": "بل جو قسم",
-    "Committees Notifications": "ڪميٽي جا نوٽيفڪيشن"
+    "Committees Notifications": "ڪميٽي جا نوٽيفڪيشن",
+    "Download": "ڊائون لوڊ ڪريو",
+    "GOVERNMENTOFSINDHANDOTHERS": "گورنمينٽ آف سنڌ ۽ ٻيا",
+    "MessagefromSpeaker": "اسپيڪر کان پيغام",
+    "ROLEOFSPEAKER": "اسپيڪر جو ڪردار",
+    "FORMERSPEAKERS": "اڳوڻو ڳالهائيندڙ",
+    "SpeakerRoleintheAssembly": "اسيمبلي ۾ اسپيڪر جو ڪردار",
+    "Legislations": "قانون سازي",
+    "Chairperson": "چيئرپرسن"
 }

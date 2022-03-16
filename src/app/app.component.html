@@ -35,7 +35,10 @@
                      
                     <select class="form-control " #selectedLang (change)="switchLang(selectedLang.value)">
                         <option *ngFor="let language of translattion.getLangs()" [value]="language" [selected]="language === currentLang">
-                            {{ language }}
+                            <span *ngIf="language == 'en'">Eng</span>
+                            <span *ngIf="language == 'sd'">Sindhi</span>
+                            <span *ngIf="language == 'ur'">Urdu</span>
+                            
                         </option>
                     </select>
                 </div>
@@ -102,7 +105,7 @@
                         <a routerLink="deputyspeaker/" class="dropdown-item" title="{{'DeputySpeaker_'|translate}}">{{'DeputySpeaker_'|translate}}</a>
                         <a routerLink="membersdirectory/" class="dropdown-item" title="{{'MembersDirectory_'|translate}}">{{'MembersDirectory_'|translate}}</a>
                         <a routerLink="listofmembers/" class="dropdown-item" title="{{'ListofMembers_'|translate}}">{{'ListofMembers_'|translate}}</a>
-                        <a routerLink="membersdirectory/" class="dropdown-item" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a>
+                        <!-- <a routerLink="membersdirectory/" class="dropdown-item" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a> -->
                         <a routerLink="pastassemblymembers/" class="dropdown-item" title="{{'PastAssemblyMembers_'|translate}}">{{'PastAssemblyMembers_'|translate}}</a>
                     </ul>
                 </li>
@@ -257,7 +260,7 @@
                         <li class="py-2"><a routerLink="deputyspeaker/" class="text-white" title="{{'DeputySpeaker_'|translate}}">{{'DeputySpeaker_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="membersdirectory/" class="text-white" title="{{'MembersDirectory_'|translate}}">{{'MembersDirectory_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="listofmembers/" class="text-white" title="{{'ListofMembers_'|translate}}">{{'ListofMembers_'|translate}}</a></li>
-                        <li class="py-2"><a routerLink="membersdirectory/" class="text-white" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a></li>
+                        <!-- <li class="py-2"><a routerLink="membersdirectory/" class="text-white" title="{{'Membersperformancereport_'|translate}}">{{'Membersperformancereport_'|translate}}</a></li> -->
                         <li class="py-2"><a routerLink="pastassemblymembers/" class="text-white" title="{{'PastAssemblyMembers_'|translate}}">{{'PastAssemblyMembers_'|translate}}</a></li>
                     </ul>
                 </div>
@@ -307,7 +310,7 @@
                     <ul class="list-unstyled">
                         <li class="py-2"><a routerLink="notifications/" class="text-white" title="{{'Notifications_'|translate}}">{{'Notifications_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="pressreleases/" class="text-white" title="{{'PressReleases_'|translate}}">{{'PressReleases_'|translate}}</a></li>
-                        <li class="py-2"><a routerLink="newsandactivities/" class="text-white" title="{{'Newsandactivities_'|translate}}">News and {{'Newsandactivities_'|translate}}</a></li>
+                        <li class="py-2"><a routerLink="newsandactivities/" class="text-white" title="{{'Newsandactivities_'|translate}}">{{'Newsandactivities_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="picturegallery/" class="text-white" title="{{'PictureGallery_'|translate}}">{{'PictureGallery_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="tenders/" class="text-white" title="{{'Tenders_'|translate}}">{{'Tenders_'|translate}}</a></li>
                         <li class="py-2"><a routerLink="jobs/" class="text-white" title="{{'Jobs_'|translate}}">{{'Jobs_'|translate}}</a></li>

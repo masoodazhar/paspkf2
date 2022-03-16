@@ -6,8 +6,8 @@
             </div> 
             <div class="col-md-4 pageSwitchButtons">
                 <a routerLink="/videoarchive/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
-                <a routerLink="/reports/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
                 <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+                <a routerLink="/reports/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
             </div>       
         </div>    
       
@@ -84,6 +84,7 @@
                         <th>{{"Date"|translate}} </th>
                         <th>{{"typedepartment"|translate}} </th>
                         <th> {{"Committees"|translate}} </th>
+                        <th> {{"Download"|translate}} </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +98,9 @@
                         <td> {{data.date}} </td>
                         <td> {{data.department_type}} </td>
                         <td> {{data.department_committee}} </td>
+                        <td>
+                            <a *ngIf="data.type!='text'" href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" class="btn btn-border" download="{{data.image_pdf_link}}" style="color:black !important;">Download</a>
+                        </td>
                     </tr>                    
                 
                 </tbody>

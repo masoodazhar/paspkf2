@@ -13,14 +13,14 @@ width: 100% !important;
             </h2>
         </div>
         <div class="col-md-4 pageSwitchButtons">
-            <a routerLink="/standingcommittees/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+            <a routerLink="/standingcommittees/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
         </div> 
     </div>
     <div class="row">
         <div class="col-12" *ngIf="!isDetail">
             <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
-                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Members </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Members"|translate}} </a>
                 <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Business Referred </a>
                 <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Reports </a>
                 <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Subcommittees </a>
@@ -38,7 +38,7 @@ width: 100% !important;
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>View Performance Report</p></a>
+                                    <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{"ViewPerformanceReport"|translate}}</p></a>
                                     <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}}</h5></a>
                                     <p>{{data.presentaddress}}</p>
                                     <p>{{data.partyassociation}}</p>

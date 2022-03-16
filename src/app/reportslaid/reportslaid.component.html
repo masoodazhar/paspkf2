@@ -5,9 +5,9 @@
                 <h2> <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}  &nbsp;&nbsp;&nbsp; </button>{{'ReportsLaid_'|translate}}</h2>
             </div>  
             <div class="col-md-4 pageSwitchButtons">
-                <a routerLink="/specialcommittee/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
                 <a routerLink="/housecommittee/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
                 <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+                <a routerLink="/specialcommittee/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
             </div>       
         </div>
         <hr>
@@ -96,7 +96,7 @@
                         <th> &nbsp;</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="allData.length > 0 else noDataFound">
                     <tr  *ngFor="let data of allData">
                         <td>
                             <p>
@@ -108,6 +108,13 @@
                         </td>                        
                     </tr>
                 </tbody>
+                <ng-template #noDataFound>
+                    <tBody>
+                        <tr>
+                            <td> No Data Found with selected Tenure </td>
+                        </tr>
+                    </tBody>
+                </ng-template>
             </table>
         </div>
         <div class="col-12" *ngIf="isDetail">

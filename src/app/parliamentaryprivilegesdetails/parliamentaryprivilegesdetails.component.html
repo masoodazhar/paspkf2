@@ -7,8 +7,8 @@
             </div>
             <div class="col-4" class="pageSwitchButtons">
 
-                <a *ngIf="allData.status == 'notification'" routerLink="/notifications/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
                 <a *ngIf="allData.status != 'notification'" routerLink="/parliamentaryprivileges/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+                <a *ngIf="allData.status == 'notification'" routerLink="/notifications/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
               
             </div>
         </div>   

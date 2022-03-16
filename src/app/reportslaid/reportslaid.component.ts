@@ -26,8 +26,9 @@ export class ReportslaidComponent implements OnInit {
     this.imageUrl = this.getdataService.getImageUrl();
     this.getdataService.getAll('assemblytenure')
     .subscribe((data:any)=>{
-      this.allAssemblyTenure = data;   
-      this.onChange2(1);
+      this.allAssemblyTenure = data;  
+      this.selectedTenure = data[0].id;  
+      this.onChange2(this.selectedTenure);
     });
   }
 
@@ -38,7 +39,7 @@ export class ReportslaidComponent implements OnInit {
   }
   
   filterOfDepartment(tab:any){
-    this.onChange2(1);  
+    this.onChange2(this.selectedTenure);  
     var searchValue = tab.target.value;
     if(searchValue != 'All' ){
         setTimeout(()=>{
@@ -51,7 +52,7 @@ export class ReportslaidComponent implements OnInit {
   }
 
   TitleSearch(tab:any){
-    this.onChange2(1);  
+    this.onChange2(this.selectedTenure);  
     var searchValue = tab.target.value;
     if(searchValue != 'All' ){
         setTimeout(()=>{
