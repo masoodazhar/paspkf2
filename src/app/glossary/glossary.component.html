@@ -12,8 +12,8 @@
         </div>
     <hr>  
     <div class="row">
-        <div class="col-12" *ngFor="let data of allData">
-            <div [innerHTML]="safeData(data.description)"></div>
+        <div class="col-12">
+            <div [innerHTML]="safeData(allData.description)"></div>
         </div>
     </div>    
 </div>

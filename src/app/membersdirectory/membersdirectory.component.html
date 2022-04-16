@@ -45,8 +45,8 @@ width: 100% !important;
             
             <div class="tab-content p-4 bg-light-gray mt-2 text-darker">
                 <div class="tab-pane fade {{openTabMix}}"  role="tabpanel" id="print-section1">
-                    <h3> {{"Search"|translate}} by {{searchfrom}}  </h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;" [useExistingCss]="true" printSectionId="print-section1" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3> by {{searchfrom}}  </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;" [useExistingCss]="true" printSectionId="print-section1" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                     <div class="row" *ngIf="searchfrom=='seattype'">
                         <div class="col-6 my-2"  *ngFor="let data of filterSeatType(searchfrom)">
                             <div class="row">
@@ -105,7 +105,7 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade {{openTabAssembly}}"  id="" role="tabpanel">
-                    <h3> {{"Search"|translate}} by Assemblies  &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClickedAssembly" class="btn btn-success">Back</button></h3>
+                    <h3> by Assemblies  &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClickedAssembly" class="btn btn-success">Back</button></h3>
                     <div class="row" *ngIf="!isClickedAssembly">
                         <div class="col-6 my-2"  *ngFor="let data of assembliesList; let num=index">
                             <div class="row">                               
@@ -137,8 +137,8 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade {{openTabName}}"  id="tabId1" role="tabpanel">
-                    <h3> {{"Search"|translate}} {{"By Name"|translate}} </h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId1" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3> {{"By Name"|translate}} </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId1" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                     
                     <div class="row">
                         <div class="col-12">
@@ -245,8 +245,8 @@ width: 100% !important;
                 </div>
             
                 <div class="tab-pane fade {{openTabDistrict}}" id="tabId2" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"By District"|translate}} &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClicked" class="btn btn-success">Back</button> </h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId2" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"By District"|translate}} &nbsp;&nbsp;&nbsp; <button (click)="back($event)" *ngIf="isClicked" class="btn btn-success">Back</button> </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId2" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                     
                     <div class="row" *ngIf="!isClicked">
                         <div class="col-6 my-2"  *ngFor="let data of byDestrict; let num=index">
@@ -280,8 +280,8 @@ width: 100% !important;
                 </div>
             
                 <div class="tab-pane fade" id="tabId3" role="tabpanel">
-                    <h3> {{"Search"|translate}} {{"By Age"|translate}} </h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId3" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3> {{"By Age"|translate}} </h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId3" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of ageData">
@@ -305,8 +305,8 @@ width: 100% !important;
                 </div>
             
                 <div class="tab-pane fade" id="tabId4" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"Reserved Seats"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId4" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"Reserved Seats"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId4" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of seatData">
@@ -329,8 +329,8 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade {{openTabParty}}" id="tabId5" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"By Party"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId5" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"By Party"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId5" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of byParty">
@@ -354,8 +354,8 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tabId6" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"By Elections"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId6" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"By Elections"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId6" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="top-title"
                         style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; text-align: justify;">
@@ -364,26 +364,32 @@ width: 100% !important;
                             <thead>
                                 <tr class="bg-success text-white">
                                     <th rowspan="2" valign="top">
-                                        Constituency</th>
-                                    <th colspan="3" align="center" valign="top">
-                                        Last Member</th>
+                                        {{"Constituency"|translate}}</th>
+                                    <th colspan="4" align="center" valign="top">
+                                        {{"LastMember"|translate}}</th>
                                     <th valign="top">
-                                        Reason for By-election</th>
+                                        {{"ReasonforByelection"|translate}}</th>
                                     <th colspan="2" align="center" valign="top">
-                                        Current Member</th>
+                                        {{"CurrentMember"|translate}}</th>
                                 </tr>
                                 <tr class="bg-success text-white">
                                     <th valign="top">
                                         {{"Name"|translate}}</th>
-                                    <th valign="top">{{ "From"|translate}}</th>
                                     <th valign="top">
-                                        {{ "To"|translate}}</th>
+                                        {{ "From"|translate}}
+                                    </th>
+                                    <th valign="top">
+                                        {{ "To"|translate}}
+                                    </th>
+                                    <th valign="top">
+                                        {{ "Status"|translate}}
+                                    </th>
                                     <th valign="top">
                                         &nbsp;</th>
                                     <th valign="top">
                                         {{"Name"|translate}}</th>
                                     <th valign="top">
-                                        Oath Taken on</th>
+                                        {{"OathTakenon"|translate}}</th>
                                 </tr>
                             </thead>
                             <tbody>                                
@@ -392,16 +398,18 @@ width: 100% !important;
                                     <td valign="top"> {{data.constituency}} </td>
                                     <td valign="top">
                                         <a [routerLink]="['/memberprofile/', data.memberid]" title="Imran Ismail"
-                                            style="color: rgb(0, 102, 204);">{{data.name}}</a></td>
+                                            style="color: rgb(0, 102, 204);">{{data.currentmembername}}</a></td>
                                     <td valign="top">
                                         {{data.elfromdate}}&nbsp;</td>
                                     <td valign="top">
                                         {{data.eltodate}}&nbsp;</td>
                                     <td valign="top">
+                                        {{data.member_status}}&nbsp;</td>
+                                    <td valign="top">
                                         {{data.reasion}}&nbsp;</td>
                                     <td valign="top">
                                         <a [routerLink]="['/memberprofile/', data.currentmemberid]" title="Shahzad Qureshi"
-                                            style="color: rgb(0, 102, 204);">{{data.currentmembername}}</a>&nbsp;</td>
+                                            style="color: rgb(0, 102, 204);">{{data.name}}</a>&nbsp;</td>
                                     <td valign="top">
                                         {{data.mian_aothdate}}&nbsp;</td>
                                 </tr>
@@ -410,8 +418,8 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tabId7" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"Birthday"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId7" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"Birthday"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId7" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of birthData">
@@ -434,8 +442,8 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tabId8" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"By Contact"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId8" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"By Contact"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId8" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of contactData">
@@ -461,8 +469,8 @@ width: 100% !important;
                     <h3>Searched by Vacant Seat</h3>
                 </div> -->
                 <div class="tab-pane fade" id="tabId10" role="tabpanel">
-                    <h3>{{"Search"|translate}} {{"Women Members"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId10" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <h3>{{"Women Members"|translate}}</h3>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId10" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row" >
                         <div class="col-6 my-2"  *ngFor="let data of filterWoomen(1)">
@@ -486,7 +494,7 @@ width: 100% !important;
                 </div>
                 <div class="tab-pane fade" id="tabId11" role="tabpanel">
                     <h3>{{"Membership Statistics"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <div class="row">
                         <div class="col-3">
@@ -656,7 +664,7 @@ width: 100% !important;
                 </div>
                 <div class="tab-pane fade {{openTabAdvance}}" id="tabId12" role="tabpanel">
                     <h3>{{"Advance Search"|translate}}</h3>
-                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="adavnceSearch" ngxPrint> <i class="fa fa-print"></i> Print</button>
+                    <button class="btn btn-success" style="margin-bottom: 10px;"  [useExistingCss]="true" printSectionId="adavnceSearch" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
                     <form  [formGroup]="form" (ngSubmit)="submitForm()">
                         <div class="row">

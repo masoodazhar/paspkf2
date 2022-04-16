@@ -33,14 +33,14 @@ export class ResolutionspassedComponent implements OnInit {
     });
   } 
 
-  filterOfType(tab:any){
-    this.onChange2(this.selectedTenure);
-      setTimeout(()=>{
-        this.allData = this.allData.filter(function (x:any) {
-          return x.restype == tab.target.value;
-         });       
-      },1000);   
-  }
+  // filterOfType(tab:any){
+  //   this.onChange2(this.selectedTenure);
+  //     setTimeout(()=>{
+  //       this.allData = this.allData.filter(function (x:any) {
+  //         return x.restype == tab.target.value;
+  //        });       
+  //     },1000);   
+  // }
 
   filterOfStatus(tab:any){
     this.onChange2(this.selectedTenure);

@@ -6,9 +6,12 @@ width: 100% !important;
 </style>
 <div class="container-fluid">
     <div class="row" style="border-bottom: solid 1px;">
-        <div class="col-8" style="text-align: center">
-           <h2>
+        <div class="col-2"  style="text-align: center">
             <button (click)="back($event)" class="btn btn-success notranslate"  *ngIf="isDetail">{{'Back'|translate}}</button> &nbsp;&nbsp;&nbsp; 
+        </div>
+        <div class="col-6" style="text-align: center">
+           <h2>
+            
                  {{standingCommitteeHeading.category}}
             </h2>
         </div>
@@ -21,10 +24,10 @@ width: 100% !important;
         <div class="col-12" *ngIf="!isDetail">
             <div class="list-group list-group-horizontal-md tabs-holder" id="myListId" role="tablist">
                 <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Members"|translate}} </a>
-                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Business Referred </a>
-                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Reports </a>
-                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Subcommittees </a>
-                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> Notifications </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"BusinessReferred"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Reports_"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Subcommittees"|translate}} </a>
+                <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Notifications"|translate}} </a>
             </div>
             
             <div class="tab-content p-4 bg-light-gray mt-2 text-darker">

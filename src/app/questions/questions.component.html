@@ -36,7 +36,7 @@ width: 100% !important;
                     <tr *ngFor="let data of allData">
                         <td> 
                             <a *ngIf="data.type =='text' || data.type =='jpg' || data.type =='png'" [routerLink]="['/questiondetail/', data.id]">{{data.number}}</a> 
-                            <a *ngIf="data.type =='pdf'" href="{{imageUrl}}{{data.image_pdf_link}}">{{data.number}}</a> 
+                            <a *ngIf="data.type =='pdf'" target="_blank" href="{{imageUrl}}{{data.image_pdf_link}}">{{data.number}}</a> 
                             
                         </td>
                         <td> {{data.date}} </td>

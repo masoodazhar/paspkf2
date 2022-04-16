@@ -11,6 +11,7 @@ export class CommitteesystemComponent implements OnInit {
   public allData:any=[];
   public singleData:any={};
   public isDetail:boolean=false;
+  public imageUrl:any='';
   constructor(private getdataService:GetdataService) {  }
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class CommitteesystemComponent implements OnInit {
   }
 
   getAssemblyTenure():any{
+    this.imageUrl = this.getdataService.getImageUrl();
     this.getdataService.getAll('committeesystemdetail')
     .subscribe((data:any)=>{
       this.allData = data;   

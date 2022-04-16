@@ -23,62 +23,64 @@ $(window).on('load', function() {
 
 
     // OWL
-    let mainSlider = $('.main-slider .owl-carousel');
-    if(mainSlider.length) {
-        mainSlider.owlCarousel({
-            items: 1,
-            margin: 0,
-            dotsEach: true,
-            rtl: true,
-            nav: false,
-            loop: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 6000
-        });
-    }
-
-
-    let newsSlider = $('.news-slider .owl-carousel');
-    if(newsSlider.length) {
-        newsSlider.owlCarousel({
-            items: 1,
-            margin: 0,
-            dotsEach: true,
-            rtl: true,
-            nav: false,
-            loop: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 6000
-        });
-    }
-
-
-    let imagesSlider = $('.images-slider .owl-carousel');
-    if(imagesSlider.length) {
-        imagesSlider.owlCarousel({
-            responsive:{
-                0:{
-                    items:1
+    setTimeout(function(){
+        let mainSlider = $('.main-slider .owl-carousel');
+        if(mainSlider.length) {
+            mainSlider.owlCarousel({
+                items: 1,
+                margin: 0,
+                dotsEach: true,
+                rtl: true,
+                nav: false,
+                loop: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000
+            });
+        }
+    
+    
+        let newsSlider = $('.news-slider .owl-carousel');
+        if(newsSlider.length) {
+            newsSlider.owlCarousel({
+                items: 1,
+                margin: 0,
+                dotsEach: true,
+                rtl: true,
+                nav: false,
+                loop: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000
+            });
+        }
+    
+    
+        let imagesSlider = $('.images-slider .owl-carousel');
+        if(imagesSlider.length) {
+            imagesSlider.owlCarousel({
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    700:{
+                        items:2
+                    },
+                    1200:{
+                        items:3
+                    }
                 },
-                700:{
-                    items:2
-                },
-                1200:{
-                    items:3
-                }
-            },
-            margin: 20,
-            dotsEach: true,
-            rtl: true,
-            nav: false,
-            // loop: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 6000
-        });
-    }
+                margin: 20,
+                dotsEach: true,
+                rtl: true,
+                nav: false,
+                // loop: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000
+            });
+        }
+    }, 5000)
 
 });
 

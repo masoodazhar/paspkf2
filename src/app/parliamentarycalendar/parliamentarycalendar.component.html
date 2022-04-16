@@ -1,9 +1,17 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col-5">
             <h2>Parliamentary Calendar of the 17th Assembly</h2>
             <p>{{ "Third Parliamentary Year"|translate}}</p>
-            <p><b>(From 2020-08-15 to TillDate)</b></p>
+            <p><b>({{"From"|translate}} 2020-08-15 {{"To"|translate}} TillDate)</b></p>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-inline">
+                <label for=""><b>{{ "Assembly Tenure"|translate}}: </b></label>
+                <select class="form-control"  (change)="onChange($event)">
+                    <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+                </select>
+            </div>                
         </div>
         <div class="col-md-4 pageSwitchButtons">
             <a routerLink="/committeesystem/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
@@ -13,7 +21,7 @@
     </div>
     <hr>
     <div class="container">
-    <div class="row my-2">
+    <!-- <div class="row my-2">
         <div class="col-3">
             <div class="month">      
                 <ul>
@@ -116,9 +124,9 @@
                 </li>    
             </ul>
         </div>        
-    </div>
+    </div> -->
     <div class="row my-2">
-        <div class="col-3">
+        <!-- <div class="col-3">
             <div class="month">      
                 <ul>
                   <li>
@@ -143,13 +151,12 @@
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
-        </div>
+        </div> -->
         <div class="col-3">
             <div class="month">      
                 <ul>
                   <li>
-                    JANUARY 2021
-
+                    JANUARY {{sociallinks_get_year_only.calendar_year}}
                   </li>
                 </ul>
             </div>
@@ -165,7 +172,7 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','01',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','01',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'01',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'01',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
@@ -174,8 +181,32 @@
             <div class="month">      
                 <ul>
                   <li>
-                    FEBRUARY 2021
-
+                    FEBRUARY {{sociallinks_get_year_only.calendar_year}}
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range28">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'01',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'02',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    MARCH {{sociallinks_get_year_only.calendar_year}}
                   </li>
                 </ul>
             </div>
@@ -191,45 +222,16 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','01',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','02',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'03',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'03',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
-        </div>
+        </div>  
         <div class="col-3">
             <div class="month">      
                 <ul>
                   <li>
-                    MARCH 2021
-
-                  </li>
-                </ul>
-            </div>
-            <ul class="weekdays">
-                <li>Mo</li>
-                <li>Tu</li>
-                <li>We</li>
-                <li>Th</li>
-                <li>Fr</li>
-                <li>Sa</li>
-                <li>Su</li>
-            </ul>
-            
-            <ul class="days">  
-                <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','03',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','03',day);else other_content">{{day}}</span>
-                    <ng-template #other_content >{{day}}</ng-template>
-                </li>  
-            </ul>
-        </div>        
-    </div>
-    <div class="row my-2">
-        <div class="col-3">
-            <div class="month">      
-                <ul>
-                  <li>
-                    APRIL 2021
-
+                    APRIL {{sociallinks_get_year_only.calendar_year}}
                   </li>
                 </ul>
             </div>
@@ -244,98 +246,20 @@
             </ul>
             
             <ul class="days">                 
-                <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','04',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','04',day);else other_content">{{day}}</span>
+                <li *ngFor="let day of range30">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'04',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'04',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>                
             </ul>
-        </div>
-        <div class="col-3">
-            <div class="month">      
-                <ul>
-                  <li>
-                    MAY 2021
-
-                  </li>
-                </ul>
-            </div>
-            <ul class="weekdays">
-                <li>Mo</li>
-                <li>Tu</li>
-                <li>We</li>
-                <li>Th</li>
-                <li>Fr</li>
-                <li>Sa</li>
-                <li>Su</li>
-            </ul>
-            
-            <ul class="days">  
-                <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','05',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','05',day);else other_content">{{day}}</span>
-                    <ng-template #other_content >{{day}}</ng-template>
-                </li>  
-            </ul>
-        </div>
-        <div class="col-3">
-            <div class="month">      
-                <ul>
-                  <li>
-                    JUNE 2021
-
-                  </li>
-                </ul>
-            </div>
-            <ul class="weekdays">
-                <li>Mo</li>
-                <li>Tu</li>
-                <li>We</li>
-                <li>Th</li>
-                <li>Fr</li>
-                <li>Sa</li>
-                <li>Su</li>
-            </ul>
-            
-            <ul class="days">  
-                <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','06',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','06',day);else other_content">{{day}}</span>
-                    <ng-template #other_content >{{day}}</ng-template>
-                </li>  
-            </ul>
-        </div>
-        <div class="col-3">
-            <div class="month">      
-                <ul>
-                  <li>
-                    JULY 2021
-                  </li>
-                </ul>
-            </div>
-            <ul class="weekdays">
-                <li>Mo</li>
-                <li>Tu</li>
-                <li>We</li>
-                <li>Th</li>
-                <li>Fr</li>
-                <li>Sa</li>
-                <li>Su</li>
-            </ul>
-            
-            <ul class="days">  
-                <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','07',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','07',day);else other_content">{{day}}</span>
-                    <ng-template #other_content >{{day}}</ng-template>
-                </li>  
-            </ul>
-        </div>        
+        </div>      
     </div>
     <div class="row my-2">
+        
         <div class="col-3">
             <div class="month">      
                 <ul>
                   <li>
-                    AUGUST 2021
-
-
+                    MAY {{sociallinks_get_year_only.calendar_year}}
                   </li>
                 </ul>
             </div>
@@ -351,7 +275,7 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','08',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','08',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'05',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'05',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
@@ -360,8 +284,57 @@
             <div class="month">      
                 <ul>
                   <li>
-                    SEPTEMBER 2021
-
+                    JUNE {{sociallinks_get_year_only.calendar_year}}
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range30">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'06',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'06',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                    <li>
+                        JULY {{sociallinks_get_year_only.calendar_year}}                  
+                    </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range31">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'07',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'07',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>  
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    AUGUST {{sociallinks_get_year_only.calendar_year}}
 
                   </li>
                 </ul>
@@ -378,7 +351,36 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','09',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','09',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'08',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'08',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div>      
+    </div>
+    <div class="row my-2">
+       
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    SEPTEMBER {{sociallinks_get_year_only.calendar_year}}
+
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range30">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'09',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'09',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
@@ -387,8 +389,7 @@
             <div class="month">      
                 <ul>
                   <li>
-                    OCTOBER 2021
-                  </li>
+                    OCTOBER {{sociallinks_get_year_only.calendar_year}}                  </li>
                 </ul>
             </div>
             <ul class="weekdays">
@@ -403,7 +404,7 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','10',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','10',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'10',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'10',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
@@ -412,8 +413,32 @@
             <div class="month">      
                 <ul>
                   <li>
-                    NOVEMBER 2021
-
+                    NOVEMBER {{sociallinks_get_year_only.calendar_year}}
+                  </li>
+                </ul>
+            </div>
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+            
+            <ul class="days">  
+                <li *ngFor="let day of range30">
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'11',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'11',day);else other_content">{{day}}</span>
+                    <ng-template #other_content >{{day}}</ng-template>
+                </li>  
+            </ul>
+        </div> 
+        <div class="col-3">
+            <div class="month">      
+                <ul>
+                  <li>
+                    DECEMBER {{sociallinks_get_year_only.calendar_year}}
                   </li>
                 </ul>
             </div>
@@ -429,22 +454,23 @@
             
             <ul class="days">  
                 <li *ngFor="let day of range31">
-                    <span [ngStyle]="{backgroundColor: filterDays('2021','11',day), color: 'white', padding:'5px'}" *ngIf="filterDays('2021','11',day);else other_content">{{day}}</span>
+                    <span [ngStyle]="{backgroundColor: filterDays(sociallinks_get_year_only.calendar_year,'12',day), color: 'white', padding:'5px'}" *ngIf="filterDays(sociallinks_get_year_only.calendar_year,'12',day);else other_content">{{day}}</span>
                     <ng-template #other_content >{{day}}</ng-template>
                 </li>  
             </ul>
         </div>        
     </div>
     <div class="row">
-        <div class="col-2 offset-3">           
+        <div class="col-3 offset-3">           
             <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#c02828"></span>  <b>Reject >{{ "Session Days"|translate}}</b></p>       
-        </div>
-        <div class="col-3">           
-            <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#328a1d"></span> <b>Proposed >{{ "Session Days"|translate}}</b></p>        
         </div>
         <div class="col-3">           
             <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#0c5b9b"></span>  <b>Upcomming >{{ "Session Days"|translate}}</b></p>           
         </div>
+        <div class="col-3">           
+            <p><span class="small-head-dot  mr-3 mt-2" style="background-color:#328a1d"></span> <b>Proposed >{{ "Session Days"|translate}}</b></p>        
+        </div>
+      
     </div>
 </div>
 </div>

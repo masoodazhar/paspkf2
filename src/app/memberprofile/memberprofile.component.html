@@ -7,7 +7,7 @@
         <div class="col-md-4 pageSwitchButtons">
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
             <button type="button" class="btn btn-success notranslate" title="Back" (click)="backPage($event)">{{'Back'|translate}}</button>
-            <button class="btn btn-success" [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> Print</button>
+            <button class="btn btn-success" [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
                    
         </div>
     </div>
@@ -114,7 +114,7 @@
                             {{allData.permanentaddress}} <br>
                         </div>
                     </li>
-                    <li class="list-group-item">Oath Taken on
+                    <li class="list-group-item">{{"OathTakenon"|translate}}
 
                         <div class="posts_text">
                             {{allData.mian_aothdate}} <br>

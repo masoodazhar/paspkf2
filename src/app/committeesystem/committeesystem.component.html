@@ -24,7 +24,14 @@
         <div class="row">
             <div class="col-12" *ngIf="!isDetail">
                 <ul>
-                    <li *ngFor="let data of allData" class="detailist"><a (click)="getDetial(data.id)">{{data.heading}}</a></li>
+                    <!-- <li *ngFor="let data of allData" class="detailist"><a (click)="getDetial(data.id)">{{data.heading}}</a></li> -->
+                    <li *ngFor="let data of allData" class="detailist">
+                        <a (click)="getDetial(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.heading}}</a>
+                        <a href="{{imageUrl}}{{data.description}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.heading}} </a>
+
+                    </li>
+                
+                   
                 </ul>
             </div>
             <div class="col-12" *ngIf="isDetail">

@@ -11,15 +11,18 @@ export class ParliamentarycalendarComponent implements OnInit {
   public allData:any=[];
   public allAssemblyTenure:any=[];
   public selectedTenure:any;
+  public sociallinks_get_year_only:any={};
   public myarray:any = [];
   public range31 =['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31']
   public range30 =['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30']
   public range28 =['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28']
   
-  constructor(private getdataService:GetdataService) { this.getAssemblyTenure(); }
+  constructor(private getdataService:GetdataService) { }
 
   ngOnInit(): void {
     this.getdataService.loadingloader();
+    this.getAssemblyTenure(); 
+    this.getSocialLink();
   }
 
   getAssemblyTenure():any{
@@ -31,12 +34,17 @@ export class ParliamentarycalendarComponent implements OnInit {
     });
   }
 
+  getSocialLink() {    
+    this.getdataService.getAll('sociallinks')
+    .subscribe((data:any)=>{
+      this.sociallinks_get_year_only = data;
+      // //console.log(this.speaker)
+    });
+  }
+
   filterDays(year:any, month:any, day:any){
 
     let date = year+'-'+month+'-'+day;
-    //console.log('=====')
-    //console.log(date)
-    //console.log('=====')
     let check:boolean=false;
 
     // this.allData.filter(function (x:any) {
@@ -57,7 +65,7 @@ export class ParliamentarycalendarComponent implements OnInit {
     this.getdataService.getById('parliamentarycalendar',tenureid.target.value)
     .subscribe((data:any)=>{
       this.allData = data;
-      // //console.log(this.allData)
+      console.log(this.allData)
     });
   }
   
