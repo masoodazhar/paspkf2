@@ -1,1 +1,64 @@
-<p>legislations works!</p>
+<div class="container-fluid">
+
+  <div class="row">
+      <div class="col-8">
+          <h2> <button (click)="back($event)" *ngIf="isDetail" class="btn btn-success notranslate">{{'Back'|translate}}  &nbsp;&nbsp;&nbsp; </button>{{'Legislations'|translate}}</h2>
+      </div>
+      <div class="col-md-4 pageSwitchButtons">
+          <a routerLink="/parliamentarycalendar/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
+          <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
+          <a routerLink="/performanceofassembly/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
+      </div>
+  </div>
+  <hr>
+  <div class="row">
+      <div class="col-3">
+          <div class="form-group">
+              <label for="">{{ "Assembly Tenure"|translate}}</label>
+              <select class="form-control"  (change)="onChange($event)">
+                  <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
+              </select>
+          </div>
+      </div>
+
+  </div>
+
+<div class="row">
+  <div class="col-12" *ngIf="!isDetail">
+      <table class="table table-striped">
+          <thead class="bg-success text-white">
+              <tr>
+                  <th> &nbsp;</th>
+              </tr>
+          </thead>
+          <tbody *ngIf="allData.length > 0 else noDataFound">
+              <tr  *ngFor="let data of allData">
+                  <td>
+                      <p>
+                          <!-- <a (click)="getSingleData(data.id)">{{data.name}}</a> -->
+                          <a  (click)="getSingleData(data.id)" *ngIf="data.type=='jpg' || data.type=='png' || data.type=='text'"> {{data.name}}</a>
+                          <a href="{{imageUrl}}{{data.image_pdf_link}}" target="_blank" *ngIf="data.type=='pdf'"> {{data.name}} </a>
+                      </p>
+                      <p>{{data.date}} | {{data.committee}}</p>
+                  </td>
+              </tr>
+          </tbody>
+          <ng-template #noDataFound>
+              <tBody>
+                  <tr>
+                      <td> No Data Found with selected Tenure </td>
+                  </tr>
+              </tBody>
+          </ng-template>
+      </table>
+  </div>
+  <div class="col-12" *ngIf="isDetail">
+      <hr>
+      <div *ngIf="singleData.type=='text'" [innerHTML]="singleData.image_pdf_link">
+
+      </div>
+      <img src="{{imageUrl}}{{singleData.image_pdf_link}}" *ngIf="singleData.type=='jpg' || singleData.type=='png'" alt="">
+
+  </div>
+</div>
+</div>

@@ -39,10 +39,11 @@ import { PastassemblymembersComponent } from './pastassemblymembers/pastassembly
  // Assembly Business
  import { CurrentassemblysummaryComponent } from './currentassemblysummary/currentassemblysummary.component';
  import { SessionsComponent } from './sessions/sessions.component';
+ import { LegislationsComponent } from './legislations/legislations.component';
  import { OrderofthedayagendaComponent } from './orderofthedayagenda/orderofthedayagenda.component';
  import { OrderofthedayagendasessionsbasedComponent } from './orderofthedayagendasessionsbased/orderofthedayagendasessionsbased.component';
  import { SittingsdetailComponent } from './sittingsdetail/sittingsdetail.component';
- 
+
  import { SummaryofproceedingsComponent } from './summaryofproceedings/summaryofproceedings.component';
  import { HousedebatesComponent } from './housedebates/housedebates.component';
  import { QuestionsComponent } from './questions/questions.component';
@@ -121,7 +122,7 @@ const routes: Routes = [
   {path: 'rulesofproceduresdetail/:id', component: RulesofproceduresdetailComponent},
   {path: 'parliamentaryprivileges', component: ParliamentaryprivilegesComponent},
   {path: 'parliamentaryprivilegesdetails/:id', component: ParliamentaryprivilegesdetailsComponent},
- 
+
   // ABOUT Secretariat
   {path: 'overview', component: OverviewComponent},
   {path: 'organizationalchart', component: OrganizationalchartComponent},
@@ -132,7 +133,7 @@ const routes: Routes = [
   {path: 'rulesdetail/:id', component: RulesdetailComponent},
   {path: 'thesindhtrans2016', component: Thesindhtrans2016Component},
   {path: 'assemblylibrary', component: AssemblylibraryComponent},
-  
+
   // ABOUT Member
   {path: 'speakers', component: SpeakersComponent},
   {path: 'speakersdetail/:id', component: SpeakersdetailComponent},
@@ -144,10 +145,11 @@ const routes: Routes = [
   {path: 'membersperformancereport/:id', component: MembersperformancereportComponent},
   {path: 'pastassemblymembers', component: PastassemblymembersComponent},
   {path: 'memberprofile/:id', component: MemberprofileComponent},
- 
+
   // Assembly Business
   {path: 'currentassemblysummary', component: CurrentassemblysummaryComponent},
   {path: 'sessions', component: SessionsComponent},
+  {path: 'legislations', component:LegislationsComponent},
   {path: 'orderofthedayagenda', component: OrderofthedayagendaComponent},
   {path: 'sittingsdetail/:id', component: SittingsdetailComponent},
   {path: 'questiondetail/:id', component: QuestionsdetailComponent},
