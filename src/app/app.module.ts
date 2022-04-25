@@ -106,6 +106,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgxPrintModule} from 'ngx-print';
 import { LegislationsComponent } from './legislations/legislations.component';
+import { AllcommitteesComponent } from './allcommittees/allcommittees.component';
+import { AllcommitteesdataComponent } from './allcommitteesdata/allcommitteesdata.component';
 
 const routes = [
   {
@@ -208,7 +210,9 @@ const routes = [
     MemberprofileComponent,
     SittingsdetailComponent,
     QuestionsdetailComponent,
-    LegislationsComponent
+    LegislationsComponent,
+    AllcommitteesComponent,
+    AllcommitteesdataComponent
   ],
   imports: [
     BrowserModule,

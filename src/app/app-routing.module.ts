@@ -107,6 +107,10 @@ import { ReportsComponent } from './reports/reports.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CommonModule } from '@angular/common';
 
+// EXTRA
+import {AllcommitteesComponent} from './allcommittees/allcommittees.component';
+import {AllcommitteesdataComponent} from './allcommitteesdata/allcommitteesdata.component';
+
 const routes: Routes = [
   // ABOUT Assembly
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -214,6 +218,11 @@ const routes: Routes = [
 
   // Contact us
   {path: 'contactus', component: ContactusComponent},
+
+
+  // EXTAR
+  {path: 'allcommittes', component: AllcommitteesComponent},
+  {path: 'allcommitteesdata/:id', component: AllcommitteesdataComponent},
 
 ];
 

@@ -30,7 +30,7 @@
     "Sittings":" نشستیں",
     "OrderofthedayAgenda":"ایجنڈا۔فہرست کارروائی",
     "Summaryofproceedings":"کارروائی کا خلاصہ",
-    "Housedebates":"مباحثات",    
+    "Housedebates":"مباحثات",
     "AssemblyPerformance":" ایوان کی کارکردگی",
     "SessionNo": "سیشن نمبر",
     "Notificationsby":" اطلاعات بذریعہ",
@@ -91,7 +91,7 @@
     "ListofMembers_": "نمائندگان کی فہرست",
     "Membersperformancereport_": "ممبران کی کارکردگی کی رپورٹ",
     "PastAssemblyMembers_": "ماضی کے ممبران اسمبلی",
-    
+
     "AssemblyBusiness_": "ایوان کی کارروائی",
     "CurrentAssemblySummary_": "موجودہ اسمبلی کا خلاصہ",
     "Sessions_": "اجلاس",
@@ -131,7 +131,7 @@
     "NotificationsMembers_": "اراکین اطلاع",
     "NotificationsCommittees_": "کمیٹی اطلاع",
     "NotificationsGeneral_": "عمومی اطلاع",
-    
+
     "PressReleases_": "پریس ریلیز",
     "Newsandactivities_": "خبریں اور سرگرمیاں",
     "PictureGallery_": "تصویر گیلری",
@@ -154,7 +154,7 @@
     "LegislativeProcedure": "قانون سازی کا طریقہ کار",
     "Legislation": "قانون سازی",
     "AssemblyTenure": "اسمبلی کی مدت",
-    
+
     "FirstParliamentaryYear": "پہلا پارلیمانی سال",
     "SecondParliamentaryYear": "دوسرا پارلیمانی سال",
     "ThirdParliamentaryYear": "تیسرا پارلیمانی سال",
@@ -297,5 +297,6 @@
     "OathTakenon": "حلف برداری کی تاریخ",
     "BusinessReferred": "کاروباری حوالہ",
     "Subcommittees": "ذیلی کمیٹی",
-    "Print": "پرنٹ کریں"
+    "Print": "پرنٹ کریں",
+    "AllCommittees":"تمام کمیٹیاں"
 }

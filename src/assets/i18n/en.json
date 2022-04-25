@@ -63,7 +63,7 @@
     "Home": "Home",
     "logoname": "PROVINCIAL ASSEMBLY OF SINDH",
     "pakistan": "PAKISTAN",
-   
+
     "AboutAssembly_": "About Assembly",
     "About_": "About",
     "Messages_": "Messages",
@@ -92,7 +92,7 @@
     "ListofMembers_": "List of Members",
     "Membersperformancereport_": "Members performance report",
     "PastAssemblyMembers_": "Past Assembly Members",
-    
+
     "AssemblyBusiness_": "Assembly Business",
     "CurrentAssemblySummary_": "Current Assembly Summary",
     "Sessions_": "Sessions",
@@ -132,7 +132,7 @@
     "NotificationsMembers_": "Notifications Members",
     "NotificationsCommittees_": "Notifications Committees",
     "NotificationsGeneral_": "Notifications General",
-    
+
     "PressReleases_": "Press Releases",
     "Newsandactivities_": "News and Activities",
     "PictureGallery_": "Picture Gallery",
@@ -155,7 +155,7 @@
     "LegislativeProcedure": "Legislative Procedure",
     "Legislation": "Legislation",
     "AssemblyTenure": "Assembly Tenure",
-   
+
     "FirstParliamentaryYear": "First Parliamentary Year",
     "SecondParliamentaryYear": "Second Parliamentary Year",
     "ThirdParliamentaryYear": "Third Parliamentary Year",
@@ -297,9 +297,10 @@
     "OathTakenon": "Oath Taken on",
     "BusinessReferred": "Business Referred",
     "Subcommittees": "Subcommittees",
-    "Print": "Print"
-    
+    "Print": "Print",
+    "AllCommittees":"All Committees"
 
 
-    
+
+
 }

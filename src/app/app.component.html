@@ -22,7 +22,7 @@
                 <div class="dropdown d-inline-block switcher-right">
                     <!-- <div id="google_translate_element"></div> -->
                     <!-- <input type="text" value="{{translattion.currentLang}}" (click)="switchLang($event)" class="changeLanguage notranslate"> -->
-                 
+
                   <!-- <button class="btn pr-0 pl-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="langText">{{translattion.currentLang}}</span>
                     </button>
@@ -31,25 +31,25 @@
                         <a class="dropdown-item {{activeLangUR}} font-urdu" data-lang="urd"  (click)="switchLang('ur')">اردو</a>
                         <a class="dropdown-item {{activeLangSD}} font-sindhi" data-lang="sin" (click)="switchLang('sd')">سندي</a>
                     </div>
-                     -->  
-                     
+                     -->
+
                     <select class="form-control " #selectedLang (change)="switchLang(selectedLang.value)">
                         <option *ngFor="let language of translattion.getLangs()" [value]="language" [selected]="language === currentLang">
                             <span *ngIf="language == 'en'">Eng</span>
                             <span *ngIf="language == 'sd'">Sindhi</span>
                             <span *ngIf="language == 'ur'">Urdu</span>
-                            
+
                         </option>
                     </select>
                 </div>
-              
+
                 <div class="input-group mt-3 justify-content-center justify-content-sm-end">
                     <input type="text" class="form-control form-max" list="search" (change)="searchdata($event)" (keyup)="searchBasic($event)" placeholder='{{"Search"|translate}} ...' aria-describedby="button-addon">
                     <datalist id="search">
                         <option *ngFor="let x of searchvalues"  value="{{x.value}}">
                     </datalist>
 
-                    
+
                     <div class="input-group-append">
                         <button class="btn btn-bronze btn-sm"  type="button" id="button-addon"><i class="fa fa-search"></i></button>
                     </div>
@@ -144,6 +144,7 @@
                             <a routerLink="specialcommittee/" class="dropdown-item" title="{{'SpecialCommittee_'|translate}}">{{'SpecialCommittee_'|translate}}</a>
                             <a routerLink="reportslaid/" class="dropdown-item" title="{{'ReportsLaid_'|translate}}">{{'ReportsLaid_'|translate}}</a>
                             <a routerLink="housecommittee/" class="dropdown-item" title="{{'HouseCommittee_'|translate}}">{{'HouseCommittee_'|translate}}</a>
+                            <a routerLink="allcommittes/" class="dropdown-item" title="{{'AllCommittees'|translate}}">{{'AllCommittees'|translate}}</a>
                             <!-- <a routerLink="constructioncommittee/" class="dropdown-item" title="{{'ConstructionCommittee_'|translate}}">{{'ConstructionCommittee_'|translate}}</a> -->
                     </ul>
                 </li>
@@ -161,7 +162,7 @@
                         <a class="dropdown-item" routerLink="notifymembers/" title="{{'NotificationsMembers_'|translate}}">{{'NotificationsMembers_'|translate}}</a>
                         <a class="dropdown-item" routerLink="notifycommittees/" title="{{'NotificationsCommittees_'|translate}}">{{'NotificationsCommittees_'|translate}}</a>
                         <a class="dropdown-item" routerLink="notifygeneral/" title="{{'NotificationsGeneral_'|translate}}">{{'NotificationsGeneral_'|translate}}</a>
-                
+
                         <a routerLink="pressreleases/" class="dropdown-item" title="{{'PressReleases_'|translate}}">{{'PressReleases_'|translate}}</a>
                         <a routerLink="newsandactivities/" class="dropdown-item" title="{{'Newsandactivities_'|translate}}">{{'Newsandactivities_'|translate}}</a>
                         <a routerLink="picturegallery/" class="dropdown-item" title="{{'PictureGallery_'|translate}}">{{'PictureGallery_'|translate}}</a>
@@ -344,4 +345,4 @@
     <div class="mt-2 py-3 bg-light-olive text-center" >
         <p class="m-0 footercopytext" style="color: white;">{{'Copyright'|translate}}</p>
     </div>
-</footer>  
+</footer>
