@@ -19,11 +19,12 @@ export class ListofmembersComponent implements OnInit {
   }
 
   getData():any{
+    const id:any=false;
     this.imageUrl = this.getdataService.getImageUrl();
-    this.getdataService.getAll('listofmembers')
+    this.getdataService.getById('listofmembers', id)
     .subscribe((data:any)=>{
       this.allData = data;
-    });  
+    });
   }
 
   listofmembersdetail(id:any){
@@ -33,7 +34,7 @@ export class ListofmembersComponent implements OnInit {
       this.isDetail = true;
       this.singleData = data;
       //console.log(this.singleData)
-    }); 
+    });
   }
 
   back(id:any){

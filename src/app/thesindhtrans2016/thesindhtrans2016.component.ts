@@ -11,8 +11,8 @@ export class Thesindhtrans2016Component implements OnInit {
   public allData:any=[];
   public singleData:any={};
   public imageUrl:any='';
-  constructor(private getdataService:GetdataService) { 
-    
+  constructor(private getdataService:GetdataService) {
+
   }
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class Thesindhtrans2016Component implements OnInit {
 
   getData():any{
     this.imageUrl = this.getdataService.getImageUrl();
-
-    this.getdataService.getAll('thesindhtrans2016')
+    const idalldata:any=false;
+    this.getdataService.getById('thesindhtrans2016', idalldata)
     .subscribe((data:any) =>{
       this.allData=data;
     });

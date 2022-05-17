@@ -10,8 +10,8 @@ import { Location } from '@angular/common';
 })
 export class MemberprofileComponent implements OnInit {
 
-  
- 
+
+
   public allData:any={};
   public imageUrl = '';
   public memberid:any;
@@ -39,7 +39,7 @@ export class MemberprofileComponent implements OnInit {
 
   isAlphaOrParen(str:string) {
     // //console.log('=============CHECKING PROFILE=============');
-    
+
     // //console.log(str)
     if (! /^[a-zA-Z0-9]+$/.test(str)) {
       return false;

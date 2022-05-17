@@ -8,7 +8,7 @@
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
             <button type="button" class="btn btn-success notranslate" title="Back" (click)="backPage($event)">{{'Back'|translate}}</button>
             <button class="btn btn-success" [useExistingCss]="true" printSectionId="tabId11" ngxPrint> <i class="fa fa-print"></i> {{"Print"|translate}}</button>
-                   
+
         </div>
     </div>
     <hr>
@@ -36,10 +36,10 @@
                 <!-- Start of ul -->
                 <ul class="list-group" style="color:white;">
                     <!-- Start of MPA Posts -->
-                   
+
                     <!-- End of MPA Posts -->
                     <!-- Start of Party Afiliations -->
-                    
+
                     <li class="list-group-item">
                         Father's/Husband's Name
 
@@ -49,9 +49,17 @@
                     </li>
                     <li class="list-group-item">{{"Party Association"|translate}}
 
-                        <div class="posts_text">
-                            {{allData.partyassociation}} <br>
+                        <div class="posts_text" *ngIf="allData.partyassociation != null else elseTemplate">
+                             {{allData.partyassociation}}<br>
                         </div>
+                        <ng-template #elseTemplate> <br> <span style="font-size: 10px;">N/A</span> <br> </ng-template>
+                    </li>
+                    <li class="list-group-item">{{"party Alliance"|translate}}
+
+                        <div class="posts_text" *ngIf="allData.partyassociation != null else elseTemplate1">
+                             {{allData.party_type}}<br>
+                        </div>
+                        <ng-template #elseTemplate1> <br> <span style="font-size: 10px;">N/A</span><br></ng-template>
                     </li>
                     <li class="list-group-item">{{"Type"|translate}} / {{"Seats"|translate}}
 
@@ -146,7 +154,7 @@
                                         <th> &nbsp; Committee</th>
                                         <th>From date</th>
                                         <th>To Date</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -154,11 +162,11 @@
                                         <td>{{moc_position}}</td>
                                         <td>{{convertData(allData.moc_fromdate)[indexes]}}</td>
                                         <td>{{convertData(allData.moc_todate)[indexes]}}</td>
-                                        
+
                                         <td>{{convertData(allData.moc_committee)[indexes]}}</td>
                                         <td>{{convertData(allData.moc_fromdate1)[indexes]}}</td>
                                         <td>{{convertData(allData.moc_todate1)[indexes]}}</td>
-        
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -180,12 +188,12 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let yearofpassing of  convertData(allData.yearofpassing); let indexes=index  ">
-                                 
+
                                         <td>{{convertData(allData.qualification)[indexes]}}</td>
                                         <td>{{yearofpassing}}</td>
                                         <td>{{convertData(allData.iu)[indexes]}}</td>
                                         <td>{{convertData(allData.edudetails)[indexes]}}</td>
-        
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -205,7 +213,7 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let previousposition of  convertData(allData.previousposition); let indexes=index  ">
-                                        
+
                                         <td> {{convertData(allData.govtbody)[indexes]}} </td>
                                         <td> {{previousposition}} </td>
                                     </tr>
@@ -246,16 +254,16 @@
                             <table class="table table-bordered">
                                 <thead class="">
                                     <tr>
-                                        
+
                                         <th>Country</th>
                                         <th>Purpose</th>
                                         <th>Duration</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let vtc_counttry of convertData(allData.vtc_counttry); let indexes=index">
-                                      
+
                                         <td>{{vtc_counttry}}</td>
                                         <td> {{convertData(allData.vtc_purpose)[indexes]}} </td>
                                         <td> {{convertData(allData.vtc_duration)[indexes]}} </td>
@@ -272,22 +280,22 @@
                             <table class="table table-bordered">
                                 <thead class="">
                                     <tr>
-                                        
+
                                         <th>Event type</th>
                                         <th>Country</th>
                                         <th>Participated As</th>
                                         <th>Event Date</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let pie_type of convertData(allData.pie_type); let indexes=index">
-                              
+
                                         <td> {{pie_type}}</td>
                                         <td> {{convertData(allData.vtc_country)[indexes]}} </td>
                                         <td> {{convertData(allData.vtc_participatedas)[indexes]}} </td>
                                         <td> {{convertData(allData.vtc_eventdate)[indexes]}} </td>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -301,12 +309,12 @@
                             <table class="table table-bordered">
                                 <thead class="">
                                     <tr>
-                                        
+
                                         <th>Name</th>
                                         <th>Parliamentary Body</th>
                                         <th>Family Rrelation</th>
                                         <th>Duration</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -315,7 +323,7 @@
                                         <td> {{convertData(allData.ria_parliamentarybody)[indexes]}} </td>
                                         <td> {{convertData(allData.ria_familyrelation)[indexes]}} </td>
                                         <td> {{convertData(allData.ria_duration)[indexes]}} </td>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>

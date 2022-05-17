@@ -8,7 +8,7 @@ import { GetdataService } from '../getdata.service';
 })
 export class QuestionsComponent implements OnInit {
 
-  
+
   public allData:any=[];
   public allAssemblyTenure:any=[];
   public selectedTenure:any;
@@ -23,7 +23,7 @@ export class QuestionsComponent implements OnInit {
     this.imageUrl = this.getdataService.getImageUrl();
   }
 
- 
+
 
   filterItemsOfType(tab:any){
       return this.allData.filter(function (x:any) {
@@ -32,13 +32,14 @@ export class QuestionsComponent implements OnInit {
   }
 
   getData() {
-    this.getdataService.getAll('questions')
+    const id:any=false;
+    this.getdataService.getById('questions', id)
     .subscribe((data:any)=>{
       this.allData = data;
       //console.log(this.allData)
     });
   }
-  
+
   onChange2(tenureid:any) {
     this.getdataService.getById('questions',tenureid)
     .subscribe((data:any)=>{

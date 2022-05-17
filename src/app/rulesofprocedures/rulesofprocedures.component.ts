@@ -14,8 +14,8 @@ export class RulesofproceduresComponent implements OnInit {
   public allAssemblyTenure:any=[];
   public imageUrl = '';
 
-  constructor(private getdataService:GetdataService) { 
-    
+  constructor(private getdataService:GetdataService) {
+
   }
 
   ngOnInit(): void {
@@ -25,8 +25,9 @@ export class RulesofproceduresComponent implements OnInit {
   }
 
   getData():any{
-    const id:any = 1;
-    this.allData = this.getdataService.getAll('rulesofprocedures')
+    const id:any = false;
+
+    this.allData = this.getdataService.getById('rulesofprocedures',id)
     .subscribe((data:any)=>{
       this.allData = data;
     });

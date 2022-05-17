@@ -21,14 +21,15 @@ export class SpeakersComponent implements OnInit {
   }
 
   getData():any{
+    const id:any = false;
     this.imageUrl = this.getdataService.getImageUrl();
-    
+
     this.getdataService.getAll('speakersmain')
     .subscribe((data:any)=>{
       this.singleData = data;
     });
 
-    this.getdataService.getAll('speakers')
+    this.getdataService.getById('speakers', id)
     .subscribe((data:any)=>{
       this.allData = data;
     });
