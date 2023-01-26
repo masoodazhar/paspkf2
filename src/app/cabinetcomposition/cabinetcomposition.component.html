@@ -11,12 +11,12 @@ width: 100% !important;
                 {{'CabinetComposition_'|translate}}
             </h2>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <select class="form-control"  (change)="onChange($event, true)">
                 <option *ngFor="let data of allAssemblyTenure" value="{{data.id}}" >{{data.fromdate}} to {{data.todate}}</option>
             </select>
         </div>
-        <div class="col-3">
+        <div class="col-md-4">
             <a routerLink="/leaderofthehouse/" class="btn btn-success notranslate" title="About">{{'Next'|translate}}</a>
             <a href="" class="btn btn-success notranslate" title="About">{{'Home'|translate}}</a>
             <a routerLink="/roleofassembly/" class="btn btn-success notranslate" title="About">{{'Back'|translate}}</a>
@@ -24,13 +24,13 @@ width: 100% !important;
     </div>
     <hr>
     <div class="row" *ngFor="let data of filterItemsOfType('1','Leader of House')">      
-        <div class="col-2 py-2">
+        <div class="col-md-2 py-2">
             <div class="picture-frame">
                 <img src="{{imageUrl}}{{data.image}}" alt="Member Name" class="full-height">
             </div>
         </div>
-        <div class="col-3">
-            <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+        <div class="col-md-4">
+            <!-- <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a> -->
             <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
             <p style="line-height: 0.7;">{{ "From"|translate}}: {{data.cfromdate}}, >{{ "To"|translate}} {{data.ctodate}}</p>
             <p style="line-height: 0.7;">{{data.address}}</p>
@@ -59,7 +59,7 @@ width: 100% !important;
                         </div>
                         <div class="col-7">
                         
-                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <!-- <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a> -->
                                 <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
                                     <p>{{data.presentaddress}}</p>
                                     <p>{{data.phonenumber}}</p>
@@ -83,7 +83,7 @@ width: 100% !important;
                             </div>
                         </div>
                         <div class="col-7">
-                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <!-- <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a> -->
                                 <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
                                 <p>{{data.presentaddress}}</p>
                                 <p>{{data.phonenumber}}</p>
@@ -148,7 +148,7 @@ width: 100% !important;
                             </div>
                         </div>
                         <div class="col-7">
-                                <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a>
+                                <!-- <a [routerLink]="['/membersperformancereport/', data.id]"><p>{{'ViewPerformanceReport'|translate}}</p></a> -->
                                 <a [routerLink]="['/memberprofile/', data.id]" ><h5 >{{data.name}} | {{data.tabs}}</h5></a>
                                 <p>{{data.presentaddress}}</p>
                                 <p>{{data.phonenumber}}</p>

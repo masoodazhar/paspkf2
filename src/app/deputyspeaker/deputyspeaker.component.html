@@ -20,8 +20,8 @@ width: 100% !important;
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2 active" data-toggle="list" href="#tabId1" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span>{{"DeputySpeaker_"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId2" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"SpeakersMessage"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId3" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Newsandactivities_"|translate}}</a>
-        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> ROLE OF DEPUTY SPEAKER</a>
-        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> FORMER DEPUTY SPEAKERS</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId4" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"ROLE OF DEPUTY SPEAKER"|translate}}</a>
+        <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId5" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"FORMER DEPUTY SPEAKERS"|translate}}</a>
         <a class="list-group-item list-group-item-action border-0 mx-md-1 mt-2" data-toggle="list" href="#tabId6" role="tab"><span class="small-head-dot bg-light-beige mr-3 mt-2"></span> {{"Gallery"|translate}}</a>
        
     </div>
@@ -36,7 +36,7 @@ width: 100% !important;
                     </div>
                 </div>
                 <div class="col-3">
-                    <a [routerLink]="['/membersperformancereport/', singleData.id]"><p>{{"ViewPerformanceReport"|translate}}</p></a>
+                    <!-- <a [routerLink]="['/membersperformancereport/', singleData.id]"><p>{{"ViewPerformanceReport"|translate}}</p></a> -->
                     <a [routerLink]="['/memberprofile/', singleData.id]" ><h5 >{{singleData.name}}|{{singleData.email}}</h5></a>                         
                     <p style="line-height: 0;">{{singleData.presentaddress}}</p>
                     <p style="line-height: 0;">{{singleData.partyassociation}}</p>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 // ====LOCAL=====
-const baseUrl = 'http://localhost/paspk/public/api';
-const imageUrl = 'http://localhost/paspk/public/uploads/';
+const baseUrl = 'http://localhost:82/paspkb2/public/api';
+const imageUrl = 'http://localhost:82/paspkb2/public/uploads/';
  
 
 // ==============ONLINE=========

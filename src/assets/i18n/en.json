@@ -188,13 +188,13 @@
     "By Name": "By Name",
     "By District": "By District",
     "By Age": "By Age",
-    "Reserved Seats": "Reserved Seats",
+    "Reserved Seats": "Reserved Seats for Non-Muslim",
     "By Party": "By Party",
     "By Elections": "By Elections",
     "Birthday": "Birthday",
     "Contact Details": "Contact Details",
     "By Contact": "By Contact",
-    "Women Members": "Women Members",
+    "Women Members": "Reserved Seats for Women",
     "Membership Statistics": "Membership Statistics",
     "Advance Search": "Advance Search",
     "A": "A",
@@ -299,7 +299,9 @@
     "Subcommittees": "Subcommittees",
     "Print": "Print",
     "AllCommittees":"All Committees",
-    "party Alliance": "party Alliance"
+    "party Alliance": "party Alliance",
+    "ROLE OF DEPUTY SPEAKER": "ROLE OF DEPUTY SPEAKER",
+    "FORMER DEPUTY SPEAKERS": "FORMER DEPUTY SPEAKERS"
 
 
 
